@@ -1,0 +1,15 @@
+
+<p>
+    <%=name %> 님 반갑습니다.
+</p>
+<div id="ss"></div>
+
+<script>
+    window.onload = function () {
+        // spread 초기화
+        alert(1);
+        var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), { sheetCount: 1 });
+        // spread 얻기
+        // var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
+    };
+</script>

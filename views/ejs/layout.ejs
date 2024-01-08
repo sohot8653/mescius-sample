@@ -4,15 +4,20 @@
 <html lang="en">
 <head>
     <title>Express EJS template</title>
-    <script src="js/gc.spread.sheets.all.16.2.6.min.js"></script>
-    <link rel="stylesheet" href="css/gc.spread.sheets.16.2.6.css" type="text/css"/>
+    <link rel="stylesheet" href="plugin/SpreadJS/css/gc.spread.sheets.excel2013white.16.2.6.css" type="text/css"/>
+    <script src="plugin/SpreadJS/scripts/gc.spread.sheets.all.16.2.6.min.js"></script>
+    <script src="plugin/SpreadJS/scripts/plugins/gc.spread.sheets.shapes.16.2.6.min.js"></script>
+    <script src="plugin/SpreadJS/scripts/plugins/gc.spread.sheets.tablesheet.16.2.6.min.js"></script>
+    <script src="plugin/SpreadJS/scripts/resources/ko/gc.spread.sheets.resources.ko.16.2.6.min.js"></script>
 </head>
 <body class="container" style="margin-top:80px;">
  
     <div id="header">
      <%- include('header') %>   
     </div>
-      <section> <%- body %> </section>
+    <body>
+      <%- body %>
+    </body>
     <section id="footer">
      <hr>
      <%- include('footer') %>

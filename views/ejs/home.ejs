@@ -1,15 +1,278 @@
+<div class="sample-tutorial">
+    <div id="ss" class="sample-spreadsheets"></div>
+    <div class="options-container">
+        <div class="option-row">
+            <div class="inputContainer">
+                템플릿명 <input id="txtTemplateName">
+                <div id="sampleDiv3" style="height: 250px;"></div>
+                <div class="col-xs-4">
+                    <input id="setButton" class="button" type="button" value="적용"/>
+                    <input id="saveButton" class="button" type="button" value="저장"/>
+                </div>
+            </div>
+            <div class="inputContainer">
+                <div id="sampleDiv4" style="height: 250px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
 
-<p>
-    <%=name %> 님 반갑습니다.
-</p>
-<div id="ss"></div>
+<style>
+.sample-tutorial {
+   position: relative;
+   height: 100%;
+   overflow: hidden;
+}
+
+.sample-spreadsheets {
+  width: calc(100% - 500px);
+  height: 600px;
+  overflow: hidden;
+  float: left;
+}
+
+.options-container {
+  float: right;
+  width: 500px;
+  padding: 3px;
+  height: 100%;
+  box-sizing: border-box;
+  background: #fbfbfb;
+  overflow: auto;
+}
+
+.sample-options {
+  z-index: 1000;
+}
+
+.inputContainer {
+  width: 100%;
+  height: auto;
+  border: 1px solid #eee;
+  padding: 6px 12px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+.input {
+  font-size: 14px;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.button {
+  height: 30px;
+  padding: 6px 6px;
+  width: 80px;
+  margin-top: 6px;
+}
+
+body {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+</style>
 
 <script>
-    window.onload = function () {
-        // spread 초기화
-        alert(1);
-        var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), { sheetCount: 1 });
-        // spread 얻기
-        // var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
-    };
+var tables = {};
+var selectedTable = "order";
+var dataTemplate = [
+    {
+        id: 0,
+        name: '기본 컬럼 구조',
+        column: [
+            [
+                "품목코드",
+                "품목코드"
+            ],
+            [
+                "중량",
+                "중량"
+            ],
+            [
+                "공장도가",
+                "공장도가"
+            ],
+            [
+                "표준원가",
+                "표준원가"
+            ],
+            [
+                "총원가",
+                "총원가"
+            ]
+        ]
+    },
+    {
+        id: 1,
+        name: '원가율 추가',
+        column: [
+            [
+                "품목코드",
+                "품목코드"
+            ],
+            [
+                "중량",
+                "중량"
+            ],
+            [
+                "공장도가",
+                "공장도가"
+            ],
+            [
+                "표준원가",
+                "표준원가"
+            ],
+            [
+                "총원가",
+                "총원가"
+            ],
+            [
+                "원가율",
+                "=ROUND(([@총원가] - [@표준원가]) / [@표준원가] * 100, 2)"
+            ]
+        ]
+    }
+]
+var dataColumns = {
+    order: [
+        [
+            "품목코드",
+            "품목코드"
+        ],
+        [
+            "중량",
+            "중량"
+        ],
+        [
+            "공장도가",
+            "공장도가"
+        ],
+        [
+            "표준원가",
+            "표준원가"
+        ],
+        [
+            "총원가",
+            "총원가"
+        ],
+        [
+            "원가율",
+            "=ROUND(([@총원가] - [@표준원가]) / [@표준원가] * 100, 2)"
+        ]
+    ]
+}
+window.onload = function () {
+    var mainSpread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"));
+    var dataManager = mainSpread.dataManager();
+    tables.order = dataManager.addTable("orderTable", {
+        remote: {
+            read: {
+                url: 'json/Sample.json'
+            }
+        }
+    });
+    
+    var columnsSpread = new GC.Spread.Sheets.Workbook(document.getElementById("sampleDiv3"));
+    var sheet = columnsSpread.getActiveSheet();
+    columnsSpread.options.tabStripVisible = false;
+    columnsSpread.options.showHorizontalScrollbar = false;
+    columnsSpread.options.scrollbarMaxAlign = true;
+    
+    sheet.setColumnCount(2);
+    sheet.setRowCount(10);
+    sheet.setColumnWidth(0, 100);
+    sheet.setColumnWidth(1, "*");
+    sheet.setText(0,0,"헤더명",1);
+    sheet.setText(0,1,"출력값",1);
+    sheet.getRange(-1,1,-1,1).formatter("@");
+    
+    document.getElementById("setButton").addEventListener("click", function (e) {
+        setView();
+    }, false);
+    document.getElementById("saveButton").addEventListener("click", function (e) {
+        insertTemplate();
+    }, false);
+    var spread = GC.Spread.Sheets.findControl( document.getElementById("sampleDiv3"));
+    var sheet = spread.getActiveSheet();
+    sheet.setArray(0, 0, dataTemplate.find(x => x.id == 0).column);
+
+    var columnsSpread = new GC.Spread.Sheets.Workbook(document.getElementById("sampleDiv4"));
+    var sheet = columnsSpread.getActiveSheet();
+    columnsSpread.options.tabStripVisible = false;
+    columnsSpread.options.showHorizontalScrollbar = false;
+    columnsSpread.options.scrollbarMaxAlign = true;
+    sheet.setColumnCount(2);
+    sheet.setRowCount(dataTemplate.map(x => [x.name]).length);
+    sheet.setColumnWidth(0, 60);
+    sheet.setColumnWidth(1, "*");
+    sheet.setText(0,0,"ID",1);
+    sheet.setText(0,1,"템플릿",1);
+    sheet.getRange(-1,1,-1,1).formatter("@");
+    sheet.setArray(0, 0, dataTemplate.map(x => [x.id, x.name]));
+    sheet.options.isProtected = true;
+    sheet.selectionPolicy(0);
+    sheet.selectionUnit(1);
+    sheet.bind(GC.Spread.Sheets.Events.SelectionChanging, function (e, info) {
+        switchTable(sheet.getValue(info.newSelections[0].row, 0));
+    });
+
+    setView();
+};
+
+function switchTable (templateId) {
+    var spread = GC.Spread.Sheets.findControl( document.getElementById("sampleDiv3"));
+    var sheet = spread.getActiveSheet();
+    sheet.clear(0, 0, sheet.getRowCount(), sheet.getColumnCount(), GC.Spread.Sheets.SheetArea.viewport, GC.Spread.Sheets.StorageType.data);
+    sheet.setArray(0, 0, dataTemplate.find(x => x.id == templateId).column);
+    setView();
+}
+function setView () {
+    var spread = GC.Spread.Sheets.findControl( document.getElementById("sampleDiv3"));
+    var sheet = spread.getActiveSheet();
+    var rowCount = sheet.getRowCount();
+    var fields = [];
+    for (var i = 0; i < rowCount; i++) {
+        var value = sheet.getValue(i, 1);
+        if (value) {
+            fields.push({value: value, caption: sheet.getValue(i, 0), width: 200, headerStyle: {backColor : "#5A74AB", foreColor:"white"}});
+        }
+    }
+    var view = tables[selectedTable].addView("selectedTable"+(new Date()).valueOf(), fields);
+
+    var spread = GC.Spread.Sheets.findControl( document.getElementById("ss"));
+    spread.clearSheets();
+    spread.clearSheetTabs();
+    var sheet = spread.addSheetTab(0, "TableSheet1", GC.Spread.Sheets.SheetType.tableSheet);
+    sheet.options.allowAddNew = false;
+    sheet.actionColumn.options({ visible: false });
+    sheet.setDefaultRowHeight(40, GC.Spread.Sheets.SheetArea.colHeader);
+    spread.options.autoFitType = GC.Spread.Sheets.AutoFitType.cellWithHeader;
+
+    view.fetch().then(function(args) {
+        sheet.suspendPaint();
+        sheet.setDataView(view);
+        sheet.resumePaint();
+    });
+}
+
+function insertTemplate() {
+    var spread = GC.Spread.Sheets.findControl( document.getElementById("sampleDiv3"));
+    var sheet = spread.getActiveSheet();
+    dataTemplate.push({
+        id: Math.max(...dataTemplate.map(x => x.id)) + 1,
+        name: document.getElementById('txtTemplateName').value || '이름없음',
+        column: sheet.getArray(0, 0, sheet.getRowCount(), sheet.getColumnCount())
+    })
+
+    var spread = GC.Spread.Sheets.findControl( document.getElementById("sampleDiv4"));
+    var sheet = spread.getActiveSheet();
+    sheet.clear(0, 0, sheet.getRowCount(), sheet.getColumnCount(), GC.Spread.Sheets.SheetArea.viewport, GC.Spread.Sheets.StorageType.data);
+    sheet.setRowCount(dataTemplate.map(x => [x.name]).length);
+    sheet.setArray(0, 0, dataTemplate.map(x => [x.id, x.name]));
+}
 </script>

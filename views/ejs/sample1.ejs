@@ -1,21 +1,23 @@
-<div class="sample-tutorial">
-    <div id="ss" class="sample-spreadsheets"></div>
-    <div class="options-container">
-        <div class="option-row">
-            <div class="inputContainer">
-                템플릿명 <input id="txtTemplateName">
-                <div id="sampleDiv3" style="height: 250px;"></div>
-                <div class="col-xs-4">
-                    <input id="setButton" class="button" type="button" value="적용"/>
-                    <input id="saveButton" class="button" type="button" value="저장"/>
+<div class="content_box">
+    <div class="sample-tutorial">
+        <div id="ss" class="sample-spreadsheets"></div>
+        <div class="options-container">
+                <div class="inputContainer" style="height: 50%;">
+                    템플릿명 <input id="txtTemplateName">
+                    <div id="sampleDiv3" style="height: 50%;"></div>
+                    <div class="col-xs-4" style="float:right;">
+                        <input id="setButton" class="button" type="button" value="적용"/>
+                        <input id="saveButton" class="button" type="button" value="저장"/>
+                    </div>
                 </div>
-            </div>
-            <div class="inputContainer">
-                <div id="sampleDiv4" style="height: 250px;"></div>
+                <div class="inputContainer" style="height: 50%;">
+                    <div id="sampleDiv4" style="height: 100%;"></div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 
 <style>
 .sample-tutorial {
@@ -26,7 +28,7 @@
 
 .sample-spreadsheets {
   width: calc(100% - 500px);
-  height: 600px;
+  height: 100%;
   overflow: hidden;
   float: left;
 }

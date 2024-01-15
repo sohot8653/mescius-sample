@@ -1,24 +1,9 @@
-<div>
-    <div style="width: 50%;">
-        <div class="container-fluid">
-            <div id="chart"></div>
-        </div>
-        <div class="container-fluid">
-            <div id="theGrid">
-            </div>
-        </div>
-    </div>
-    <div style="width: 50%;">
-        <div class="container-fluid">
-            <div id="chart2"></div>
-        </div>
-        <div class="container-fluid">
-            <div id="theGrid2">
-            </div>
-        </div>
-    </div>
+<div class="content_box">
+  <div class="container-fluid" style="height: 100%;display: flex;">
+      <div id="chart" style="width:50%;height: 100%;padding: 50px;"></div>
+      <div id="theGrid" style="width:50%;height: 100%;padding: 30px;"></div>
+  </div>
 </div>
-
 
 <style>
 @font-face {
@@ -26,16 +11,6 @@
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
   font-weight: normal;
   font-style: normal;
-}
-
-body {
-  margin: 20px;
-  font-family: 'S-CoreDream-3Light';
-}
-
-.wj-flexgrid {
-  max-height: 600px;
-  margin: 10px 0;
 }
 .wj-cell.wj-frozen-row {
   border-bottom: none;
@@ -53,11 +28,6 @@ body {
   background: #4DD0E1;
 }
 
-
-body {
-  margin: 20px;
-  font-family: 'S-CoreDream-3Light';
-}
 .row {
   margin: 10px -15px;
 }

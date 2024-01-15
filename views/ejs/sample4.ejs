@@ -1,0 +1,47 @@
+<div class="content_box">
+    <div class="sample-tutorial">
+        <div id="ss" style="width:100%;height:100%"></div>
+    </div>
+</div>
+
+<style>
+.sample-tutorial {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+</style>
+<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/ko/purejs/node_modules/@grapecity/spread-sheets-charts/dist/gc.spread.sheets.charts.min.js" type="text/javascript"></script>
+<script>
+window.onload = function() {
+	// host the workbook control in a DIV element with id "ss"
+	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
+		sheetCount: 2,
+	});
+    
+    spread.suspendPaint();
+	initSpread(spread);
+};
+
+function initSpread(spread) {
+
+    fetch('json/Sample4.ssjson')
+    .then(response => {
+      return response.json();
+    })
+    .then(jsondata => {
+        spread.fromJSON(jsondata);
+        spread.options.showVerticalScrollbar = false;
+        spread.options.showHorizontalScrollbar = false;
+        var sheet = spread.getSheet(0);
+        sheet.options.gridline.showHorizontalGridline = false;
+        sheet.options.gridline.showVerticalGridline = false;
+        sheet.options.rowHeaderVisible = false;
+        sheet.options.colHeaderVisible = false;
+        spread.resumePaint();
+    });
+
+    
+}
+
+</script>

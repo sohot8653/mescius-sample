@@ -9,13 +9,20 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use(expressLayouts);
 
 app.get("/sample1", function(req, res) {
-    res.render("sample1.ejs");
-})
+    let {depth1, depth2} = req.query;
+    res.render("sample1.ejs", {depth1, depth2});
+});
 app.get("/sample2", function(req, res) {
-    res.render("sample2.ejs");
+    let {depth1, depth2} = req.query;
+    res.render("sample2.ejs", {depth1, depth2});
 })
 app.get("/sample3", function(req, res) {
-    res.render("sample3.ejs");
+    let {depth1, depth2} = req.query;
+    res.render("sample3.ejs", {depth1, depth2});
+})
+app.get("/sample4", function(req, res) {
+    let {depth1, depth2} = req.query;
+    res.render("sample4.ejs", {depth1, depth2});
 })
 
 app.listen(3000, function() {

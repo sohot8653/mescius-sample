@@ -1,4 +1,49 @@
-<div class="content_box">
+<div class="content_top">
+    <div class="cont_tit">대리점별매출실적</div>
+    <div class="div">
+        <button class="btn_search">
+        <i class="ico_srch"></i>
+        <span>search</span>
+        </button>
+    </div>
+</div>
+        
+<div class="search_box active">
+    <table class="srch_tbl">
+        <colgroup>
+        <col width="10.9%">
+        <col width="*">
+        <col width="10.9%">
+        <col width="*">
+        <col width="10.9%">
+        <col width="*">
+        </colgroup>
+        <tbody>
+        <tr>
+            <th>업체코드</th>
+            <td>
+                <input type="text" value="">
+            </td>
+            <th>업체명</th>
+            <td>
+                <input type="text" value="">
+            </td>
+            <th>오픈일자</th>
+            <td class="ipt_date_wrap">
+                <div class="ipt_date_div">
+                    <input type="text" class="ipt_date datepicker">
+                </div>
+                <span class="line">-</span>
+                <div class="ipt_date_div">
+                    <input type="text" class="ipt_date datepicker">
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="content_box" style="height: calc(100vh - 360px);">
     <div class="sample-tutorial">
         <div id="ss" class="sample-spreadsheets"></div>
         <div class="options-container">
@@ -88,68 +133,63 @@ var dataTemplate = [
         name: '기본 컬럼 구조',
         column: [
             [
-                "품목코드",
-                "품목코드"
+                "업체코드",
+                "업체코드"
             ],
             [
-                "중량",
-                "중량"
+                "업체명",
+                "업체명"
             ],
             [
-                "공장도가",
-                '=CONCATENATE([@공장도가], "원")'
+                "오픈일자",
+                "오픈일자"
             ],
             [
-                "표준원가",
-                '=CONCATENATE([@표준원가], "원")'
-            ],
-            [
-                "총원가",
-                '=CONCATENATE([@총원가], "원")'
+                "합계",
+                "합계"
             ]
         ]
     },
     {
         id: 1,
-        name: '원가율 추가',
+        name: '계산값 추가',
         column: [
-            [
-                "품목코드",
-                "품목코드"
+        [
+                "업체코드",
+                "업체코드"
             ],
             [
-                "중량",
-                "중량"
+                "업체명",
+                "업체명"
             ],
             [
-                "공장도가",
-                '=CONCATENATE([@공장도가], "원")'
+                "오픈일자",
+                "오픈일자"
             ],
             [
-                "표준원가",
-                '=CONCATENATE([@표준원가], "원")'
+                "합계",
+                '=CONCATENATE([@합계],"원")'
             ],
             [
-                "총원가",
-                '=CONCATENATE([@총원가], "원")'
+                "합계(VAT+)",
+                '=CONCATENATE(ROUND([@합계] + ([@합계] * 0.1), 0),"원")'
             ],
             [
-                "원가율",
-                "=ROUND(([@총원가] - [@표준원가]) / [@표준원가] * 100, 2)"
-            ]
+                "시공비 합계",
+                '=CONCATENATE(ROUND([@합계] + ([@합계] * 0.1) + ([@합계] * 0.2), 0),"원")'
+            ],
+            [
+                "배송비 합계",
+                '=CONCATENATE(ROUND([@합계] + ([@합계] * 0.1) + ([@합계] * 0.2) + 100000, 0),"원")'
+            ],
         ]
     }
 ]
-
 window.onload = function () {
     var mainSpread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"));
     var dataManager = mainSpread.dataManager();
     tables.order = dataManager.addTable("orderTable", {
-        remote: {
-            read: {
-                url: 'json/Sample.json'
-            }
-        }
+        data: getData()
     });
     
     var columnsSpread = new GC.Spread.Sheets.Workbook(document.getElementById("sampleDiv3"));
@@ -174,7 +214,7 @@ window.onload = function () {
     }, false);
     var spread = GC.Spread.Sheets.findControl( document.getElementById("sampleDiv3"));
     var sheet = spread.getActiveSheet();
-    sheet.setArray(0, 0, dataTemplate.find(x => x.id == 0).column);
+    sheet.setArray(0, 0, dataTemplate.find(x => x.id == 1).column);
 
     var columnsSpread = new GC.Spread.Sheets.Workbook(document.getElementById("sampleDiv4"));
     var sheet = columnsSpread.getActiveSheet();
@@ -249,5 +289,34 @@ function insertTemplate() {
     sheet.clear(0, 0, sheet.getRowCount(), sheet.getColumnCount(), GC.Spread.Sheets.SheetArea.viewport, GC.Spread.Sheets.StorageType.data);
     sheet.setRowCount(dataTemplate.map(x => [x.name]).length);
     sheet.setArray(0, 0, dataTemplate.map(x => [x.id, x.name]));
+}
+
+function getData() {
+  let arr = [];
+
+  for(var i = 1; i < 150; i++) {
+
+      var local = getRandomArrayElement([['서울/경인', '서울 서초구 양재동'], ['경상', '부산광역시 남구'], ['강원', '강원 원주시'], ['경기/수원', '경기 수원시 영통구'], ['경기/이천', '경기 이천시 이천구']]);
+      var obj = {};
+      obj.업체코드 = Math.floor(Math.random() * (140000 - 110000)) + 110000;
+      obj.업체명 = ['디자인앤바스', '위생도기앤델라', '마누스인테리어', '(주)제이유산업', '자람건설', '오티시스템'][Math.floor(Math.random() * 6)];
+      obj.오픈일자 = ['2015-01-05', '2018-05-18', '2019-07-25', '1997-02-03', '1999-05-08', '2001-12-18'][Math.floor(Math.random() * 6)];
+      obj.합계 = Math.floor(Math.random() * (140000 - 110000)) + 110000;
+      arr.push(obj);
+  }
+
+  function getRandomDate(start, end) {
+      const startDate = start.getTime();
+      const endDate = end.getTime();
+          
+      return new Date(startDate + Math.random() * (endDate - startDate));
+  }
+
+  function getRandomArrayElement(arr) {
+      return arr[Math.floor(Math.random() * arr.length)]
+  }
+
+
+  return arr;
 }
 </script>

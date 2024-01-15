@@ -138,7 +138,7 @@ function initSpread(spread) {
     ordersTable.fetch().then(function () {
         var myView = ordersTable.addView("myView", [
             { value: "c1", caption: '영업 담당자', width: 100 },
-            { value: "c2", caption: '대리점/제휴점명', width: 100 },
+            { value: "c2", caption: '대리점/제휴점명', width: 140 },
             { value: "c3", caption: ['총 매출(VAT+)','욕실'], width: 100, style: {formatter: '#,##0원'} },
             { value: "c4", caption: ['총 매출(VAT+)','주방'], width: 100, style: {formatter: '#,##0원'} },
             { value: "c5", caption: ['총 매출(VAT+)','마루'], width: 100, style: {formatter: '#,##0원'} },

@@ -1,0 +1,156 @@
+[	
+	{
+		"id": 2,
+		"parentId": null,
+		"taskNumber": 2,
+		"name": "SI네트워크/서울/양변기",
+		"duration": "4 days",
+		"predecessors": "1",
+		"level": 1,
+		"resource": null,
+		"cost": null
+	},
+	{
+		"id": 3,
+		"parentId": 2,
+		"taskNumber": 3,
+		"name": "설치 공수 산정",
+		"duration": "4 day",
+		"predecessors": "",
+		"level": 2,
+		"resource": 1,
+		"cost": 200000
+	},
+	{
+		"id": 4,
+		"parentId": 2,
+		"taskNumber": 4,
+		"name": "설치 수행",
+		"duration": "6 days",
+		"predecessors": "3",
+		"level": 2,
+		"resource": null,
+		"cost": null
+	},
+	{
+		"id": 5,
+		"parentId": 4,
+		"taskNumber": 5,
+		"name": "바닥 시공",
+		"duration": "1 day",
+		"predecessors": "",
+		"level": 3,
+		"resource": 1,
+		"cost": 350000
+	},
+	{
+		"id": 6,
+		"parentId": 4,
+		"taskNumber": 6,
+		"name": "제품 출고",
+		"duration": "1 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 600000
+	},
+    {
+		"id": 7,
+		"parentId": 2,
+		"taskNumber": 7,
+		"name": "유지보수",
+		"duration": "30 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 200000
+	},
+    {
+		"id": 8,
+		"parentId": 7,
+		"taskNumber": 8,
+		"name": "방문 수리",
+		"duration": "3 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 600000
+	},
+    {
+		"id": 9,
+		"parentId": null,
+		"taskNumber": 9,
+		"name": "우산커뮤니케이션/강원/바닥시공",
+		"duration": "4 days",
+		"predecessors": "1",
+		"level": 1,
+		"resource": null,
+		"cost": null
+	},
+	{
+		"id": 10,
+		"parentId": 9,
+		"taskNumber": 10,
+		"name": "설치 공수 산정",
+		"duration": "4 day",
+		"predecessors": "",
+		"level": 2,
+		"resource": 1,
+		"cost": 200000
+	},
+	{
+		"id": 11,
+		"parentId": 9,
+		"taskNumber": 11,
+		"name": "설치 수행",
+		"duration": "6 days",
+		"predecessors": "3",
+		"level": 2,
+		"resource": null,
+		"cost": null
+	},
+	{
+		"id": 12,
+		"parentId": 11,
+		"taskNumber": 12,
+		"name": "바닥 시공",
+		"duration": "1 day",
+		"predecessors": "",
+		"level": 3,
+		"resource": 1,
+		"cost": 350000
+	},
+	{
+		"id": 13,
+		"parentId": 11,
+		"taskNumber": 13,
+		"name": "제품 출고",
+		"duration": "1 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 600000
+	},
+    {
+		"id": 14,
+		"parentId": 9,
+		"taskNumber": 14,
+		"name": "유지보수",
+		"duration": "30 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 200000
+	},
+    {
+		"id": 15,
+		"parentId": 14,
+		"taskNumber": 15,
+		"name": "방문 수리",
+		"duration": "3 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 600000
+	}
+]

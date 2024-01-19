@@ -1,0 +1,293 @@
+<div class="content_top">
+    <div class="cont_tit">배송상차관리</div>
+    <div class="div">
+        <button class="btn_search">
+        <i class="ico_srch"></i>
+        <span>search</span>
+        </button>
+    </div>
+</div>
+        
+<div class="search_box active">
+    <table class="srch_tbl">
+        <colgroup>
+        <col width="10.9%">
+        <col width="*">
+        <col width="10.9%">
+        <col width="*">
+        <col width="10.9%">
+        <col width="*">
+        </colgroup>
+        <tbody>
+        <tr>
+            <th>기준일자</th>
+            <td class="ipt_date_wrap">
+                <div class="ipt_date_div">
+                    <input type="text" class="ipt_date datepicker">
+                </div>
+                <span class="line">-</span>
+                <div class="ipt_date_div">
+                    <input type="text" class="ipt_date datepicker">
+                </div>
+            </td>
+            <th>수주/주문번호</th>
+            <td>
+                <input type="text" value="">
+            </td>
+            <th>주소</th>
+            <td>
+                <input type="text" value="">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="content_box" style="height: calc(100vh - 360px);">
+    <div class="sample-tutorial">
+        <div id="ss" style="width:100%;height:100%"></div>
+    </div>
+</div>
+<div id="modal" class="modal" style="height: 500px; width: 500px;">
+    <div class="sample-tutorial" style="height:93%;">
+        <div id="ss2" style="width:100%;height:100%"></div>
+    </div>
+    <div class="div" style="display: flex;justify-content: center;">
+        <button id="save" class="btn_search">
+            <span>엑셀 다운로드</span>
+        </button>
+    </div>
+</div>
+
+
+<style>
+.sample-tutorial {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+</style>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/spread/source/js/FileSaver.js" type="text/javascript"></script>
+<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/ko/purejs/node_modules/@grapecity/spread-sheets-print/dist/gc.spread.sheets.print.min.js" type="text/javascript"></script>
+<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/ko/purejs/node_modules/@grapecity/spread-sheets-pdf/dist/gc.spread.sheets.pdf.min.js" type="text/javascript"></script>
+<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/ko/purejs/node_modules/@grapecity/spread-excelio/dist/gc.spread.excelio.min.js" type="text/javascript"></script>
+<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/ko/purejs/node_modules/@grapecity/spread-sheets-io/dist/gc.spread.sheets.io.min.js" type="text/javascript"></script>
+<script>
+window.onload = function() {
+	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
+		sheetCount: 2,
+	});
+    
+    spread.suspendPaint();
+	initSpread(spread);
+    spread.resumePaint();
+
+    document.getElementById('save').onclick = function () {
+        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss2'));
+        var fileName = '배송오더_DL2262608796.xlsx';
+        var fileType = 'xlsx';
+        var options = {
+            "includeBindingSource": false,
+            "includeStyles": true,
+            "includeFormulas": true,
+            "saveAsView": false,
+            "rowHeadersAsFrozenColumns": false,
+            "columnHeadersAsFrozenRows": false,
+            "includeAutoMergedCells": false,
+            "includeCalcModelCache": false,
+            "includeUnusedNames": true,
+            "includeEmptyRegionCells": true,
+            "fileType": 0
+        }
+
+        spread.export(function(blob) { saveAs(blob, fileName); }, function() {}, options);
+    };
+};
+var time = [];
+
+for(var i = 6; i < 25; i++) {
+    time.push({text: i + '시', value: i});
+    time.push({text: i + '시 30분', value: i+'_half'});
+}
+function initSpread(spread) {
+    fetch('json/Sample14.ssjson')
+    .then(response => {
+        return response.json();
+    })
+    .then(jsondata => {
+        spread.fromJSON(jsondata);
+        return;
+    })
+    .then(x => {
+        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
+        var sheet = spread.getSheetFromName('Sheet1');
+        var SheetArea = GC.Spread.Sheets.SheetArea;
+        var spreadNS = GC.Spread.Sheets;
+        spread.options.showHorizontalScrollbar = false;
+        spread.options.backColor = "#e6e6e6";
+        spread.options.grayAreaBackColor = "#e6e6e6";
+        sheet.options.rowHeaderVisible = false;
+        sheet.options.colHeaderVisible = false;
+        spread.options.scrollByPixel = true;
+        spread.options.scrollPixel = 36.2;
+        sheet.scroll(-1000, 0);
+
+        // 데이터 보정
+        sheet.setValue(0, 7, '배송오더');
+
+        sheet.setColumnWidth(4, "*");
+        sheet.frozenRowCount(2);
+
+        
+        var data = getData();
+        for(var i = 0; i < data.length; i++) {
+            drawRow((i + 1)*3, spread, sheet, SheetArea, data[i]);
+        }
+
+        spread.bind(GC.Spread.Sheets.Events.ButtonClicked, function (e, args) {
+            var sheet = args.sheet, row = args.row, col = args.col;
+            var cellType = sheet.getCellType(row, col);
+            if (cellType instanceof GC.Spread.Sheets.CellTypes.Button) {
+                switch (cellType._text) {
+                    case '저장':
+                        if(confirm('변경 내용을 저장하시겠습니까?')) {
+                            location.reload();
+                        }
+                        break;
+                    case '배송오더':
+                        $("#modal").modal({});
+                        var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss2'));
+                        var sheetModal = spread.getSheetFromName('Sheet1');
+                        var SheetArea = GC.Spread.Sheets.SheetArea;
+                        var spreadNS = GC.Spread.Sheets;
+                        spread.options.showVerticalScrollbar = false;
+                        spread.options.showHorizontalScrollbar = false;
+                        spread.options.scrollByPixel = true;
+                        sheetModal.options.rowHeaderVisible = false;
+                        sheetModal.options.colHeaderVisible = false;
+                        sheetModal.options.selectionBorderColor = "transparent";
+                        sheetModal.setRowCount(7, SheetArea.viewport);
+                        sheetModal.setColumnCount(2, SheetArea.viewport);
+                        sheetModal.setText(0, 0, sheet.getCell(row, 0).value());
+                        sheetModal.setText(1, 0, '배송업체');
+                        sheetModal.setText(2, 0, "도착시간");
+                        sheetModal.setText(3, 0, '파렛트 수량');
+                        sheetModal.setText(4, 0, "주소");
+                        sheetModal.setText(1, 1, sheet.getCell(row, 3).value());
+                        sheetModal.setText(2, 1, "오전 6시 30분");
+                        sheetModal.setText(3, 1, '3EA');
+                        sheetModal.setText(5, 0, sheet.getCell(row, 6).value());
+                        sheetModal.setText(6, 0, sheet.getCell(row, 4).value());
+
+                        sheetModal.setColumnWidth(0, "*");
+                        sheetModal.setColumnWidth(1, "*");
+
+                        var lineStyle = GC.Spread.Sheets.LineStyle.thin;
+                        var lineBorder = new GC.Spread.Sheets.LineBorder('black', lineStyle);
+                        sheetModal.getRange(-1, -1, 7, 2).setBorder(lineBorder, { all: true });
+                        sheetModal.getRange(0, 0, 7, 2).vAlign(GC.Spread.Sheets.VerticalAlign.center);
+                        sheetModal.getRange(0, 0, 7, 2).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+                        sheetModal.getRange(0, 0, 5, 1).backColor('#4673a1');
+                        sheetModal.getRange(0, 0, 5, 1).foreColor('#FFFFFF');
+                        sheetModal.setRowHeight(0, 90.0, SheetArea.viewport);
+                        for(var i = 1; i < 7; i++) {
+                            sheetModal.setRowHeight(i, 50.0, SheetArea.viewport);
+                        }
+
+                        sheetModal.addSpan(0, 0, 1, 2);
+                        sheetModal.addSpan(4, 0, 1, 2);
+                        sheetModal.addSpan(5, 0, 1, 2);
+                        sheetModal.addSpan(6, 0, 1, 2);
+                        break;
+                }
+            }
+        });
+        return ;
+    });
+    
+    function drawRow(startRow, spread, sheet, SheetArea, data) {
+        var spreadNS = GC.Spread.Sheets;
+        var combo = new spreadNS.CellTypes.ComboBox();
+        var checkBoxList = new GC.Spread.Sheets.CellTypes.CheckBoxList();
+
+
+        sheet.addRows(sheet.getRowCount(SheetArea.viewport), 3);
+        sheet.setRowHeight(startRow - 1, 5.0, SheetArea.viewport);
+
+        sheet.setValue(startRow, 0, data.c1);       // 배송번호
+        sheet.setValue(startRow, 1, data.c2);       // 주문번호
+        sheet.setValue(startRow, 2, data.c3);       // 주문유형
+        sheet.setValue(startRow, 3, data.c4);       // 배송업체
+        sheet.setValue(startRow, 4, data.c5);       // 요청사항
+        sheet.setValue(startRow, 5, data.c6);       // 고객명
+        sheet.setValue(startRow, 6, data.c7);       // 고객주소
+        sheet.setCellType(startRow, 7, new GC.Spread.Sheets.CellTypes.Button().text("배송오더"), GC.Spread.Sheets.SheetArea.viewport);     // 배송오더
+        sheet.setValue(startRow + 1, 1, data.c8);   // 출고일자
+        combo.items(time)
+            .editorValueType(spreadNS.CellTypes.EditorValueType.text);
+        sheet.getCell(startRow + 1, 2, spreadNS.SheetArea.viewport).cellType(combo).value(data.c9);      // 상차시간
+        combo.items([{ text: "박OO", value: "1" }, { text: "김OO", value: "2" }, { text: "이OO", value: "3" }, { text: "차OO", value: "4" }])
+            .editorValueType(spreadNS.CellTypes.EditorValueType.text);
+        sheet.getCell(startRow + 1, 3, spreadNS.SheetArea.viewport).cellType(combo).value(data.c10);     // 상차담당자
+        sheet.setValue(startRow + 1, 6, data.c11);   // 물류비고
+        sheet.setCellType(startRow + 1, 7, new GC.Spread.Sheets.CellTypes.Button().text("저장"), GC.Spread.Sheets.SheetArea.viewport);         // 저장
+
+        // 병합
+        sheet.addSpan(startRow, 0, 2, 1);      // 배송번호
+        sheet.addSpan(startRow, 4, 2, 1);      // 요청번호
+        sheet.addSpan(startRow, 5, 2, 1);      // 고객명
+
+        // 스타일
+        var lineStyle = GC.Spread.Sheets.LineStyle.thin;
+        var lineBorder = new GC.Spread.Sheets.LineBorder('black', lineStyle);
+        sheet.getRange(startRow, 0, 4, 10).setBorder(lineBorder, { all: true });
+        sheet.getRange(startRow, 0, 4, 10).vAlign(GC.Spread.Sheets.VerticalAlign.center);
+        sheet.getRange(startRow, 0, 4, 10).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+        sheet.getRange(startRow, 0, 4, 10).backColor('#FFFFFF');
+
+        
+        sheet.setColumnWidth(6, 220.0, GC.Spread.Sheets.SheetArea.viewport);
+        
+    }
+}
+
+function getData() {
+  let arr = [];
+
+  for(var i = 1; i < 20; i++) {
+    var date = getRandomArrayElement(['2023-12-05', '2023-12-07', '2023-12-09', '2023-12-10', '2023-12-20', '2023-12-23']);
+    var order = getRandomArrayElement([['출고 대기', '배송업체 미배정'], ['배송업체 미배정', '배송업체 미배정'], ['출고 진행중', getRandomArrayElement(["CJ 택배", "로젠 택배", "대한 통운"])], ['출고 완료', getRandomArrayElement(["CJ 택배", "로젠 택배", "대한 통운"])]]);
+    var obj = {};
+    obj.c1 = 'DL' + (Math.floor(Math.random() * (2400000000 - 2100000000)) + 2100000000);
+    obj.c2 = 'OD' + (Math.floor(Math.random() * (2400000000 - 2100000000)) + 2100000000);
+    obj.c3 = getRandomArrayElement(["할인주문", "일반주문"]);
+    obj.c4 = getRandomArrayElement(["CJ 택배", "로젠 택배", "대한 통운"]);
+    obj.c5 = getRandomArrayElement(["15시 이후에 방문에 해주세요.", "물류 관리실로 배송해주세요.", "연락전 물류 담당자에게 연락주세요."]);
+    obj.c6 = getRandomArrayElement(["박OO", "김OO", "이OO", "차OO"]);
+    obj.c7 = getRandomArrayElement(['서울 강북구 수유동', '서울 강북구 4.19로', '서울 영등포구 버드나루로', '강원 원주시 명륜동']);
+    obj.c8 = date;
+    obj.c9 = getRandomArrayElement(time).text;
+    obj.c10 = getRandomArrayElement(["박OO", "김OO", "이OO", "차OO"]);
+    obj.c11 = getRandomArrayElement(["예정일 도착 예정입니다.", "1개 제품이 배송 중 손상되었습니다. 환불 조치하였습니다.", "긴급 전환 요청들어왔습니다."]);
+    arr.push(obj);
+  }
+
+  function getRandomDate(start, end) {
+      const startDate = start.getTime();
+      const endDate = end.getTime();
+          
+      return new Date(startDate + Math.random() * (endDate - startDate));
+  }
+
+  function getRandomArrayElement(arr) {
+      return arr[Math.floor(Math.random() * arr.length)]
+  }
+
+
+  return arr;
+}
+
+</script>

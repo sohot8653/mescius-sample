@@ -187,3 +187,19 @@ input.ipt_date{width:113px;width:calc(100% - 38px);margin-right:9px;text-align:c
 	/* .content_box{height:calc(100vh - 218px);} */
 	/* .search_box.active+.content_box{height:calc(100% - 344px);} */
 }
+
+
+.gc-columnHeader-highlight {
+  background-color: #f4f4f4;
+}
+
+.gc-rowHeader-highlight {
+  background-color: #f4f4f4;
+}
+.gc-columnHeader-hover {
+  background-color: #f4f4f4;
+}
+
+.gc-rowHeader-hover {
+  background-color: #f4f4f4;
+}

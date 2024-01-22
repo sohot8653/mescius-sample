@@ -4,6 +4,9 @@
         <button id="save" class="btn_search">
             <span>엑셀 다운로드</span>
         </button>
+        <button id="btnGrid" class="btn_search">
+            <span>출고요청서</span>
+        </button>
         <button class="btn_search">
             <i class="ico_srch"></i>
             <span>search</span>
@@ -76,6 +79,10 @@
 <script>
 var sheet, data;
 window.onload = function() {
+    $('#btnGrid').on('click', function(e){
+        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=11';
+    });
+
     data = getData();
     var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
     initSpread(spread);
@@ -115,6 +122,7 @@ function initSpread(spread) {
 
     //init a table sheet
     sheet = spread.addSheetTab(0, "TableSheet1", GC.Spread.Sheets.SheetType.tableSheet);
+    sheet.applyTableTheme(GC.Spread.Sheets.Tables.TableThemes.professional4);
     sheet.options.allowAddNew = false; //hide new row
     sheet.setDefaultRowHeight(40, GC.Spread.Sheets.SheetArea.colHeader);
 

@@ -37,6 +37,7 @@ function datepicker() {
 // Left Menu
 $(function(){
   $('.left_nav li .depth1').on("click", function() {
+    $('.left_nav li .depth1').removeClass('on');
     $(this).toggleClass('on');
   });
   $('.left_nav li .depth2').on("click", function() {

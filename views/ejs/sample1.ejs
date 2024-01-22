@@ -214,7 +214,7 @@ function setView () {
     for (var i = 0; i < rowCount; i++) {
         var value = sheet.getValue(i, 1);
         if (value) {
-            fields.push({value: value, caption: sheet.getValue(i, 0), width: 200, headerStyle: {backColor : "#5A74AB", foreColor:"white"}});
+            fields.push({value: value, caption: sheet.getValue(i, 0), width: 200});
         }
     }
     var view = tables[selectedTable].addView("selectedTable"+(new Date()).valueOf(), fields);
@@ -223,6 +223,7 @@ function setView () {
     spread.clearSheets();
     spread.clearSheetTabs();
     var sheet = spread.addSheetTab(0, "TableSheet1", GC.Spread.Sheets.SheetType.tableSheet);
+    sheet.applyTableTheme(GC.Spread.Sheets.Tables.TableThemes.professional4);
     sheet.options.allowAddNew = false;
     sheet.actionColumn.options({ visible: false });
     sheet.setDefaultRowHeight(40, GC.Spread.Sheets.SheetArea.colHeader);

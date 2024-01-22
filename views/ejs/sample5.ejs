@@ -332,13 +332,13 @@ function initGanttSheetWithIdParentIdData(spread) {
     });
     var ganttSheet = spread.addSheetTab(0, "GanttSheet1", GC.Spread.Sheets.SheetType.ganttSheet);
     var view = myTable1.addView("myView1", [
-        { value: "taskNumber", caption: "NO", width: 60 },
-        { value: '=CONCAT("(L",LEVEL(),"-",LEVELROWNUMBER(),")")', caption: "L" },
-        { value: "name", caption: "작업명", width: 200 },
-        { value: "duration", caption: "작업기간", width: 90 },
-        { value: "resource", caption: "자원량", width: 80 },
-        { value: "cost", caption: "비용", width: 100, style: { formatter: "0원" } },
-        { value: '=IF([@cost]="","",[@cost]/[@resource])', caption: "AVG Cost", width: 100, style: { formatter: "0원" } }
+        { value: "taskNumber", caption: "NO", width: 60, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+        { value: '=CONCAT("(L",LEVEL(),"-",LEVELROWNUMBER(),")")', caption: "L", headerStyle: {backColor : "#36495e", foreColor:"white"}},
+        { value: "name", caption: "작업명", width: 200, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+        { value: "duration", caption: "작업기간", width: 90, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+        { value: "resource", caption: "자원량", width: 80, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+        { value: "cost", caption: "비용", width: 100, style: { formatter: "0원" }, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+        { value: '=IF([@cost]="","",[@cost]/[@resource])', caption: "AVG Cost", width: 100, style: { formatter: "0원" }, headerStyle: {backColor : "#36495e", foreColor:"white"}}
     ]);
     view.fetch().then(function() {
         ganttSheet.bindGanttView(view);

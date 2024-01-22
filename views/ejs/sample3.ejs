@@ -94,6 +94,7 @@ function initSpread(spread) {
 
     //init a table sheet
     var sheet = spread.addSheetTab(0, "TableSheet1", GC.Spread.Sheets.SheetType.tableSheet);
+    sheet.applyTableTheme(GC.Spread.Sheets.Tables.TableThemes.professional4);
     sheet.options.allowAddNew = false; //hide new row
     sheet.setDefaultRowHeight(40, GC.Spread.Sheets.SheetArea.colHeader);
 

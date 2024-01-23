@@ -59,8 +59,8 @@
         <button id="save" class="btn_search">
             <span>엑셀 다운로드</span>
         </button>
-        <button class="btn_search">
-            <a href="#" rel="modal:close"><span>닫기</span></a>
+        <button class="btn_search btn_close" data-parent="modal1">
+            <span>닫기</span>
         </button>
     </div>
 </div>
@@ -73,8 +73,8 @@
         <button id="save2" class="btn_search">
             <span>엑셀 다운로드</span>
         </button>
-        <button class="btn_search">
-            <a href="#" rel="modal:close"><span>닫기</span></a>
+        <button class="btn_search btn_close" data-parent="modal2">
+            <span>닫기</span>
         </button>
     </div>
 </div>
@@ -87,8 +87,8 @@
         <button id="save3" class="btn_search">
             <span>엑셀 다운로드</span>
         </button>
-        <button class="btn_search">
-            <a href="#" rel="modal:close"><span>닫기</span></a>
+        <button class="btn_search btn_close" data-parent="modal3">
+            <span>닫기</span>
         </button>
     </div>
 </div>
@@ -99,6 +99,9 @@
     position: relative;
     height: 100%;
     overflow: hidden;
+}
+.modal a.close-modal {
+    display: none !important;
 }
 </style>
 <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script> -->
@@ -183,6 +186,10 @@ window.onload = function() {
 
         spread.export(function(blob) { saveAs(blob, fileName); }, function() {}, options);
     };
+
+    $('.btn_close').on('click', function(e) {
+        $('#' + $(this).data('parent') + ' a.close-modal').click();
+    });
 };
 var time = [];
 
@@ -239,9 +246,9 @@ function initSpread(spread) {
                         break;
                     case '배송오더':
                         $("#modal1").modal({
-                            escapeClose: false,
-                            clickClose: false,
-                            showClose: false
+                            // escapeClose: false,
+                            // clickClose: false,
+                            // showClose: false
                         });
                         var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss2'));
                         var sheetModal = spread.getSheetFromName('Sheet1');
@@ -254,43 +261,44 @@ function initSpread(spread) {
                         sheetModal.options.colHeaderVisible = false;
                         sheetModal.options.selectionBorderColor = "transparent";
                         sheetModal.setRowCount(7, SheetArea.viewport);
-                        sheetModal.setColumnCount(2, SheetArea.viewport);
-                        sheetModal.getCell(0, 0).text(sheet.getCell(row, 0).value()).font('bold normal 24px normal');
-                        sheetModal.setText(1, 0, '배송업체');
-                        sheetModal.setText(2, 0, "도착시간");
-                        sheetModal.setText(3, 0, '파렛트 수량');
-                        sheetModal.setText(4, 0, "주소");
-                        sheetModal.setText(1, 1, sheet.getCell(row, 3).value());
-                        sheetModal.setText(2, 1, "오전 6시 30분");
-                        sheetModal.setText(3, 1, '3EA');
-                        sheetModal.setText(5, 0, sheet.getCell(row, 6).value());
-                        sheetModal.setText(6, 0, sheet.getCell(row, 4).value());
+                        sheetModal.setColumnCount(3, SheetArea.viewport);
+                        sheetModal.getCell(0, 1).text(sheet.getCell(row, 0).value()).font('bold normal 24px normal');
+                        sheetModal.setText(1, 1, '배송업체');
+                        sheetModal.setText(2, 1, "도착시간");
+                        sheetModal.setText(3, 1, '파렛트 수량');
+                        sheetModal.setText(4, 1, "주소");
+                        sheetModal.setText(1, 2, sheet.getCell(row, 3).value());
+                        sheetModal.setText(2, 2, "오전 6시 30분");
+                        sheetModal.setText(3, 2, '3EA');
+                        sheetModal.setText(5, 1, sheet.getCell(row, 6).value());
+                        sheetModal.setText(6, 1, sheet.getCell(row, 4).value());
 
-                        sheetModal.setColumnWidth(0, "*");
+                        sheetModal.setColumnWidth(0, 1.0);
                         sheetModal.setColumnWidth(1, "*");
+                        sheetModal.setColumnWidth(2, "*");
 
                         var lineStyle = GC.Spread.Sheets.LineStyle.thin;
                         var lineBorder = new GC.Spread.Sheets.LineBorder('black', lineStyle);
-                        sheetModal.getRange(-1, -1, 7, 2).setBorder(lineBorder, { all: true });
-                        sheetModal.getRange(0, 0, 7, 2).vAlign(GC.Spread.Sheets.VerticalAlign.center);
-                        sheetModal.getRange(0, 0, 7, 2).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
-                        sheetModal.getRange(0, 0, 5, 1).backColor('#36495e');
-                        sheetModal.getRange(0, 0, 5, 1).foreColor('#FFFFFF');
+                        sheetModal.getRange(0, 1, 7, 2).setBorder(lineBorder, { all: true });
+                        sheetModal.getRange(0, 1, 7, 2).vAlign(GC.Spread.Sheets.VerticalAlign.center);
+                        sheetModal.getRange(0, 1, 7, 2).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+                        sheetModal.getRange(0, 1, 5, 1).backColor('#36495e');
+                        sheetModal.getRange(0, 1, 5, 1).foreColor('#FFFFFF');
                         sheetModal.setRowHeight(0, 90.0, SheetArea.viewport);
                         for(var i = 1; i < 7; i++) {
                             sheetModal.setRowHeight(i, 50.0, SheetArea.viewport);
                         }
 
-                        sheetModal.addSpan(0, 0, 1, 2);
-                        sheetModal.addSpan(4, 0, 1, 2);
-                        sheetModal.addSpan(5, 0, 1, 2);
-                        sheetModal.addSpan(6, 0, 1, 2);
+                        sheetModal.addSpan(0, 1, 1, 2);
+                        sheetModal.addSpan(4, 1, 1, 2);
+                        sheetModal.addSpan(5, 1, 1, 2);
+                        sheetModal.addSpan(6, 1, 1, 2);
                         break;
                     case '배송요청서':
                         $("#modal2").modal({
-                            escapeClose: false,
-                            clickClose: false,
-                            showClose: false
+                            // escapeClose: false,
+                            // clickClose: false,
+                            // showClose: false
                         });
                         var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss3'));
                         
@@ -363,9 +371,9 @@ function initSpread(spread) {
                         break;
                     case '피킹리스트':
                     $("#modal3").modal({
-                        escapeClose: false,
-                        clickClose: false,
-                        showClose: false
+                        // escapeClose: false,
+                        // clickClose: false,
+                        // showClose: false
                     });
                     var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss4'));
                     

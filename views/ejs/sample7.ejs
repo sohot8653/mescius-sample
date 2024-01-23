@@ -47,6 +47,13 @@ function initSpread(spread) {
         sheet.options.rowHeaderVisible = false;
         sheet.options.colHeaderVisible = false;
         sheet.options.selectionBorderColor = "transparent";
+        sheet.getRange(1, 0, 8, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+        sheet.getRange(1, 4, 7, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+        sheet.getRange(11, 0, 3, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+        sheet.getRange(11, 2, 3, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+        sheet.getRange(11, 4, 3, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+        sheet.getRange(16, 0, 1, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+        sheet.getRange(16, 4, 1, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
         sheet.scroll(-1000, 0);
         return;
     });

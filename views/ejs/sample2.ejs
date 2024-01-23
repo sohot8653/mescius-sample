@@ -47,6 +47,21 @@
 .btn{
   background-image:none;
 }
+
+.wj-flexchart .wj-data-label{
+  fill: #ffffff;
+  font-weight: bolder;
+}
+
+.wj-cells .wj-cell.wj-state-selected {
+    background: #696b78;
+}
+
+.wj-flexchart .wj-header .wj-title {
+    font-size: 18pt;
+    fill: #242632;
+    font-weight: bold;
+}
 </style>
 
 <script src="https://cdn.grapecity.com/wijmo/5.20211.781/controls/wijmo.grid.selector.min.js" type="text/javascript"></script>
@@ -105,7 +120,7 @@ function initChart() {
     palette: getRandomPalette(),
     itemsSource: _dataGrid1.filter(x => x.c1 == '서울'),
     dataLabel: {
-      position: wijmo.chart.PieLabelPosition.Outside,
+      position: wijmo.chart.PieLabelPosition.Center,
       content: (ht) => {
         return `${ht.name}`;
       }

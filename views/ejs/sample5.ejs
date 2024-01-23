@@ -193,6 +193,26 @@
     width: auto;
 }
 
+.wj-calendar td {
+    border: 1px solid #36495e;
+}
+
+.wj-header td {
+  background-color: #36495e;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+
+.wj-header td:first-child {
+  border-left: 1px solid #36495e !important;
+}
+.wj-header td:last-child {
+  border-right: 1px solid #36495e !important;
+}
+
+.calendar .wj-calendar-month .wj-header {
+  border: 1px solid #36495e;
+}
 
 </style>
 <script src="https://cdn.grapecity.com/wijmo/5.20211.781/controls/wijmo.input.min.js" type="text/javascript"></script>
@@ -330,7 +350,7 @@ function initGanttSheetWithIdParentIdData(spread) {
             }
         }
     });
-    var ganttSheet = spread.addSheetTab(0, "GanttSheet1", GC.Spread.Sheets.SheetType.ganttSheet);
+    var ganttSheet = spread.addSheetTab(0, "시공 스케줄", GC.Spread.Sheets.SheetType.ganttSheet);
     var view = myTable1.addView("myView1", [
         { value: "taskNumber", caption: "NO", width: 60, headerStyle: {backColor : "#36495e", foreColor:"white"}},
         { value: '=CONCAT("(L",LEVEL(),"-",LEVELROWNUMBER(),")")', caption: "L", headerStyle: {backColor : "#36495e", foreColor:"white"}},
@@ -345,71 +365,5 @@ function initGanttSheetWithIdParentIdData(spread) {
     });
 
     
-}
-
-// function initGanttSheetWithLevelData(spread) {
-//     var tableName = "Gantt_Level";
-//     var baseApiUrl = getBaseApiUrl();
-//     var apiUrl = baseApiUrl + "/" + tableName;
-//     var dataManager = spread.dataManager();
-//     var myTable1 = dataManager.addTable("myTable1", {
-//         batch: true,
-//         remote: {
-//             read: {
-//                 url: 'json/Sample5_Gantt_Id.json'
-//             }
-//         },
-//         schema: {
-//             hierarchy: {
-//                 type: "Level",
-//                 column: "level"
-//             }
-//         }
-//     });
-//     var ganttSheet = spread.addSheetTab(1, "GanttSheet2", GC.Spread.Sheets.SheetType.ganttSheet);
-//     var view = myTable1.addView("myView1", [
-//         { value: "taskNumber", caption: "NO.", width: 60 },
-//         { value: "name", caption: "Task Name", width: 200 },
-//         { value: "duration", caption: "Duration", width: 90 },
-//         { value: "predecessors", caption: "Predecessors", width: 120 }
-//     ]);
-//     view.fetch().then(function() {
-//         ganttSheet.bindGanttView(view);
-//     });
-// }
-
-// function initGanttSheetWithChildrenData(spread) {
-//     var tableName = "Gantt_Children";
-//     var baseApiUrl = getBaseApiUrl();
-//     var apiUrl = baseApiUrl + "/" + tableName;
-//     var dataManager = spread.dataManager();
-//     var myTable1 = dataManager.addTable("myTable1", {
-//         batch: true,
-//         remote: {
-//             read: {
-//                 url: 'json/Sample5_Gantt_Id.json'
-//             }
-//         },
-//         schema: {
-//             hierarchy: {
-//                 type: "ChildrenPath",
-//                 column: "children"
-//             }
-//         }
-//     });
-//     var ganttSheet = spread.addSheetTab(2, "GanttSheet3", GC.Spread.Sheets.SheetType.ganttSheet);
-//     var view = myTable1.addView("myView1", [
-//         { value: "taskNumber", caption: "NO.", width: 60 },
-//         { value: "name", caption: "Task Name", width: 200 },
-//         { value: "duration", caption: "Duration", width: 90 },
-//         { value: "predecessors", caption: "Predecessors", width: 120 }
-//     ]);
-//     view.fetch().then(function() {
-//         ganttSheet.bindGanttView(view);
-//     });
-// }
-
-function getBaseApiUrl() {
-    return 'https://demo.mescius.co.kr/spreadjs/learn-spreadjs/features/ganttsheet/overview/purejs'.match(/http.+spreadjs\/learn-spreadjs\//)[0] + 'server/api';
 }
 </script>

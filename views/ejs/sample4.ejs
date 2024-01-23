@@ -43,6 +43,9 @@ function initSpread(spread) {
         sheet.options.rowHeaderVisible = false;
         sheet.options.colHeaderVisible = false;
         sheet.options.selectionBorderColor = "transparent";
+        sheet.setColumnWidth(9, 22.0);
+        sheet.setColumnWidth(13, 22.0);
+        sheet.setColumnWidth(17, 22.0);
         sheet.setColumnWidth(1, "*");
         sheet.scroll(-1000, 0);
         return;

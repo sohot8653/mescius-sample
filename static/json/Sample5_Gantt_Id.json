@@ -152,5 +152,104 @@
 		"level": 3,
 		"resource": 2,
 		"cost": 600000
+	},
+	{
+		"id": 16,
+		"parentId": 14,
+		"taskNumber": 16,
+		"name": "제품 보증 보험",
+		"duration": "30 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 600000
+	},
+	{
+		"id": 17,
+		"parentId": null,
+		"taskNumber": 17,
+		"name": "디에스티엘IT/서울/양변기",
+		"duration": "4 days",
+		"predecessors": "1",
+		"level": 1,
+		"resource": null,
+		"cost": null
+	},
+	{
+		"id": 18,
+		"parentId": 17,
+		"taskNumber": 18,
+		"name": "설치 공수 산정",
+		"duration": "4 day",
+		"predecessors": "",
+		"level": 2,
+		"resource": 1,
+		"cost": 200000
+	},
+	{
+		"id": 19,
+		"parentId": 17,
+		"taskNumber": 19,
+		"name": "설치 수행",
+		"duration": "6 days",
+		"predecessors": "3",
+		"level": 2,
+		"resource": null,
+		"cost": null
+	},
+	{
+		"id": 20,
+		"parentId": 19,
+		"taskNumber": 20,
+		"name": "바닥 시공",
+		"duration": "1 day",
+		"predecessors": "",
+		"level": 3,
+		"resource": 1,
+		"cost": 350000
+	},
+	{
+		"id": 21,
+		"parentId": 19,
+		"taskNumber": 21,
+		"name": "제품 출고",
+		"duration": "1 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 600000
+	},
+    {
+		"id": 22,
+		"parentId": 17,
+		"taskNumber": 22,
+		"name": "유지보수",
+		"duration": "30 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 200000
+	},
+    {
+		"id": 23,
+		"parentId": 22,
+		"taskNumber": 23,
+		"name": "방문 수리",
+		"duration": "3 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 600000
+	},
+	{
+		"id": 24,
+		"parentId": 22,
+		"taskNumber": 24,
+		"name": "제품 보증 보험",
+		"duration": "30 day",
+		"predecessors": "5",
+		"level": 3,
+		"resource": 2,
+		"cost": 600000
 	}
 ]

@@ -152,10 +152,10 @@ function initSpread(spread) {
         });
 
         sheet.getCell(13 + data1.length, 0).text('합계').font('bold normal 15px normal');
-        sheet.getRange(13 + data1.length, 0, 1, 8).backColor('#FFFFFF');
+        sheet.getRange(13 + data1.length, 0, 1, 8).backColor('#fff9c4');
         sheet.addSpan(13 + data1.length, 1, 1, 4);
         sheet.addSpan(13 + data1.length, 6, 1, 2);
-        sheet.getCell(13 + data1.length, 5).text(sum + '개');
+        sheet.getCell(13 + data1.length, 5).text(sum + '개').font('bold normal 15px normal');
 
         sheet.getRange(13, 0, data1.length + 1, 7).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
         
@@ -200,10 +200,10 @@ function initSpread(spread) {
 
         startCell = startCell2 + 2 + data1.length;
         sheet.getCell(startCell, 0).text('합계').font('bold normal 15px normal');
-        sheet.getRange(startCell, 0, 1, 8).backColor('#FFFFFF');
+        sheet.getRange(startCell, 0, 1, 8).backColor('#fff9c4');
         sheet.addSpan(startCell, 1, 1, 4);
         sheet.addSpan(startCell, 6, 1, 2);
-        sheet.getCell(startCell, 5).text(sum + '개');
+        sheet.getCell(startCell, 5).text(sum + '개').font('bold normal 15px normal');
 
         sheet.getRange(startCell2 + 1, 0, data2.length + 3, 7).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
         

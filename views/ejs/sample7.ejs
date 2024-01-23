@@ -54,6 +54,12 @@ function initSpread(spread) {
         sheet.getRange(11, 4, 3, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
         sheet.getRange(16, 0, 1, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
         sheet.getRange(16, 4, 1, 1).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+
+        sheet.setColumnWidth(1, "*");
+        sheet.setColumnWidth(3, "*");
+        sheet.setColumnWidth(5, "*");
+        sheet.setColumnWidth(6, "*");
+
         sheet.scroll(-1000, 0);
         return;
     });

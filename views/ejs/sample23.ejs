@@ -1,0 +1,116 @@
+<div class="content_top">
+    <div class="cont_tit">배송내역서 신규</div>
+    <div class="div">
+        <button id="btnSave" class="btn_search">
+            <span>저장</span>
+        </button>
+        <button id="btnGrid" class="btn_search">
+            <span>배송내역서</span>
+        </button>
+    </div>
+</div>
+        
+<div class="search_box active">
+    <table class="srch_tbl">
+        <colgroup>
+        <col width="10.9%">
+        <col width="*">
+        <col width="10.9%">
+        <col width="*">
+        <col width="10.9%">
+        <col width="*">
+        </colgroup>
+        <tbody>
+        <tr>
+            <th>주문번호</th>
+            <td>
+                <input type="text" id="txtNum" value="">
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="content_box" style="height: calc(100vh - 360px);">
+    <div class="sample-tutorial">
+        <div id="ss" style="width:100%;height:100%"></div>
+    </div>
+</div>
+
+
+<style>
+.sample-tutorial {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+table.srch_tbl {
+    border-top: none;
+}
+</style>
+<script>
+window.onload = function() {
+	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
+		sheetCount: 2,
+	});
+    
+    spread.suspendPaint();
+	initSpread(spread);
+    spread.resumePaint();
+
+    $('#btnGrid').on('click', function(e) {
+        location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=21';
+    });
+
+    $('#btnSave').on('click', function(e) {
+        
+        if($('#txtNum').val() == '') {
+            alert('주문번호를 입력해주세요.');
+            return;
+        }
+
+        var serializationOption = {
+			ignoreFormula: false,
+			ignoreStyle: false,
+			rowHeadersAsFrozenColumns: false,
+			columnHeadersAsFrozenRows: false
+		};
+        var spread1 = GC.Spread.Sheets.findControl(document.getElementById('ss'));
+		var jsonStr = JSON.stringify(spread1.toJSON(serializationOption));
+
+        if(localStorage.getItem("sample23Index") == null) {
+            localStorage.setItem("sample23Index", 0);
+            localStorage.setItem("sample23Num" + "0", $('#txtNum').val());
+            localStorage.setItem("sample23Json" + "0", jsonStr);
+        } else {
+            var sample23IndexNew = Number(localStorage.getItem("sample23Index")) + 1;
+            localStorage.setItem("sample23Index", sample23IndexNew);
+            localStorage.setItem("sample23Num" + sample23IndexNew, $('#txtNum').val());
+            localStorage.setItem("sample23Json" + sample23IndexNew, jsonStr);
+        }
+        
+        alert('저장되었습니다.');
+        location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=21';
+    });
+};
+
+function initSpread(spread) {
+    debugger;
+    if(!localStorage.getItem('templateName') || !localStorage.getItem('templateJson')) {
+        fetch('json/Sample22.ssjson')
+        .then(response => {
+            return response.json();
+        })
+        .then(jsondata => {
+            localStorage.setItem("templateName", '배송요청서_2024');
+            localStorage.setItem("templateJson", JSON.stringify(jsondata));
+            return;
+        })
+        .then(x => {
+            spread.fromJSON(JSON.parse(localStorage.getItem('templateJson')));
+        })
+    } else {
+        spread.fromJSON(JSON.parse(localStorage.getItem('templateJson')));
+    }
+}
+</script>

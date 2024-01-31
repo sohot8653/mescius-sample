@@ -1,0 +1,14 @@
+﻿/*!
+    *
+    * Wijmo Library 5.20232.939
+    * https://developer.mescius.com/wijmo
+    *
+    * Copyright(c) MESCIUS inc. All rights reserved.
+    *
+    * Licensed under the End-User License Agreement For MESCIUS Wijmo Software.
+    * us.sales@mescius.com
+    * https://developer.mescius.com/wijmo/licensing
+    *
+    */
+
+var __extends=this&&this.__extends||function(){var extendStatics=function(e,t){return(extendStatics=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var o in t)t.hasOwnProperty(o)&&(e[o]=t[o])})(e,t)};return function(e,t){extendStatics(e,t);function __(){this.constructor=e}e.prototype=null===t?Object.create(t):(__.prototype=t.prototype,new __)}}();import{ComponentBase}from"wijmo/wijmo.react.base";import*as wjcCore from"wijmo/wijmo";import*as wjcGridDetail from"wijmo/wijmo.grid.detail";var FlexGridDetail=function(e){__extends(FlexGridDetail,e);function FlexGridDetail(t){var o=e.call(this,t,wjcGridDetail.FlexGridDetailProvider)||this;o._parentInCtor=!0;o._renderedCells=[];o._destroyCell=o._destroyCell.bind(o);return o}FlexGridDetail.prototype._onBeforeWillUnmount=function(t){e.prototype._onBeforeWillUnmount.call(this,t);this._unmountRenderedCells()};FlexGridDetail.prototype._initParent=function(){this._setTemplateRelatedProps(this.props);e.prototype._initParent.call(this)};FlexGridDetail.prototype.componentDidUpdate=function(t){var o=this;e.prototype.componentDidUpdate.call(this,t);if(this.control){this.props.template!==this._template&&this._setTemplateRelatedProps(this.props);this._template?this._renderedCells.forEach((function(e){var t=e.cell,r=o._template(o._getTemplateContext(e.row));ComponentBase.selectiveDomRender(r,t)})):this._unmountRenderedCells()}};FlexGridDetail.prototype._setTemplateRelatedProps=function(e){var t=this.control,o=this._template=e.template;if(o){t.createDetailCell=this._getCellCreator(o);t.disposeDetailCell=this._destroyCell}else{t.createDetailCell=e.createDetailCell;t.disposeDetailCell=e.disposeDetailCell}};FlexGridDetail.prototype._getTemplateContext=function(e){return{row:e,item:e.dataItem,provider:this.control}};FlexGridDetail.prototype._unmountRenderedCells=function(){this._renderedCells.forEach((function(e){ComponentBase.selectiveDomUnmount(e.cell)}));this._renderedCells=[]};FlexGridDetail.prototype._getCellCreator=function(e){var t=this;return function(o){var r=document.createElement("div"),l=e(t._getTemplateContext(o));ComponentBase.selectiveDomRender(l,r);t._renderedCells.push({row:o,cell:r});return r}};FlexGridDetail.prototype._destroyCell=function(e){var t=this.control.grid.rows[e.index-1],o=-1;this._renderedCells.some((function(e,r){return e.row===t&&!!((o=r)+1)}));wjcCore.assert(-1!==o,"Main row rendered cell is not found");ComponentBase.selectiveDomUnmount(this._renderedCells[o].cell);this._renderedCells.splice(o,1);return!0};return FlexGridDetail}(ComponentBase);export{FlexGridDetail};

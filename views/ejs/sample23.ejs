@@ -95,7 +95,6 @@ window.onload = function() {
 };
 
 function initSpread(spread) {
-    debugger;
     if(!localStorage.getItem('templateName') || !localStorage.getItem('templateJson')) {
         fetch('json/Sample22.ssjson')
         .then(response => {

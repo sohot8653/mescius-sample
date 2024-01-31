@@ -1,37 +1,4 @@
 <!-- layout.ejs -->
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>WINGO</title>
-    <link rel="stylesheet" type="text/css" href="plugins/SpreadJS.Release.16.2.6/SpreadJS/css/gc.spread.sheets.excel2013white.16.2.6.css">
-    <link rel="stylesheet" type="text/css" href="plugins/wijmo-5.20232.939_KR/Dist/styles/wijmo.min.css">
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/gc.spread.sheets.all.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/plugins/gc.spread.sheets.shapes.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/plugins/gc.spread.sheets.tablesheet.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/plugins/gc.spread.sheets.charts.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/resources/ko/gc.spread.sheets.resources.ko.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/samples/FeatureDrillDown/scripts/FileSaver.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/plugins/gc.spread.sheets.print.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/plugins/gc.spread.sheets.pdf.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/interop/gc.spread.excelio.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/plugins/gc.spread.sheets.io.16.2.6.min.js" type="text/javascript"></script>
-    <script src="plugins/wijmo-5.20232.939_KR/Dist/controls/wijmo.min.js" type="text/javascript"></script>
-    <script src="plugins/wijmo-5.20232.939_KR/Dist/controls/wijmo.grid.min.js" type="text/javascript"></script>
-    <script src="plugins/wijmo-5.20232.939_KR/Dist/controls/wijmo.input.min.js" type="text/javascript"></script>
-    <script src="plugins/wijmo-5.20232.939_KR/Dist/controls/cultures/wijmo.culture.ko.min.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="plugins/jqueryui/jquery-ui.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="plugins/jqueryui/jquery-ui.min.js"></script>
-    <script type="text/javascript" src="js/script.js"></script>
-    <script>
-        wijmo.setLicenseKey('*.stam.kr,724399343121692#B04IIckJye0ICbuFkI1pjIEJCLi4TP7NjVOFkRF9kbCFnYw3SYVlEchRWVMZ5b8BVewYHRVVWZXFFOoF4NMJnT6dFbNBlehBzMvZEbVdXbBRldzRkQrsENUl4bQp7TpRkcR3WbEljSlVDM4IzUih7dsJlRGNzd8p4VSt6MwwmVmlFU4FUZxVVbwd7Y5hGRrJ7NXVnap5WWERlSYhGTvtSSSlWR7VUZHJmWOV4Yt3UVvlkdmdVSZV5ZrEUY9YneZJ4Ys5GSyQjVyU7LkJ5QXV5N0J6M6Njc5MWWQVDOHR4dJZWU5UVVwhkVZJzMIVlSjV5NsZDUwc4KNFmNoFHZilFexsiTjhVePFkUah7cLx4crp6RPdFRvRkQrYEd7UUSyU4N6JlRnt6d42COzUVVKRFUvF7LxQjVrgFdVpkaaFVUaFTV4kTcrMjcDVXb68kTSN5ZqVjUWVTVrZTOrczZx3CMItEVYpGSLB5SI9UWiojITJCLiEzNwgTQ6YjI0ICSiwCM6YDMzEDN4UTM0IicfJye35XX3JSSwIjUiojIDJCLi86bpNnblRHeFBCI4VWZoNFelxmRg2Wbql6ViojIOJyes4nI5kkTRJiOiMkIsIibvl6cuVGd8VEIgIXZ7VWaWRncvBXZSBybtpWaXJiOi8kI1xSfis4N8gkI0IyQiwiIu3Waz9WZ4hXRgAydvJVa4xWdNBybtpWaXJiOi8kI1xSfiQjR6QkI0IyQiwiIu3Waz9WZ4hXRgACUBx4TgAybtpWaXJiOi8kI1xSfiMzQwIkI0IyQiwiIlJ7bDBybtpWaXJiOi8kI1xSfiUFO7EkI0IyQiwiIu3Waz9WZ4hXRgACdyFGaDxWYpNmbh9WaGBybtpWaXJiOi8kI1tlOiQmcQJCLiAzM5ITNwACMzEDM4IDMyIiOiQncDJCLikjM4ADNyAjMiojIwhXRiwiIytmLtFGdz9iKiojIz5GRiwiINFEVTJiOiEmTDJCLiITO6EjMxMDNzkTOzQjM7IiOiQWSiwSfdtlOicGbmJCLiEjdzIDMyIiOiIXZ6JCLlNHbMZHO'); 
-        GC.Spread.Sheets.LicenseKey = "*.stam.kr,578524529727283#B11ZgNmUxYVeCZkRQtCW626L5M6avsyThlEWJtmcMp4aG34VExmYwVmVnhjTjVVZC3iN946NygETlJDT4IXQx5WdHJ5clZGN8sEb8BXNKpWMjdXdohndzhUYHZ6alFHSsFHRxkmcoNHRMN4YJplNxlDZxEmUslWW7sCaIxUQxIkeGVEUWh6Sr2Ue78mcwYVe6pUSEp5YyA5VElHTZtmcRBTN8NlU0V5SmNjYFZVevd5aChkNOxGNilGOEpUMkZ7VrZlQPl7V8lVU8cHWVd5dyZUZxZXbmVFepVkVw4GcxE4dGJnNIRkarFjYuZlWMVjeHBHcrZUastmI0IyUiwiIBNjRDZEOBVjI0ICSiwiN7IjNxUDN6ATM0IicfJye35XX3JyVUNkWiojIDJCLiYTMuYHITpEIkFWZyB7UiojIOJyebpjIkJHUiwiI6ITMyUDMgAzMxADNyAjMiojI4J7QiwiI9IDNwQjMwIjI0ICc8VkIsIicr9SbhR7cuoiI0IyctRkIsISTBR5UiojIh94QiwiIzgjM7IzN9ITN4ITN8cTNiojIklkIs4XXiUGbiFGV43mdpBlIbpjInxmZiwSZzxWYmpjIyNHZisnOiwmbBJye0ICRiwiI34TQEtSSMFnUxVjMHlzM7YzZ82mTQNnN4lDb5cTUxUHVDJzSo3mSUlkZ7FTZPdkbyp5KuBTdT5kZ8dFbNZlZWVDeZlERmtUS8dHNPZmcJhmbHpGNYV6N8pUWvRFNMlVb5x";
-        // GC.Spread.Sheets.Designer.LicenseKey = "*.stam.kr,471321647734979#B1u3JWzEnVIJHSLtmUrNTY734VXlHcqdVTnJVMtZTN4YFZXN4dmllMr5GNnBTbQhDSwlzZzJFM624ZslzRGtmMItCV0pEWlxmN4VjYzlkQqpkekd7a4Z7cX3iYkN6QsllNSZUa6NTSOZWStNTazsmT8okellETxwkSpZDRLJ6c4R4drhUSQlETyRVMXJUMTVzbyVUe534Q72EVQdDaGVUQGZDTzQUQh9WbVlzN7cDV7F5NEVmQWZHeQtkNyAVastWdmVlTZNnQKBnenFVTZFUbsRzQvgXYQNzTrwEOSpVW8cnQ4NnaNlTTRBFNwBjUqp4dLtCaip4N6gGSEVGdzNmI0IyUiwiI8gzQFBjM6EjI0ICSiwSO6YTN7MjM9ATM0IicfJye#4Xfd5nINBVO7IiOiMkIsIiNx8idg86bkRWQtIXZudWazVGRtMlSkFWZyB7UiojIOJyebpjIkJHUiwiIxMTMyUDMgAzMxADNyAjMiojI4J7QiwiI9IDNwQjMwIjI0ICc8VkIsIicr9SbhR7cuoiI0IyctRkIsISTBR5UiojIh94QiwiI9cTO4MzN7QjNxIzMxcDNiojIklkIs4XXiUGbiFGV43mdpBlIbpjInxmZiwSZzxWYmpjIyNHZisnOiwmbBJye0ICRiwiI34zZZZEWaZFcxZEUPdnYUZ7Sq5WW0tmemFEbYhkWjZVR8U5KzsyK58kSv3yTJZTev9WRoFTOCtWTyVzQYJWVEdER8VlRN9GbHh7cllzLZFkV4FEcxd4dfc4V";
-    </script>
-</head>
- 
 <body>
   <div class="wrapper">
     <header class="header">

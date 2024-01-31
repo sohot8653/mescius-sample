@@ -142,6 +142,7 @@ var dataTemplate = [
 ]
 
 window.onload = function () {
+    alert('현재 베타 서비스 운영중으로 기능에 제약이 있을 수 있습니다.');
     var mainSpread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"));
     var dataManager = mainSpread.dataManager();
     tables.order = dataManager.addTable("orderTable", {

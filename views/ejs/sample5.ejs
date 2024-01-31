@@ -1,369 +1,373 @@
 <div class="content_top">
-    <div class="cont_tit">시공스케줄</div>
-    <div class="div">
-      <button class="btn_search">
-        <i class="ico_srch"></i>
-        <span>search</span>
-      </button>
-    </div>
+  <div class="cont_tit">시공스케줄</div>
+  <div class="div">
+    <button class="btn_search">
+      <i class="ico_srch"></i>
+      <span>search</span>
+    </button>
   </div>
-          
-  <div class="search_box active">
-    <table class="srch_tbl">
-      <colgroup>
-        <col width="10.9%">
-        <col width="*">
-        <col width="10.9%">
-        <col width="*">
-        <col width="10.9%">
-        <col width="*">
-      </colgroup>
-      <tbody>
-        <tr>
-            <th>기준일자</th>
-            <td class="ipt_date_wrap">
-                <div class="ipt_date_div">
-                    <input type="text" class="ipt_date datepicker">
-                </div>
-                <span class="line">-</span>
-                <div class="ipt_date_div">
-                    <input type="text" class="ipt_date datepicker">
-                </div>
-            </td>
-            <th>시공업체</th>
-            <td>
-                <select>
-                    <option>선택</option>
-                    <option>메시어스</option>
-                    <option>그레이프시티</option>
-                </select>
-            </td>
-            <th>시공지역</th>
-            <td>
-                <select>
-                    <option>선택</option>
-                    <option>서울</option>
-                    <option>경기</option>
-                    <option>강원</option>
-                </select>
-            </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+</div>
+        
+<div class="search_box active">
+  <table class="srch_tbl">
+    <colgroup>
+      <col width="10.9%">
+      <col width="*">
+      <col width="10.9%">
+      <col width="*">
+      <col width="10.9%">
+      <col width="*">
+    </colgroup>
+    <tbody>
+      <tr>
+          <th>기준일자</th>
+          <td class="ipt_date_wrap">
+              <div class="ipt_date_div">
+                  <input type="text" class="ipt_date datepicker">
+              </div>
+              <span class="line">-</span>
+              <div class="ipt_date_div">
+                  <input type="text" class="ipt_date datepicker">
+              </div>
+          </td>
+          <th>시공업체</th>
+          <td>
+              <select>
+                  <option>선택</option>
+                  <option>메시어스</option>
+                  <option>그레이프시티</option>
+              </select>
+          </td>
+          <th>시공지역</th>
+          <td>
+              <select>
+                  <option>선택</option>
+                  <option>서울</option>
+                  <option>경기</option>
+                  <option>강원</option>
+              </select>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <div class="content_box" style="height: calc(100vh - 360px); display: flex;">
-    <div class="container-fluid" style="width: 30%;height: 100%;padding-top: 30px;">
-        <div class="legend">
-          <div><img src="https://status.slack.com/img/v2/TableMaintenance.png"><span>진행</span></div>
-          <div><img src="https://status.slack.com/img/v2/TableIncident.png">보류</div>
-          <div><img src="https://status.slack.com/img/v2/TableNotice.png">배정</div>
-          <div><img src="https://status.slack.com/img/v2/TableOutage.png">중단</div>
-        </div>
-        <div id="calendar" class="calendar">
-        </div>
-    </div>
-    <div class="sample-tutorial" style="height: 100%;width: 70%;">
-        <div id="ss" class="sample-spreadsheets"></div>
-        <div id="optionContainer" class="optionContainer">
-        </div>
-    </div>
+  <div class="container-fluid" style="width: 30%;height: 100%;padding-top: 30px;">
+      <div class="legend">
+        <div><img src="https://status.slack.com/img/v2/TableMaintenance.png"><span>진행</span></div>
+        <div><img src="https://status.slack.com/img/v2/TableIncident.png">보류</div>
+        <div><img src="https://status.slack.com/img/v2/TableNotice.png">배정</div>
+        <div><img src="https://status.slack.com/img/v2/TableOutage.png">중단</div>
+      </div>
+      <div id="calendar" class="calendar">
+      </div>
+  </div>
+  <div class="sample-tutorial" style="height: 100%;width: 70%;">
+      <div id="ss" class="sample-spreadsheets"></div>
+      <div id="optionContainer" class="optionContainer">
+      </div>
+  </div>
 </div>
 
 
 <style>
 
 .legend {
-  display: flex;
-  justify-content: flex-start;
+display: flex;
+justify-content: flex-start;
 }
 
 .legend div {
-  margin-left: 24px;
+margin-left: 24px;
 }
 
 .calendar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-bottom: 90px;
-  height: 100%;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+padding-bottom: 90px;
+height: 100%;
 }
 
 .calendar .wj-calendar {
-  padding: 12px 12px 36px;
-  background-color: white;
-  margin: 8px;
+padding: 12px 12px 36px;
+background-color: white;
+margin: 8px;
 }
 
 .calendar .wj-calendar .wj-content {
-  border: none;
-  height: 100%;
+border: none;
+height: 100%;
 }
 
 .calendar .wj-calendar .wj-day-today {
-  font-weight: normal;
+font-weight: normal;
 }
 
 .calendar .wj-calendar .wj-state-selected {
-  background: inherit;
-  color: inherit;
+background: inherit;
+color: inherit;
 }
 
 .calendar .wj-calendar tr:not(.wj-header) td:hover {
-  background: #eee;
+background: #eee;
 }
 
 .calendar .wj-calendar .month-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-weight: bold;
-  margin-bottom: 20px;
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+font-weight: bold;
+margin-bottom: 20px;
 }
 
 .calendar .wj-calendar .month-header .month-title{
-  font-size: 150%;
+font-size: 150%;
 }
 
 .calendar .wj-calendar img {
-  height: 12px;
-  margin-top: -12px;
+height: 12px;
+margin-top: -12px;
 }
 .calendar .wj-calendar-month {
-  height: 85% !important;
+height: 85% !important;
 }
 
 .calendar .wj-calendar-month .wj-header {
-  font-size: 100%;
-  background-color: inherit;
-  font-weight: normal;
+font-size: 100%;
+background-color: inherit;
+font-weight: normal;
 }
 
 .calendar .wj-calendar .wj-day-othermonth {
-  visibility: hidden;
+visibility: hidden;
 }
 
 .wj-tooltip {
-  background-color: #fff;
-  padding: 0;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 0;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  box-sizing: border-box;
-  width: 450px;
+background-color: #fff;
+padding: 0;
+border: 1px solid rgba(0,0,0,0.1);
+border-radius: 0;
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+box-sizing: border-box;
+width: 450px;
 }
 
 .wj-tooltip .event {
-  margin-top: 12px;
-  font-weight: bold;
+margin-top: 12px;
+font-weight: bold;
 }
 
 .wj-tooltip .event-tip {
-  border-top: 4px solid green;
-  padding: 24px;
+border-top: 4px solid green;
+padding: 24px;
 }
 
 .wj-tooltip .event-tip.event-type-maintenance {
-  border-top-color: #3f46ad;
+border-top-color: #3f46ad;
 }
 
 .wj-tooltip .event-tip.event-type-incident {
-  border-top-color: #eeb522;
+border-top-color: #eeb522;
 }
 
 .wj-tooltip .event-tip.event-type-notice {
-  border-top-color: #ff944b;
+border-top-color: #ff944b;
 }
 
 .wj-tooltip .event-tip.event-type-outage {
-  border-top-color: #eb4d5c;
+border-top-color: #eb4d5c;
 }
 
 .sample-tutorial {
-   width: 100%;
-   height: 100%;
+ width: 100%;
+ height: 100%;
 }
 .sample-spreadsheets {
-   width: 100%;
-   height: 100%;
+ width: 100%;
+ height: 100%;
 }
 
 .sample-spreadsheets table table {
-    width: auto;
+  width: auto;
 }
 
 .wj-calendar td {
-    border: 1px solid #36495e;
+  border: 1px solid #36495e;
 }
 
 .wj-header td {
-  background-color: #36495e;
-  color: #ffffff;
-  border: 1px solid #ffffff;
+background-color: #36495e;
+color: #ffffff;
+border: 1px solid #ffffff;
 }
 
 .wj-header td:first-child {
-  border-left: 1px solid #36495e !important;
+border-left: 1px solid #36495e !important;
 }
 .wj-header td:last-child {
-  border-right: 1px solid #36495e !important;
+border-right: 1px solid #36495e !important;
 }
 
 .calendar .wj-calendar-month .wj-header {
-  border: 1px solid #36495e;
+border: 1px solid #36495e;
 }
 
 </style>
 <script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/ko/purejs/node_modules/@grapecity/spread-sheets/dist/gc.spread.sheets.all.min.js" type="text/javascript"></script>
-<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/ko/purejs/node_modules/@grapecity/spread-sheets-tablesheet/dist/gc.spread.sheets.tablesheet.min.js" type="text/javascript"></script>
-<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/ko/purejs/node_modules/@grapecity/spread-sheets-ganttsheet/dist/gc.spread.sheets.ganttsheet.min.js" type="text/javascript"></script>
-<script src="https://demo.mescius.co.kr/spreadjs/learn-spreadjs/spread/source/data/pivot-data.js" type="text/javascript"></script>
+<script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/plugins/gc.spread.sheets.tablesheet.16.2.6.min.js" type="text/javascript"></script>
+<script src="plugins/SpreadJS.Release.16.2.6/SpreadJS/scripts/plugins/gc.spread.sheets.ganttsheet.16.2.6.min.js" type="text/javascript"></script>
+<script>
+  if(window.location.host == 'demo.stam.kr') {
+    GC.Spread.Sheets.LicenseKey = "*.stam.kr,578524529727283#B11ZgNmUxYVeCZkRQtCW626L5M6avsyThlEWJtmcMp4aG34VExmYwVmVnhjTjVVZC3iN946NygETlJDT4IXQx5WdHJ5clZGN8sEb8BXNKpWMjdXdohndzhUYHZ6alFHSsFHRxkmcoNHRMN4YJplNxlDZxEmUslWW7sCaIxUQxIkeGVEUWh6Sr2Ue78mcwYVe6pUSEp5YyA5VElHTZtmcRBTN8NlU0V5SmNjYFZVevd5aChkNOxGNilGOEpUMkZ7VrZlQPl7V8lVU8cHWVd5dyZUZxZXbmVFepVkVw4GcxE4dGJnNIRkarFjYuZlWMVjeHBHcrZUastmI0IyUiwiIBNjRDZEOBVjI0ICSiwiN7IjNxUDN6ATM0IicfJye35XX3JyVUNkWiojIDJCLiYTMuYHITpEIkFWZyB7UiojIOJyebpjIkJHUiwiI6ITMyUDMgAzMxADNyAjMiojI4J7QiwiI9IDNwQjMwIjI0ICc8VkIsIicr9SbhR7cuoiI0IyctRkIsISTBR5UiojIh94QiwiIzgjM7IzN9ITN4ITN8cTNiojIklkIs4XXiUGbiFGV43mdpBlIbpjInxmZiwSZzxWYmpjIyNHZisnOiwmbBJye0ICRiwiI34TQEtSSMFnUxVjMHlzM7YzZ82mTQNnN4lDb5cTUxUHVDJzSo3mSUlkZ7FTZPdkbyp5KuBTdT5kZ8dFbNZlZWVDeZlERmtUS8dHNPZmcJhmbHpGNYV6N8pUWvRFNMlVb5x";
+  }
+</script>
 <script>
 window.onload = function() {
-    initCalendar();
-    var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
-    initSpread(spread);
+  initCalendar();
+  var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
+  initSpread(spread);
 }    
 
 function initCalendar() {
-  // 달력에 표시될 이벤트 생성
-  let events = getEvents();
-  //달력 생성
-  let calendar = document.getElementById('calendar'), tooltip = new wijmo.Tooltip();
-  //for (let i = 0, start = new Date(); i < 1; i++) {
-    let month = createMonthControl(wijmo.DateTime.addMonths(new Date(), 0));
-    calendar.appendChild(month);
-  //}
-  //월 생성
-  function createMonthControl(date) {
-    // 달력 생성
-    let month = wijmo.createElement('<div class="month"></div>'), cal = new wijmo.input.Calendar(month, {
-      showHeader: false,
-      selectionMode: 'None',
-      value: date,
-      formatItem: formatDayCell
-    });
-    cal.refresh();
-    // 마우스 휠을 사용하여 월 변경을 비활성화
-    cal.removeEventListener(cal.hostElement, 'wheel');
-    //사용자 정의 헤더 요소 추가
-    let fmt = wijmo.format('<div class="month-header">' +
-                           '<div class="month-title">{header}</div>' +
-                           '</div>', {
-      header: wijmo.Globalize.format(date, 'MMMM yyyy'),
-      uptime: getUptime()
-    });
-    let newHeader = wijmo.createElement(fmt);
-    let hdr = cal.hostElement.querySelector('.wj-calendar-header');
-    hdr.parentElement.insertBefore(newHeader, hdr);
-    // 요일의 첫 글자만 표시
-    let cells = cal.hostElement.querySelectorAll('table tr.wj-header td');
-    for (let i = 0; i < 7; i++) {
-      cells[i].textContent = cells[i].textContent.substr(0, 1);
+// 달력에 표시될 이벤트 생성
+let events = getEvents();
+//달력 생성
+let calendar = document.getElementById('calendar'), tooltip = new wijmo.Tooltip();
+//for (let i = 0, start = new Date(); i < 1; i++) {
+  let month = createMonthControl(wijmo.DateTime.addMonths(new Date(), 0));
+  calendar.appendChild(month);
+//}
+//월 생성
+function createMonthControl(date) {
+  // 달력 생성
+  let month = wijmo.createElement('<div class="month"></div>'), cal = new wijmo.input.Calendar(month, {
+    showHeader: false,
+    selectionMode: 'None',
+    value: date,
+    formatItem: formatDayCell
+  });
+  cal.refresh();
+  // 마우스 휠을 사용하여 월 변경을 비활성화
+  cal.removeEventListener(cal.hostElement, 'wheel');
+  //사용자 정의 헤더 요소 추가
+  let fmt = wijmo.format('<div class="month-header">' +
+                         '<div class="month-title">{header}</div>' +
+                         '</div>', {
+    header: wijmo.Globalize.format(date, 'MMMM yyyy'),
+    uptime: getUptime()
+  });
+  let newHeader = wijmo.createElement(fmt);
+  let hdr = cal.hostElement.querySelector('.wj-calendar-header');
+  hdr.parentElement.insertBefore(newHeader, hdr);
+  // 요일의 첫 글자만 표시
+  let cells = cal.hostElement.querySelectorAll('table tr.wj-header td');
+  for (let i = 0; i < 7; i++) {
+    cells[i].textContent = cells[i].textContent.substr(0, 1);
+  }
+  return month;
+}
+// 이벤트를 표시하도록 달력 셀 형식 지정
+function formatDayCell(sender, e) {
+  let event = getEvent(e.data), html = `<div>${e.data.getDate()}</div>`;
+  html += event
+    ? `<img src="https://status.slack.com/img/v2/Table${event.type}.png"/>`
+  : '<img/>';
+  //셀 내용을 구성
+  e.item.innerHTML = html;
+  // 셀에 툴팁 추가
+  let tip = wijmo.format('<div class="event-tip event-type-{eventType}">' +
+                         '<div>{date:MMM d, yyyy}</div>' +
+                         '<div class="event">{eventMessage}</div>' +
+                         '</div>', {
+    date: e.data,
+    eventMessage: event ? event.msg : '일정 없음',
+    eventType: event ? event.type.toLocaleLowerCase() : 'none'
+  });
+  tooltip.setTooltip(e.item, tip);
+}
+function getUptime() {
+  let tm = [100, 99.75, 99.998, 99.98, 99.996, 99.93];
+  return tm[Math.floor(Math.random() * tm.length)];
+}
+function getEvent(date) {
+  for (let i = 0; i < events.length; i++) {
+    if (wijmo.DateTime.sameDate(events[i].date, date)) {
+      return events[i];
     }
-    return month;
   }
-  // 이벤트를 표시하도록 달력 셀 형식 지정
-  function formatDayCell(sender, e) {
-    let event = getEvent(e.data), html = `<div>${e.data.getDate()}</div>`;
-    html += event
-      ? `<img src="https://status.slack.com/img/v2/Table${event.type}.png"/>`
-    : '<img/>';
-    //셀 내용을 구성
-    e.item.innerHTML = html;
-    // 셀에 툴팁 추가
-    let tip = wijmo.format('<div class="event-tip event-type-{eventType}">' +
-                           '<div>{date:MMM d, yyyy}</div>' +
-                           '<div class="event">{eventMessage}</div>' +
-                           '</div>', {
-      date: e.data,
-      eventMessage: event ? event.msg : '일정 없음',
-      eventType: event ? event.type.toLocaleLowerCase() : 'none'
-    });
-    tooltip.setTooltip(e.item, tip);
-  }
-  function getUptime() {
-    let tm = [100, 99.75, 99.998, 99.98, 99.996, 99.93];
-    return tm[Math.floor(Math.random() * tm.length)];
-  }
-  function getEvent(date) {
-    for (let i = 0; i < events.length; i++) {
-      if (wijmo.DateTime.sameDate(events[i].date, date)) {
-        return events[i];
-      }
-    }
-    return null;
-  }
+  return null;
+}
 }
 
 
 // 지금과 1년 전 사이에 이벤트 생성
 function getEvents() {
-  let arr = [], types = ['Maintenance', 'Incident', 'Notice', 'Outage'], messages = ['SI네트워크/서울/양변기', '우산커뮤니케이션/강원/바닥시공'];
-  //
-  //for (let i = 0; i < 120; i++) {
-    // let dt = wijmo.DateTime.addDays(new Date(), 0);
-    arr.push({
-      id: 0,
-      date: wijmo.DateTime.addDays(new Date(), 0),
-      type: types[0],
-      msg: messages[0]
-    });
-    arr.push({
-      id: 1,
-      date: wijmo.DateTime.addDays(new Date(), -2),
-      type: types[0],
-      msg: messages[1]
-    });
-  //}
-  //
-  return arr;
+let arr = [], types = ['Maintenance', 'Incident', 'Notice', 'Outage'], messages = ['SI네트워크/서울/양변기', '우산커뮤니케이션/강원/바닥시공'];
+//
+//for (let i = 0; i < 120; i++) {
+  // let dt = wijmo.DateTime.addDays(new Date(), 0);
+  arr.push({
+    id: 0,
+    date: wijmo.DateTime.addDays(new Date(), 0),
+    type: types[0],
+    msg: messages[0]
+  });
+  arr.push({
+    id: 1,
+    date: wijmo.DateTime.addDays(new Date(), -2),
+    type: types[0],
+    msg: messages[1]
+  });
+//}
+//
+return arr;
 }
 
 function initSpread(spread) {
-    spread.suspendPaint();
-    initGanttSheetWithIdParentIdData(spread);
-    // initGanttSheetWithLevelData(spread);
-    // initGanttSheetWithChildrenData(spread);
-    spread.resumePaint();
+  spread.suspendPaint();
+  initGanttSheetWithIdParentIdData(spread);
+  // initGanttSheetWithLevelData(spread);
+  // initGanttSheetWithChildrenData(spread);
+  spread.resumePaint();
 }
 
 function initGanttSheetWithIdParentIdData(spread) {
-    var tableName = "Gantt_Id";
-    var dataManager = spread.dataManager();
-    var myTable1 = dataManager.addTable("myTable1", {
-        batch: true,
-        remote: {
-            read: {
-                url: 'json/Sample5_Gantt_Id.json'
-            }
-        },
-        schema: {
-            hierarchy: {
-                type: "Parent",
-                column: "parentId"
-            },
-            columns: {
-                id: { isPrimaryKey: true },
-                taskNumber: { dataType: "rowOrder" }
-            }
-        }
-    });
-    var ganttSheet = spread.addSheetTab(0, "시공 스케줄", GC.Spread.Sheets.SheetType.ganttSheet);
-    var view = myTable1.addView("myView1", [
-        { value: "taskNumber", caption: "NO", width: 60, headerStyle: {backColor : "#36495e", foreColor:"white"}},
-        { value: '=CONCAT("(L",LEVEL(),"-",LEVELROWNUMBER(),")")', caption: "L", headerStyle: {backColor : "#36495e", foreColor:"white"}},
-        { value: "name", caption: "작업명", width: 200, headerStyle: {backColor : "#36495e", foreColor:"white"}},
-        { value: "duration", caption: "작업기간", width: 90, headerStyle: {backColor : "#36495e", foreColor:"white"}},
-        { value: "resource", caption: "자원량", width: 80, headerStyle: {backColor : "#36495e", foreColor:"white"}},
-        { value: "cost", caption: "비용", width: 100, style: { formatter: "0원" }, headerStyle: {backColor : "#36495e", foreColor:"white"}},
-        { value: '=IF([@cost]="","",[@cost]/[@resource])', caption: "AVG Cost", width: 100, style: { formatter: "0원" }, headerStyle: {backColor : "#36495e", foreColor:"white"}}
-    ]);
-    view.fetch().then(function() {
-        ganttSheet.bindGanttView(view);
-    });
+  var tableName = "Gantt_Id";
+  var dataManager = spread.dataManager();
+  var myTable1 = dataManager.addTable("myTable1", {
+      batch: true,
+      remote: {
+          read: {
+              url: 'json/Sample5_Gantt_Id.json'
+          }
+      },
+      schema: {
+          hierarchy: {
+              type: "Parent",
+              column: "parentId"
+          },
+          columns: {
+              id: { isPrimaryKey: true },
+              taskNumber: { dataType: "rowOrder" }
+          }
+      }
+  });
+  var ganttSheet = spread.addSheetTab(0, "시공 스케줄", GC.Spread.Sheets.SheetType.ganttSheet);
+  var view = myTable1.addView("myView1", [
+      { value: "taskNumber", caption: "NO", width: 60, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+      { value: '=CONCAT("(L",LEVEL(),"-",LEVELROWNUMBER(),")")', caption: "L", headerStyle: {backColor : "#36495e", foreColor:"white"}},
+      { value: "name", caption: "작업명", width: 200, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+      { value: "duration", caption: "작업기간", width: 90, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+      { value: "resource", caption: "자원량", width: 80, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+      { value: "cost", caption: "비용", width: 100, style: { formatter: "0원" }, headerStyle: {backColor : "#36495e", foreColor:"white"}},
+      { value: '=IF([@cost]="","",[@cost]/[@resource])', caption: "AVG Cost", width: 100, style: { formatter: "0원" }, headerStyle: {backColor : "#36495e", foreColor:"white"}}
+  ]);
+  view.fetch().then(function() {
+      ganttSheet.bindGanttView(view);
+  });
 
-    
+  
 }
 </script>

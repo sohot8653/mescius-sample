@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>SpreadJS Designer</title>
+	<link href="https://cdn.mescius.com/spreadjs/hosted/css/gc.spread.sheets.excel2013white.17.0.2.css" rel="stylesheet" type="text/css" />
+	<link href="./lib/css/gc.spread.sheets.designer.17.0.2.min.css" rel="stylesheet" type="text/css">
+	<link href="./custom.css" rel="stylesheet" type="text/css">
+</head>
+
+<body unselectable="on">
+	<div id="gc-designer-container" role="application"></div>
+
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/gc.spread.sheets.all.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.shapes.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.charts.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.slicers.17.0.2.min.js"></script>
+
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.print.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.barcode.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.pdf.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.pivot.pivottables.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.tablesheet.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.ganttsheet.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.formulapanel.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.report.reportsheet.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/plugins/gc.spread.sheets.io.17.0.2.min.js"></script>
+	<script type="text/javascript" src="https://cdn.mescius.com/spreadjs/hosted/scripts/interop/gc.spread.excelio.17.0.2.min.js"></script>
+	
+	<script type="text/javascript" src="./lib/scripts/gc.spread.sheets.designer.resource.en.17.0.2.min.js"></script>
+	<script type="text/javascript" src="./lib/scripts/gc.spread.sheets.designer.all.17.0.2.min.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+
+			//Apply License
+			//GC.Spread.Sheets.LicenseKey = 'sjs-distribution-key';
+			//GC.Spread.Sheets.Designer.LicenseKey = 'designer-component-distribution-key';
+
+			var config = GC.Spread.Sheets.Designer.DefaultConfig;
+			config.commandMap = {
+				Welcome: {
+					title: "Welcome",
+					text: "Welcome",
+					iconClass: "ribbon-button-welcome",
+					bigButton: "true",
+					commandName: "Welcome",
+					execute: function (context, propertyName, fontItalicChecked) {
+						alert('Welcome to new designer.');
+					}
+				}
+			}
+			config.ribbon[0].buttonGroups.unshift({
+				"label": "NewDesigner",
+				"thumbnailClass": "welcome",
+				"commandGroup": {
+					"children": [
+						{
+							"direction": "vertical",
+							"commands": [
+								"Welcome"
+							]
+						}
+					]
+				}
+			});
+			var designer = new GC.Spread.Sheets.Designer.Designer(document.getElementById("gc-designer-container"), config);
+		}
+	</script>
+</body>
+
+</html>

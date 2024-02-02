@@ -1,6 +1,12 @@
 <div class="left_nav_wrap">
     <ul class="left_nav">
         <li>
+            <a href="#" class="depth1" id="INRTO"><span>INRTO</span></a>
+            <ul class="depth2_div">
+                <li><a href="/sample?depth1=INRTO&depth2=INTRO&sampleId=0" class="depth2 <%= depth1 == 'INRTO' && depth2 == 'INTRO' ? 'on' : '' %>"><span>INTRO</span></a></li>
+            </ul>
+        </li>
+        <li>
             <a href="#" class="depth1" id="BMS"><span>BMS</span></a>
             <ul class="depth2_div">
                 <li><a href="/sample?depth1=BMS&depth2=표준원가&sampleId=1" class="depth2 <%= depth1 == 'BMS' && depth2 == '표준원가' ? 'on' : '' %>"><span>표준원가</span></a></li>

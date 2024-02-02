@@ -25,7 +25,7 @@ app.get("/sample", function(req, res) {
 });
 
 app.get("/", function(req, res) {
-    res.redirect('/sample?depth1=WINGO&depth2=INTRO&sampleId=0');
+    res.redirect('/sample?depth1=INTRO&depth2=INTRO&sampleId=0');
 });
 
 app.listen(3000, function() {

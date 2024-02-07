@@ -7,6 +7,15 @@
             </ul>
         </li>
         <li>
+            <a href="#" class="depth1" id="MAIN"><span>주요기능</span></a>
+            <ul class="depth2_div">
+                <li><a href="/sample?depth1=MAIN&depth2=대시보드&sampleId=4" class="depth2 <%= depth1 == 'MAIN' && depth2 == '대시보드' ? 'on' : '' %>"><span>대시보드</span></a></li>
+                <li><a href="/sample?depth1=MAIN&depth2=시공 스케줄&sampleId=5" class="depth2 <%= depth1 == 'MAIN' && depth2 == '시공 스케줄' ? 'on' : '' %>"><span>시공 스케줄</span></a></li>
+                <li><a href="/sample?depth1=MAIN&depth2=출고요청서&sampleId=11" class="depth2 <%= depth1 == 'MAIN' && depth2 == '출고요청서' ? 'on' : '' %>"><span>출고요청서</span></a></li>
+                <li><a href="/sample?depth1=MAIN&depth2=배송내역서&sampleId=21" class="depth2 <%= depth1 == 'MAIN' && depth2 == '배송내역서' ? 'on' : '' %>"><span>배송내역서</span></a></li>                
+            </ul>
+        </li>
+        <li>
             <a href="#" class="depth1" id="BMS"><span>BMS</span></a>
             <ul class="depth2_div">
                 <li><a href="/sample?depth1=BMS&depth2=표준원가&sampleId=1" class="depth2 <%= depth1 == 'BMS' && depth2 == '표준원가' ? 'on' : '' %>"><span>표준원가</span></a></li>

@@ -13,7 +13,6 @@ window.onload = function() {
     
     spread.suspendPaint();
 	
-    var localStorageIndex = "<%= sample23Index %>";
     if(localStorageIndex == '-1') {
         initSpreadDefault(spread);
     } else {

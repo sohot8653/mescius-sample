@@ -4,7 +4,6 @@ window.onload = function() {
 };
 
 function initSpread(spread) {
-  spread.suspendPaint();
   spread.options.autoFitType = GC.Spread.Sheets.AutoFitType.cellWithHeader;
 
   //init a data manager
@@ -40,8 +39,6 @@ function initSpread(spread) {
       groupCallback();
       spread.resumePaint();
   });
-
-  spread.resumePaint();
 
   var groupCallback = function () {
       sheet.groupBy([

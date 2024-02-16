@@ -7,9 +7,7 @@ window.onload = function() {
 		sheetCount: 2,
 	});
     
-    spread.suspendPaint();
 	initSpread(spread);
-    spread.resumePaint();
 
     document.getElementById('save').onclick = function () {
         var spread = GC.Spread.Sheets.findControl(document.getElementById('ss2'));
@@ -92,6 +90,7 @@ function initSpread(spread) {
         return;
     })
     .then(x => {
+        spread.suspendPaint();
         var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
         var sheet = spread.getSheetFromName('Sheet1');
         var SheetArea = GC.Spread.Sheets.SheetArea;
@@ -119,6 +118,7 @@ function initSpread(spread) {
             drawRow((i + 1)*3, spread, sheet, SheetArea, data[i]);
         }
 
+        spread.resumePaint();
         spread.bind(GC.Spread.Sheets.Events.ButtonClicked, function (e, args) {
             var sheet = args.sheet, row = args.row, col = args.col;
             var cellType = sheet.getCellType(row, col);

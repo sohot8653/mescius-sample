@@ -1,11 +1,10 @@
+var spread;
 window.onload = function() {
-	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
-		sheetCount: 2,
-	});
+	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
     
-    spread.suspendPaint();
+    //spread.suspendPaint();
 	initSpread(spread);
-    spread.resumePaint();
+    //spread.resumePaint();
 
     $('#btnChart').on('click', function(e){
         location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=16';
@@ -25,30 +24,14 @@ function initSpread(spread) {
         return;
     })
     .then(x => {
-        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
+        spread.suspendPaint();
         var sheet = spread.getSheetFromName('Sheet1');
-        var SheetArea = GC.Spread.Sheets.SheetArea;
-        var spreadNS = GC.Spread.Sheets;
-        spread.options.showHorizontalScrollbar = false;
-        spread.options.backColor = "#e6e6e6";
-        spread.options.grayAreaBackColor = "#e6e6e6";
-        sheet.options.rowHeaderVisible = false;
-        sheet.options.colHeaderVisible = false;
-        spread.options.scrollByPixel = true;
-        spread.options.scrollPixel = 36.2;
-        sheet.scroll(-1000, 0);
-
-        sheet.setColumnWidth(3, "*");
-        sheet.setColumnWidth(4, "*");
-        sheet.frozenRowCount(4);
-        sheet.getRange(0, 0, 4, 10).backColor('#36495e');
-
-        
+        var SheetArea = GC.Spread.Sheets.SheetArea;      
         var data = getData();
-        for(var i = 0; i < data.length; i++) {
+        for(var i = 0; i < 15; i++) {
             drawRow((i + 1)*5, spread, sheet, SheetArea, data[i]);
         }
-
+        spread.resumePaint();
         spread.bind(GC.Spread.Sheets.Events.ButtonClicked, function (e, args) {
             var sheet = args.sheet, row = args.row, col = args.col;
             var cellType = sheet.getCellType(row, col);
@@ -75,13 +58,6 @@ function initSpread(spread) {
     });
 
     function drawRow(startRow, spread, sheet, SheetArea, data) {
-        var spreadNS = GC.Spread.Sheets;
-        var combo = new spreadNS.CellTypes.ComboBox();
-        var checkBoxList = new GC.Spread.Sheets.CellTypes.CheckBoxList();
-
-        sheet.addRows(sheet.getRowCount(SheetArea.viewport), 5);
-        sheet.setRowHeight(startRow - 1, 5.0, SheetArea.viewport);
-
         sheet.setValue(startRow, 0, data.c1);       // 수주번호
         sheet.setValue(startRow, 1, data.c2);       // 주문번호
         sheet.setValue(startRow, 2, data.c3);       // 출고일
@@ -101,55 +77,58 @@ function initSpread(spread) {
         sheet.setValue(startRow + 2, 1, data.c13);           // 품목
 
         
-        combo.items([{ text: "출고 대기", value: "1" }, { text: "배송업체 미배정", value: "2" }, { text: "출고 진행중", value: "3" }, { text: "출고 완료", value: "4" }])
-            .editorValueType(spreadNS.CellTypes.EditorValueType.text);
-        sheet.getCell(startRow + 2, 3, spreadNS.SheetArea.viewport).cellType(combo).value(data.c14);     // 출고상태
-        combo.items([{ text: "박OO", value: "1" }, { text: "김OO", value: "2" }, { text: "이OO", value: "3" }, { text: "차OO", value: "4" }])
-            .editorValueType(spreadNS.CellTypes.EditorValueType.text);
-        sheet.getCell(startRow + 2, 4, spreadNS.SheetArea.viewport).cellType(combo).value(data.c15);     // 물류담당자
-        combo.items([{ text: "있음", value: "1" }, { text: "없음", value: "2" }])
-            .editorValueType(spreadNS.CellTypes.EditorValueType.text);
-        sheet.getCell(startRow + 2, 5, spreadNS.SheetArea.viewport).cellType(combo).value(data.c16);     // 차량여부
+        // combo1 = combo1.items([{ text: "출고 대기", value: "1" }, { text: "배송업체 미배정", value: "2" }, { text: "출고 진행중", value: "3" }, { text: "출고 완료", value: "4" }])
+        //     .editorValueType(spreadNS.CellTypes.EditorValueType.text);
+        // sheet.getCell(startRow + 2, 3, spreadNS.SheetArea.viewport).cellType(combo1).value(data.c14);     // 출고상태
+        sheet.setValue(startRow + 2, 3, data.c14); 
+        // combo2 = combo2.items([{ text: "박OO", value: "1" }, { text: "김OO", value: "2" }, { text: "이OO", value: "3" }, { text: "차OO", value: "4" }])
+        //     .editorValueType(spreadNS.CellTypes.EditorValueType.text);
+        // sheet.getCell(startRow + 2, 4, spreadNS.SheetArea.viewport).cellType(combo2).value(data.c15);     // 물류담당자
+        sheet.setValue(startRow + 2, 4, data.c15); 
+        // combo3 = combo3.items([{ text: "있음", value: "1" }, { text: "없음", value: "2" }])
+        //     .editorValueType(spreadNS.CellTypes.EditorValueType.text);
+        // sheet.getCell(startRow + 2, 5, spreadNS.SheetArea.viewport).cellType(combo3).value(data.c16);     // 차량여부
+        sheet.setValue(startRow + 2, 5, data.c16); 
         
-        checkBoxList.itemSpacing({horizontal: 5});
-        checkBoxList.items([{text:"긴급",value:1},{text:"왕복",value:2},{text:"세대반입",value:3}]);
-        sheet.setCellType(startRow + 2, 6, checkBoxList, GC.Spread.Sheets.SheetArea.viewport);          // 긴급/왕복/세대반입여부/반입비
+        // checkBoxList.itemSpacing({horizontal: 5});
+        // checkBoxList.items([{text:"긴급",value:1},{text:"왕복",value:2},{text:"세대반입",value:3}]);
+        // sheet.setCellType(startRow + 2, 6, checkBoxList, GC.Spread.Sheets.SheetArea.viewport);          // 긴급/왕복/세대반입여부/반입비
         sheet.setValue(startRow + 2, 6, data.c17);       
-        sheet.setValue(startRow + 2, 7, data.c18);       
-        sheet.setCellType(startRow + 2, 8, new GC.Spread.Sheets.CellTypes.Button().text("배송상차관리"), GC.Spread.Sheets.SheetArea.viewport);     // 배송상차관리
-        sheet.setCellType(startRow + 2, 9, new GC.Spread.Sheets.CellTypes.Button().text("배송내역서"), GC.Spread.Sheets.SheetArea.viewport);     // 배송내역서
+        sheet.setValue(startRow + 2, 7, data.c18);
                      
-        combo.items([{ text: "배송업체 미배정", value: "0" }, { text: "CJ 택배", value: "1" }, { text: "로젠 택배", value: "2" }, { text: "대한 통운", value: "3" }])
-            .editorValueType(spreadNS.CellTypes.EditorValueType.text);
-        sheet.getCell(startRow + 3, 3, spreadNS.SheetArea.viewport).cellType(combo).value(data.c20);      // 배송업체
+        // combo4 = combo4.items([{ text: "배송업체 미배정", value: "0" }, { text: "CJ 택배", value: "1" }, { text: "로젠 택배", value: "2" }, { text: "대한 통운", value: "3" }])
+        //     .editorValueType(spreadNS.CellTypes.EditorValueType.text);
+        // sheet.getCell(startRow + 3, 3, spreadNS.SheetArea.viewport).cellType(combo4).value(data.c20);      // 배송업체
+        sheet.setValue(startRow + 3, 3, data.c20);
         sheet.setValue(startRow + 3, 4, data.c21);                        // 송장번호
-        combo.items([{ text: "선불", value: "0" }, { text: "운임", value: "1" }, { text: "후불", value: "2" }])
-            .editorValueType(spreadNS.CellTypes.EditorValueType.text);
-        sheet.getCell(startRow + 3, 5, spreadNS.SheetArea.viewport).cellType(combo).value(data.c22);      // 운임여부
+        // combo5 = combo5.items([{ text: "선불", value: "0" }, { text: "운임", value: "1" }, { text: "후불", value: "2" }])
+        //     .editorValueType(spreadNS.CellTypes.EditorValueType.text);
+        // sheet.getCell(startRow + 3, 5, spreadNS.SheetArea.viewport).cellType(combo5).value(data.c22);      // 운임여부
+        sheet.setValue(startRow + 3, 5, data.c22);
         sheet.setValue(startRow + 3, 6, data.c23);                        // 물류메모
-        sheet.setCellType(startRow + 3, 8, new GC.Spread.Sheets.CellTypes.Button().text("상세"), GC.Spread.Sheets.SheetArea.viewport);     // 이력조회
-        sheet.setCellType(startRow + 3, 9, new GC.Spread.Sheets.CellTypes.Button().text("저장"), GC.Spread.Sheets.SheetArea.viewport);         // 저장
+        // sheet.setCellType(startRow + 3, 8, new GC.Spread.Sheets.CellTypes.Button().text("상세"), GC.Spread.Sheets.SheetArea.viewport);     // 이력조회
+        // sheet.setCellType(startRow + 3, 9, new GC.Spread.Sheets.CellTypes.Button().text("저장"), GC.Spread.Sheets.SheetArea.viewport);         // 저장
 
         // 병합
-        sheet.addSpan(startRow, 0, 4, 1);      // 수주번호
-        sheet.addSpan(startRow, 1, 2, 1);      // 주문번호
-        sheet.addSpan(startRow, 2, 2, 1);      // 출고번호
-        sheet.addSpan(startRow, 8, 2, 2);      // 상위주문번호
-        sheet.addSpan(startRow + 2, 1, 2, 2);      // 품목
-        sheet.addSpan(startRow + 1, 6, 1, 2);      // 고객명 | 연락처 | 고객주소
-        sheet.addSpan(startRow + 3, 6, 1, 2);      // 물류메모
+        // sheet.addSpan(startRow, 0, 4, 1);      // 수주번호
+        // sheet.addSpan(startRow, 1, 2, 1);      // 주문번호
+        // sheet.addSpan(startRow, 2, 2, 1);      // 출고번호
+        // sheet.addSpan(startRow, 8, 2, 2);      // 상위주문번호
+        // sheet.addSpan(startRow + 2, 1, 2, 2);      // 품목
+        // sheet.addSpan(startRow + 1, 6, 1, 2);      // 고객명 | 연락처 | 고객주소
+        // sheet.addSpan(startRow + 3, 6, 1, 2);      // 물류메모
         
 
         // 스타일
-        var lineStyle = GC.Spread.Sheets.LineStyle.thin;
-        var lineBorder = new GC.Spread.Sheets.LineBorder('black', lineStyle);
-        sheet.getRange(startRow, 0, 4, 10).setBorder(lineBorder, { all: true });
-        sheet.getRange(startRow, 0, 4, 10).vAlign(GC.Spread.Sheets.VerticalAlign.center);
-        sheet.getRange(startRow, 0, 4, 10).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
-        sheet.getRange(startRow, 0, 4, 10).backColor('#FFFFFF');
+        // var lineStyle = GC.Spread.Sheets.LineStyle.thin;
+        // var lineBorder = new GC.Spread.Sheets.LineBorder('black', lineStyle);
+        // sheet.getRange(startRow, 0, 4, 10).setBorder(lineBorder, { all: true });
+        // sheet.getRange(startRow, 0, 4, 10).vAlign(GC.Spread.Sheets.VerticalAlign.center);
+        // sheet.getRange(startRow, 0, 4, 10).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
+        // sheet.getRange(startRow, 0, 4, 10).backColor('#FFFFFF');
 
         
-        sheet.setColumnWidth(6, 220.0, GC.Spread.Sheets.SheetArea.viewport);
+        // sheet.setColumnWidth(6, 220.0, GC.Spread.Sheets.SheetArea.viewport);
         
     }
 }

@@ -11,14 +11,14 @@ window.onload = function() {
 		sheetCount: 2,
 	});
     
-    spread.suspendPaint();
 	
     if(localStorageIndex == '-1') {
         initSpreadDefault(spread);
     } else {
+        spread.suspendPaint();
         spread.fromJSON(JSON.parse(localStorage.getItem('sample23Json' + localStorageIndex)));
+        spread.resumePaint();
     }
-    spread.resumePaint();
 
     document.getElementById('btnExcel').onclick = function () {
         var fileName = '배송내역서_상세_OD2310392635.xlsx';
@@ -51,6 +51,7 @@ function initSpreadDefault(spread) {
         return;
     })
     .then(x => {
+        spread.suspendPaint();
         var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
         var sheet = spread.getSheetFromName('Sheet1');
         var SheetArea = GC.Spread.Sheets.SheetArea;
@@ -191,6 +192,7 @@ function initSpreadDefault(spread) {
         var lineStyle = GC.Spread.Sheets.LineStyle.thin;
         var lineBorder = new GC.Spread.Sheets.LineBorder('black', lineStyle);
         sheet.getRange(startCell2 + 1, 0, data1.length + 2 , 8).setBorder(lineBorder, { all: true });
+        spread.resumePaint();
         
         return;
     });

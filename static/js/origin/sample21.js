@@ -3,9 +3,7 @@ window.onload = function() {
 		sheetCount: 2,
 	});
     
-    spread.suspendPaint();
 	initSpread(spread);
-    spread.resumePaint();
 
     $('#btnEnroll').on('click', function(e) {
         location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=23';
@@ -26,6 +24,7 @@ function initSpread(spread) {
         return;
     })
     .then(x => {
+        spread.suspendPaint();
         var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
         var sheet = spread.getSheetFromName('Sheet1');
         var SheetArea = GC.Spread.Sheets.SheetArea;
@@ -69,6 +68,7 @@ function initSpread(spread) {
         for(var i = 0; i < data.length; i++) {
             drawRow((i + 1), spread, sheet, SheetArea, data[i]);
         }
+        spread.resumePaint();
 
         spread.bind(GC.Spread.Sheets.Events.ButtonClicked, function (e, args) {
             var sheet = args.sheet, row = args.row, col = args.col;

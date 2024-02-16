@@ -4,9 +4,7 @@ window.onload = function() {
 		sheetCount: 2,
 	});
     
-    spread.suspendPaint();
 	initSpread(spread);
-    spread.resumePaint();
 };
 
 function initSpread(spread) {
@@ -19,6 +17,7 @@ function initSpread(spread) {
         return;
     })
     .then(x => {
+        spread.suspendPaint();
         var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
         spread.options.showVerticalScrollbar = false;
         spread.options.showHorizontalScrollbar = false;
@@ -33,6 +32,7 @@ function initSpread(spread) {
         sheet.setColumnWidth(17, 22.0);
         sheet.setColumnWidth(1, "*");
         sheet.scroll(-1000, 0);
+        spread.resumePaint();
         return;
     });
 }

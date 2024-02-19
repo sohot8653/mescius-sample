@@ -1,20 +1,18 @@
-var spread;
+let spread;
 window.onload = function() {
+    $('.content_box_loading').show();
 	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
-    
-    //spread.suspendPaint();
-	initSpread(spread);
-    //spread.resumePaint();
+	initSpread();
 
     $('#btnChart').on('click', function(e){
-        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=16';
+        location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=16`;
     });
     $('#btnSample19').on('click', function(e){
-        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=19';
+        location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=19`;
     });
 };
 
-function initSpread(spread) {
+function initSpread() {
     fetch('json/Sample11.ssjson')
     .then(response => {
         return response.json();
@@ -38,7 +36,7 @@ function initSpread(spread) {
             if (cellType instanceof GC.Spread.Sheets.CellTypes.Button) {
                 switch (cellType._text) {
                     case '배송내역서':
-                        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=12';
+                        location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=12`;
                         break;
                     case '저장':
                         if(confirm('변경 내용을 저장하시겠습니까?')) {
@@ -46,15 +44,18 @@ function initSpread(spread) {
                         }
                         break;
                     case '배송상차관리':
-                        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=14';
+                        location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=14`;
                         break;
                     case '상세':
-                        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=15';
+                        location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=15`;
                         break;
                 }
             }
         });
         return ;
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
 
     function drawRow(startRow, spread, sheet, SheetArea, data) {
@@ -129,7 +130,6 @@ function initSpread(spread) {
 
         
         // sheet.setColumnWidth(6, 220.0, GC.Spread.Sheets.SheetArea.viewport);
-        
     }
 }
 

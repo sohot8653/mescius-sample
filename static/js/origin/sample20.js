@@ -1,4 +1,5 @@
 window.onload = function() {
+    $('.content_box_loading').show();
     var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
     initSpread(spread);
   
@@ -70,6 +71,9 @@ window.onload = function() {
     var myView = productTable.addView("myView", columnList);
     myView.fetch().then(function() {
         sheet.setDataView(myView);
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
   
     spread.resumePaint();

@@ -1,18 +1,19 @@
+let spread;
+let spread2;
+let spread3;
+let spread4;
 window.onload = function() {
+    $('.content_box_loading').show();
     $('#btnGrid').on('click', function(e){
-        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=11';
+        location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=11`;
     });
 
-	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
-		sheetCount: 2,
-	});
+	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
     
-	initSpread(spread);
+	initSpread();
 
     document.getElementById('save').onclick = function () {
-        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss2'));
         var fileName = '배송오더_DL2262608796.xlsx';
-        var fileType = 'xlsx';
         var options = {
             "includeBindingSource": false,
             "includeStyles": true,
@@ -27,12 +28,11 @@ window.onload = function() {
             "fileType": 0
         }
 
-        spread.export(function(blob) { saveAs(blob, fileName); }, function() {}, options);
+        spread2.export(function(blob) { saveAs(blob, fileName); }, function() {}, options);
     };
     document.getElementById('save2').onclick = function () {
-        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss3'));
+        var spread3 = GC.Spread.Sheets.findControl(document.getElementById('ss3'));
         var fileName = '배송요청서_DC85120015611.xlsx';
-        var fileType = 'xlsx';
         var options = {
             "includeBindingSource": false,
             "includeStyles": true,
@@ -47,12 +47,11 @@ window.onload = function() {
             "fileType": 0
         }
 
-        spread.export(function(blob) { saveAs(blob, fileName); }, function() {}, options);
+        spread3.export(function(blob) { saveAs(blob, fileName); }, function() {}, options);
     };
     document.getElementById('save3').onclick = function () {
-        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss4'));
+        var spread4 = GC.Spread.Sheets.findControl(document.getElementById('ss4'));
         var fileName = '피킹리스트_OD85120015611.xlsx';
-        var fileType = 'xlsx';
         var options = {
             "includeBindingSource": false,
             "includeStyles": true,
@@ -67,7 +66,7 @@ window.onload = function() {
             "fileType": 0
         }
 
-        spread.export(function(blob) { saveAs(blob, fileName); }, function() {}, options);
+        spread4.export(function(blob) { saveAs(blob, fileName); }, function() {}, options);
     };
 
     $('.btn_close').on('click', function(e) {
@@ -80,7 +79,7 @@ for(var i = 6; i < 25; i++) {
     time.push({text: i + '시', value: i});
     time.push({text: i + '시 30분', value: i+'_half'});
 }
-function initSpread(spread) {
+function initSpread() {
     fetch('json/Sample14.ssjson')
     .then(response => {
         return response.json();
@@ -91,10 +90,8 @@ function initSpread(spread) {
     })
     .then(x => {
         spread.suspendPaint();
-        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
         var sheet = spread.getSheetFromName('Sheet1');
         var SheetArea = GC.Spread.Sheets.SheetArea;
-        var spreadNS = GC.Spread.Sheets;
         spread.options.showHorizontalScrollbar = false;
         spread.options.backColor = "#e6e6e6";
         spread.options.grayAreaBackColor = "#e6e6e6";
@@ -106,13 +103,11 @@ function initSpread(spread) {
 
         // 데이터 보정
         sheet.setValue(0, 7, '배송오더');
-        
 
         sheet.setColumnWidth(4, "*");
         sheet.frozenRowCount(2);
         sheet.getRange(0, 0, 2, 9).backColor('#36495e');
 
-        
         var data = getData();
         for(var i = 0; i < data.length; i++) {
             drawRow((i + 1)*3, spread, sheet, SheetArea, data[i]);
@@ -135,13 +130,13 @@ function initSpread(spread) {
                             // clickClose: false,
                             // showClose: false
                         });
-                        var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss2'));
-                        var sheetModal = spread.getSheetFromName('Sheet1');
+                        spread2 = new GC.Spread.Sheets.Workbook(document.getElementById('ss2'));
+                        spread2.suspendPaint();
+                        var sheetModal = spread2.getSheetFromName('Sheet1');
                         var SheetArea = GC.Spread.Sheets.SheetArea;
-                        var spreadNS = GC.Spread.Sheets;
-                        spread.options.showVerticalScrollbar = false;
-                        spread.options.showHorizontalScrollbar = false;
-                        spread.options.scrollByPixel = true;
+                        spread2.options.showVerticalScrollbar = false;
+                        spread2.options.showHorizontalScrollbar = false;
+                        spread2.options.scrollByPixel = true;
                         sheetModal.options.rowHeaderVisible = false;
                         sheetModal.options.colHeaderVisible = false;
                         sheetModal.options.selectionBorderColor = "transparent";
@@ -178,6 +173,7 @@ function initSpread(spread) {
                         sheetModal.addSpan(4, 1, 1, 2);
                         sheetModal.addSpan(5, 1, 1, 2);
                         sheetModal.addSpan(6, 1, 1, 2);
+                        spread2.resumePaint();
                         break;
                     case '배송요청서':
                         $("#modal2").modal({
@@ -185,24 +181,23 @@ function initSpread(spread) {
                             // clickClose: false,
                             // showClose: false
                         });
-                        var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss3'));
-                        
-                        
+                        $('.content_box_loading').show();
+                        spread3 = new GC.Spread.Sheets.Workbook(document.getElementById('ss3'));
+                         
                         fetch('json/Sample17.ssjson')
                         .then(response => {
                             return response.json();
                         })
                         .then(jsondata => {
-                            spread.fromJSON(jsondata);
+                            spread3.fromJSON(jsondata);
                             return;
                         })
                         .then(x => {
-                            var sheetModal = spread.getSheetFromName('Sheet1');
-                            var SheetArea = GC.Spread.Sheets.SheetArea;
-                            var spreadNS = GC.Spread.Sheets;
-                            spread.options.showVerticalScrollbar = false;
-                            spread.options.showHorizontalScrollbar = false;
-                            spread.options.scrollByPixel = true;
+                            spread3.suspendPaint();
+                            var sheetModal = spread3.getSheetFromName('Sheet1');
+                            spread3.options.showVerticalScrollbar = false;
+                            spread3.options.showHorizontalScrollbar = false;
+                            spread3.options.scrollByPixel = true;
                             sheetModal.options.rowHeaderVisible = false;
                             sheetModal.options.colHeaderVisible = false;
                             sheetModal.options.selectionBorderColor = "transparent";
@@ -252,6 +247,10 @@ function initSpread(spread) {
                             sheetModal.getRange(18, 1, 1, 5).backColor('#fff9c4');
 
                             sheetModal.setText(22, 1, '고객 연락 후, 배송이 진행되어야합니다. 다른 특이사항은 없고 시간 엄수 부탁드립니다.');
+                            spread3.resumePaint();
+                        })
+                        .then(() => {
+                            $('.content_box_loading').hide();
                         });
                         break;
                     case '피킹리스트':
@@ -260,24 +259,24 @@ function initSpread(spread) {
                         // clickClose: false,
                         // showClose: false
                     });
-                    var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss4'));
-                    
+                    $('.content_box_loading').show();
+                    spread4 = new GC.Spread.Sheets.Workbook(document.getElementById('ss4'));
                     
                     fetch('json/Sample18.ssjson')
                     .then(response => {
                         return response.json();
                     })
                     .then(jsondata => {
-                        spread.fromJSON(jsondata);
+                        spread4.fromJSON(jsondata);
                         return;
                     })
                     .then(x => {
-                        var sheetModal = spread.getSheetFromName('Sheet1');
+                        spread4.suspendPaint();
+                        var sheetModal = spread4.getSheetFromName('Sheet1');
                         var SheetArea = GC.Spread.Sheets.SheetArea;
-                        var spreadNS = GC.Spread.Sheets;
-                        spread.options.showVerticalScrollbar = false;
-                        spread.options.showHorizontalScrollbar = false;
-                        spread.options.scrollByPixel = true;
+                        spread4.options.showVerticalScrollbar = false;
+                        spread4.options.showHorizontalScrollbar = false;
+                        spread4.options.scrollByPixel = true;
                         sheetModal.options.rowHeaderVisible = false;
                         sheetModal.options.colHeaderVisible = false;
                         sheetModal.options.selectionBorderColor = "transparent";
@@ -312,7 +311,10 @@ function initSpread(spread) {
                         var lineStyle = GC.Spread.Sheets.LineStyle.thin;
                         var lineBorder = new GC.Spread.Sheets.LineBorder('black', lineStyle);
                         sheetModal.getRange(3, 0, endCell, 6).setBorder(lineBorder, { all: true });
-                        
+                        spread4.resumePaint();
+                    })
+                    .then(() => {
+                        $('.content_box_loading').hide();
                     });
                     break;
                 }
@@ -320,6 +322,9 @@ function initSpread(spread) {
             }
         });
         return ;
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
     
     function drawRow(startRow, spread, sheet, SheetArea, data) {

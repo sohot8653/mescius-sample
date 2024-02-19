@@ -1,4 +1,5 @@
 window.onload = function() {
+  $('.content_box_loading').show();
   initCalendar();
   var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
   initSpread(spread);
@@ -140,5 +141,8 @@ function initGanttSheetWithIdParentIdData(spread) {
   ]);
   view.fetch().then(function() {
       ganttSheet.bindGanttView(view);
-  });  
+  })
+  .then(() => {
+      $('.content_box_loading').hide();
+  });
 }

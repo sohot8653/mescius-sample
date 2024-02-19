@@ -1,15 +1,16 @@
+let spread;
 window.onload = function() {
+    $('.content_box_loading').show();
     $('#btnGrid').on('click', function(e){
-        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=11';
+        window.history.back();
+        // location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=11`;
     });
-    $('#btnGrid2').on('click', function(e){
-        location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=21';
-    });
+    // $('#btnGrid2').on('click', function(e){
+    //     location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=21`;
+    // });
 
 	// host the workbook control in a DIV element with id "ss"
-	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
-		sheetCount: 2,
-	});
+	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
     
 	
     if(localStorageIndex == '-1') {
@@ -18,11 +19,11 @@ window.onload = function() {
         spread.suspendPaint();
         spread.fromJSON(JSON.parse(localStorage.getItem('sample23Json' + localStorageIndex)));
         spread.resumePaint();
+        $('.content_box_loading').hide();
     }
 
     document.getElementById('btnExcel').onclick = function () {
         var fileName = '배송내역서_상세_OD2310392635.xlsx';
-        var fileType = 'xlsx';
         var options = {
             "includeBindingSource": false,
             "includeStyles": true,
@@ -52,7 +53,6 @@ function initSpreadDefault(spread) {
     })
     .then(x => {
         spread.suspendPaint();
-        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
         var sheet = spread.getSheetFromName('Sheet1');
         var SheetArea = GC.Spread.Sheets.SheetArea;
         spread.options.showVerticalScrollbar = false;
@@ -195,6 +195,9 @@ function initSpreadDefault(spread) {
         spread.resumePaint();
         
         return;
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
 }
 

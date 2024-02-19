@@ -1,6 +1,7 @@
 window.onload = function() {
-  var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
-  initSpread(spread);
+    $('.content_box_loading').show();
+    var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
+    initSpread(spread);
 };
 
 function initSpread(spread) {
@@ -38,6 +39,9 @@ function initSpread(spread) {
       sheet.setDataView(myView);
       groupCallback();
       spread.resumePaint();
+  })
+  .then(() => {
+      $('.content_box_loading').hide();
   });
 
   var groupCallback = function () {

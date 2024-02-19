@@ -59,6 +59,7 @@ var dataTemplate = [
     }
 ]
 window.onload = function () {
+    $('.content_box_loading').show();
     var mainSpread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"));
     var dataManager = mainSpread.dataManager();
     tables.order = dataManager.addTable("orderTable", {
@@ -146,6 +147,9 @@ function setView () {
         sheet.suspendPaint();
         sheet.setDataView(view);
         sheet.resumePaint();
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
 }
 

@@ -1,6 +1,7 @@
 document.readyState === 'complete' ? init() : window.onload = init;
 //
 function init() {
+  $('.content_box_loading').show();
   let barchart = new wijmo.chart.FlexChart('#chart', {
     header: '2023-12-13 ~ 2023-12-15 물류현황 (출고 준비일 기준)',
     legend: {
@@ -37,8 +38,10 @@ function init() {
   axisY2.min = 0;
   barchart.series[1].axisY = axisY2;
 
+  $('.content_box_loading').hide();
+
   $('#btnGrid').on('click', function(e){
-    location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=11';
+    location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=11`;
   });
 } 
 

@@ -1,9 +1,7 @@
+let spread;
 window.onload = function() {
-	// host the workbook control in a DIV element with id "ss"
-	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
-		sheetCount: 2,
-	});
-    
+    $('.content_box_loading').show();
+	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
 	initSpread(spread);
 };
 
@@ -18,7 +16,6 @@ function initSpread(spread) {
     })
     .then(x => {
         spread.suspendPaint();
-        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
         spread.options.showVerticalScrollbar = false;
         spread.options.showHorizontalScrollbar = false;
         spread.options.backColor = "#e6e6e6";
@@ -34,5 +31,8 @@ function initSpread(spread) {
         sheet.scroll(-1000, 0);
         spread.resumePaint();
         return;
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
-}
+};

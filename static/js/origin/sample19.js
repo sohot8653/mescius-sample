@@ -1,9 +1,10 @@
 window.onload = function() {
+    $('.content_box_loading').show();
     var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
     initSpread(spread);
   
     $('#btnGrid').on('click', function(e){
-        location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=11';
+        location.href = `/sample?depth1=${depth1}&depth2=출고요청서&sampleId=11`;
     });
   };
   
@@ -47,6 +48,9 @@ window.onload = function() {
     myView.fetch().then(function() {
         sheet.setDataView(myView);
         sheet.togglePinnedColumns([0, 1, 2]);
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
   
     

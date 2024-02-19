@@ -99,11 +99,12 @@ saveOptionsDict[FileType.Excel] = exportXlsxOptions;
 saveOptionsDict[FileType.SSJson] = exportSSJsonOptions;
 saveOptionsDict[FileType.Csv] = exportCsvOptions;
 
-var spread;
+let spread;
+let designer;
 window.onload = function () {
-    spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"));
-    var statusBar = new GC.Spread.Sheets.StatusBar.StatusBar(document.getElementById('statusBar'));
-    statusBar.bind(spread);
+    $('.content_box_loading').show();
+    initRibbon();
+    spread = designer.getWorkbook();
 
     initDefaultOptions();
 
@@ -147,9 +148,13 @@ window.onload = function () {
             $('#txtTemplateName').text(localStorage.getItem('templateName'));
             spread.fromJSON(JSON.parse(localStorage.getItem('templateJson')));
         })
+        .then(() => {
+            $('.content_box_loading').hide();
+        });
     } else {
         $('#txtTemplateName').text(localStorage.getItem('templateName'));
         spread.fromJSON(JSON.parse(localStorage.getItem('templateJson')));
+        $('.content_box_loading').hide();
     }
 
     $('#txtTemplateName').on('click', function(e) {
@@ -169,8 +174,7 @@ window.onload = function () {
 			rowHeadersAsFrozenColumns: false,
 			columnHeadersAsFrozenRows: false
 		};
-        var spread1 = GC.Spread.Sheets.findControl(document.getElementById('ss'));
-		var jsonStr = JSON.stringify(spread1.toJSON(serializationOption));
+		var jsonStr = JSON.stringify(spread.toJSON(serializationOption));
 
         alert('저장되었습니다.');
         localStorage.setItem("templateName", $('#txtName').val());
@@ -179,9 +183,13 @@ window.onload = function () {
     });
 
     $('#btnGrid').on('click', function(e) {
-        location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=21';
+        location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=21`;
     });
 };
+
+function initRibbon() {
+    designer = new GC.Spread.Sheets.Designer.Designer('ss');
+}
 
 function initOptions (options, fileType, mode) {
     var container = document.createElement('div');

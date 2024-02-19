@@ -5,7 +5,7 @@
             <span>저장</span>
         </button>
         <button id="btnGrid" class="btn_search">
-            <span>배송내역서</span>
+            <span>목록</span>
         </button>
     </div>
 </div>
@@ -30,7 +30,7 @@
             <td>
                 <input id="selectedFile" type="file" name="files[]"accept=".sjs, .xlsx, .xlsm, .ssjson, .json, .csv" />
             </td>
-            <th>기본 템플릿</th>
+            <th>적용 템플릿</th>
             <td>
                 <h2 id="txtTemplateName" style="color: blue; cursor: pointer;"></h2>
             </td>
@@ -42,7 +42,6 @@
 <div class="content_box" style="height: calc(100vh - 360px);">
     <div class="sample-container">
         <div id="ss" class="sample-spreadsheets"></div>
-        <div id="statusBar"></div>
     </div>
     <div class="open-options" style="display:none;"></div>
     <select id="saveFileType" style="display:none;">
@@ -73,7 +72,7 @@ body {
 
 .sample-spreadsheets {
     width: 100%;
-    height: calc(100% - 25px);
+    height: 100%;
     overflow: hidden;
 }
 
@@ -157,5 +156,9 @@ label {
     margin-left: 3px;
 }
 
+.gc-edit-select .spinner-input {
+	height: auto;
+}
+
 </style>
-<script src="js/obfuscation/sample22.js" type="text/javascript"></script>
+<script src="js/<%= pathJs %>/sample22.js" type="text/javascript"></script>

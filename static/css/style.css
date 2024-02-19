@@ -199,3 +199,40 @@ input.ipt_date{width:113px;width:calc(100% - 38px);margin-right:9px;text-align:c
 .gc-rowHeader-selected {
   background-color: #f4f4f4;
 }
+
+.content_box_loading {
+  z-index: 1000;
+  position: absolute;
+  width: calc(100% - 270px);
+  margin-left: 270px;
+  background: #e6e6e6;
+  height: calc(100% - 100px);
+  margin-top: 0;
+}
+
+.div_loading {
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  height: inherit;
+  width: 100%;
+  position: absolute;
+}
+
+.btn_page {
+  width: 120px;
+  height: 30px;
+  border: 1px solid var(--pointColor);
+  border-radius: 4px;
+  background: var(--pointColor);
+  text-align: center;
+  margin-right: 12px;
+  color: #fff;
+}
+
+.btn_page span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  margin-left: 7px;
+}

@@ -1,16 +1,16 @@
+var spread;
 window.onload = function() {
-	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
-		sheetCount: 2,
-	});
+    $('.content_box_loading').show();
+	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
     
 	initSpread(spread);
 
     $('#btnEnroll').on('click', function(e) {
-        location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=23';
+        location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=23`;
     });
 
     $('#btnTemplate').on('click', function(e) {
-        location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=22';
+        location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=22`;
     });
 };
 
@@ -25,10 +25,8 @@ function initSpread(spread) {
     })
     .then(x => {
         spread.suspendPaint();
-        var spread = GC.Spread.Sheets.findControl(document.getElementById('ss'));
         var sheet = spread.getSheetFromName('Sheet1');
         var SheetArea = GC.Spread.Sheets.SheetArea;
-        var spreadNS = GC.Spread.Sheets;
         spread.options.showHorizontalScrollbar = false;
         spread.options.backColor = "#e6e6e6";
         spread.options.grayAreaBackColor = "#e6e6e6";
@@ -86,6 +84,9 @@ function initSpread(spread) {
             }
         });
         return ;
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
 
     function drawRow(startRow, spread, sheet, SheetArea, data) {

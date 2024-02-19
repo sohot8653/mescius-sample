@@ -1,4 +1,5 @@
 window.onload = function() {
+    $('.content_box_loading').show();
 	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
 		sheetCount: 2,
 	});
@@ -8,7 +9,7 @@ window.onload = function() {
     spread.resumePaint();
 
     $('#btnGrid').on('click', function(e) {
-        location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=21';
+        location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=21`;
     });
 
     $('#btnSave').on('click', function(e) {
@@ -39,7 +40,7 @@ window.onload = function() {
         }
         
         alert('저장되었습니다.');
-        location.href = '/sample?depth1=OMS&depth2=배송내역서&sampleId=21';
+        location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=21`;
     });
 };
 
@@ -57,7 +58,11 @@ function initSpread(spread) {
         .then(x => {
             spread.fromJSON(JSON.parse(localStorage.getItem('templateJson')));
         })
+        .then(() => {
+            $('.content_box_loading').hide();
+        });
     } else {
         spread.fromJSON(JSON.parse(localStorage.getItem('templateJson')));
+        $('.content_box_loading').hide();
     }
 }

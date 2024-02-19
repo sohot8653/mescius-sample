@@ -1,5 +1,6 @@
 var sheet, data;
 window.onload = function() {
+    $('.content_box_loading').show();
     data = getData();
     var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
     initSpread(spread);
@@ -61,6 +62,9 @@ function initSpread(spread) {
     ]);
     myView.fetch().then(function() {
         sheet.setDataView(myView);
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
 
     spread.resumePaint();

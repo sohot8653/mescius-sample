@@ -1,5 +1,6 @@
 var sheet, data;
 window.onload = function() {
+    $('.content_box_loading').show();
     $('#btnGrid').on('click', function(e){
         location.href = '/sample?depth1=OMS&depth2=출고요청서&sampleId=11';
     });
@@ -65,6 +66,9 @@ function initSpread(spread) {
     ]);
     myView.fetch().then(function() {
         sheet.setDataView(myView);
+    })
+    .then(() => {
+        $('.content_box_loading').hide();
     });
 
     spread.resumePaint();

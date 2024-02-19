@@ -1,7 +1,9 @@
 document.readyState === 'complete' ? init() : window.onload = init;
 function init () {
+    $('.content_box_loading').show();
     initGrid();
     initChart();
+    $('.content_box_loading').hide();
 }
 function initGrid() {
   // 총계 표시를 위한 그룹 생성

@@ -1,1 +1,1 @@
-D: && cd D:\project\wingo && node app.js
+D: && cd D:\project\wingo && javascript-obfuscator ./static/js/origin --output ./static/js/obfuscation && npm start

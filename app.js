@@ -33,6 +33,9 @@ app.get("/sample", function(req, res) {
     if(sampleId == 15) {
         param.sample23Index = req.query.sample23Index ?? -1;
     }
+    if(sampleId == 31) {
+        param.sample30Index = req.query.sample30Index ?? -1;
+    }
     
     
     res.render("sample"+sampleId+".ejs", param);

@@ -12,17 +12,17 @@ window.onload = function() {
 	// host the workbook control in a DIV element with id "ss"
 	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
     
-    if(localStorageIndex23 == '-1') {
+    if(localStorageIndex30 == '-1') {
         initSpreadDefault(spread);
     } else {
         spread.suspendPaint();
-        spread.fromJSON(JSON.parse(localStorage.getItem('sample23Json' + localStorageIndex23)));
+        spread.fromJSON(JSON.parse(localStorage.getItem('sample30Json' + localStorageIndex30)));
         spread.resumePaint();
         $('.content_box_loading').hide();
     }
 
     document.getElementById('btnExcel').onclick = function () {
-        var fileName = '배송내역서_상세_OD2310392635.xlsx';
+        var fileName = '配送内訳書_詳細_OD2310392635.xlsx';
         var options = {
             "includeBindingSource": false,
             "includeStyles": true,
@@ -42,7 +42,7 @@ window.onload = function() {
 };
 
 function initSpreadDefault(spread) {
-    fetch('json/Sample15.ssjson')
+    fetch('json/Sample31.ssjson')
     .then(response => {
         return response.json();
     })
@@ -69,43 +69,43 @@ function initSpreadDefault(spread) {
         sheet.setColumnWidth(7, "*");
 
 
-        sheet.setValue(1, 0, '대형물 : 피킹작업자 [ 고OO ]    검수담당자 [ 김OO ]');
-        sheet.setValue(2, 0, '부자재 : 피킹작업자 [ 차OO ]    검수담당자 [ 김OO]');
+        sheet.setValue(1, 0, '大形物 : ピッキング作業者 [ KO ]    検収担当者 [ KIM ]');
+        sheet.setValue(2, 0, '副資材 : ピッキング作業者 [ CHA ]    検収担当者 [ KIM]');
 
         sheet.setValue(3, 1, 'DL23090015231');
-        sheet.setValue(3, 3, '일반주문');
+        sheet.setValue(3, 3, '一般注文');
         sheet.setValue(3, 6, 'DL34235056056');
 
-        sheet.setValue(4, 1, '장OO');
-        sheet.setValue(4, 3, '김OO');
+        sheet.setValue(4, 1, 'JANG');
+        sheet.setValue(4, 3, 'KIM');
         sheet.setValue(4, 5, '02-548-4888');
         sheet.setValue(4, 7, '010-5489-4888');
 
-        sheet.setValue(5, 1, '차OO');
+        sheet.setValue(5, 1, 'CHA');
         sheet.setValue(5, 3, '-');
         sheet.setValue(5, 5, '02-548-9688');
         sheet.setValue(5, 7, '010-5519-7898');
 
-        sheet.setValue(6, 1, '[11563] 서울 영등포구 영등포로5번길 9,563');
-        sheet.setValue(6, 7, '김OO');
+        sheet.setValue(6, 1, '[11563] 地域1');
+        sheet.setValue(6, 7, 'KIM');
 
         sheet.setValue(7, 1, '2023-12-18');
-        sheet.setValue(7, 3, '15시 30분');
+        sheet.setValue(7, 3, '15時30分');
         sheet.setValue(7, 5, 'X');
         sheet.setValue(7, 7, '010-5519-7898');
 
-        sheet.setValue(8, 1, '출고시 검수담당자에게 먼저 연락 한번 주세요.');
+        sheet.setValue(8, 1, '出荷時に検収担当者に先にご連絡ください。');
         sheet.setValue(9, 1, '-');
-        sheet.setValue(9, 7, '고OO');
+        sheet.setValue(9, 7, 'KO');
 
         var data1 = getData1();
         sheet.addRows(sheet.getRowCount(SheetArea.viewport), data1.length + 5);
-        sheet.getCell(11, 0).text('욕실 단품 추가').font('bold normal 18px normal');
-        sheet.getCell(12, 0).text('순번').font('bold normal 15px normal');
-        sheet.getCell(12, 1).text('제품코드').font('bold normal 15px normal');
-        sheet.getCell(12, 3).text('제품명').font('bold normal 15px normal');
-        sheet.getCell(12, 5).text('수량').font('bold normal 15px normal');
-        sheet.getCell(12, 6).text('비고').font('bold normal 15px normal');
+        sheet.getCell(11, 0).text('バスルーム単品追加').font('bold normal 18px normal');
+        sheet.getCell(12, 0).text('順番').font('bold normal 15px normal');
+        sheet.getCell(12, 1).text('製品コード').font('bold normal 15px normal');
+        sheet.getCell(12, 3).text('製品名').font('bold normal 15px normal');
+        sheet.getCell(12, 5).text('数量').font('bold normal 15px normal');
+        sheet.getCell(12, 6).text('備考').font('bold normal 15px normal');
 
         sheet.setRowHeight(11, 50.0, SheetArea.viewport);
         sheet.getRange(12, 0, 1, 8).foreColor('#ffffff');
@@ -118,7 +118,7 @@ function initSpreadDefault(spread) {
             sheet.getCell(startCell, 0).text(x.c1);
             sheet.getCell(startCell, 1).text(x.c2);
             sheet.getCell(startCell, 3).text(x.c3);
-            sheet.getCell(startCell, 5).text(x.c4 + '개');
+            sheet.getCell(startCell, 5).text(x.c4 + 'つ');
             sheet.getCell(startCell, 6).text(x.c5);
             sheet.addSpan(startCell, 1, 1, 2); 
             sheet.addSpan(startCell, 3, 1, 2); 
@@ -128,11 +128,11 @@ function initSpreadDefault(spread) {
             sum += x.c4;
         });
 
-        sheet.getCell(13 + data1.length, 0).text('합계').font('bold normal 15px normal');
+        sheet.getCell(13 + data1.length, 0).text('合計').font('bold normal 15px normal');
         sheet.getRange(13 + data1.length, 0, 1, 8).backColor('#fff9c4');
         sheet.addSpan(13 + data1.length, 1, 1, 4);
         sheet.addSpan(13 + data1.length, 6, 1, 2);
-        sheet.getCell(13 + data1.length, 5).text(sum + '개').font('bold normal 15px normal');
+        sheet.getCell(13 + data1.length, 5).text(sum + 'つ').font('bold normal 15px normal');
 
         sheet.getRange(13, 0, data1.length + 1, 7).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
         
@@ -147,12 +147,12 @@ function initSpreadDefault(spread) {
         var startCell2 = 13 + data1.length + 2;
         var data2 = getData2();
         sheet.addRows(sheet.getRowCount(SheetArea.viewport), data2.length + 5);
-        sheet.getCell(startCell2, 0).text('욕실 기본').font('bold normal 18px normal');
-        sheet.getCell(startCell2 + 1, 0).text('순번').font('bold normal 15px normal');
-        sheet.getCell(startCell2 + 1, 1).text('제품코드').font('bold normal 15px normal');
-        sheet.getCell(startCell2 + 1, 3).text('제품명').font('bold normal 15px normal');
-        sheet.getCell(startCell2 + 1, 5).text('수량').font('bold normal 15px normal');
-        sheet.getCell(startCell2 + 1, 6).text('비고').font('bold normal 15px normal');
+        sheet.getCell(startCell2, 0).text('バスルーム 基本').font('bold normal 18px normal');
+        sheet.getCell(startCell2 + 1, 0).text('順番').font('bold normal 15px normal');
+        sheet.getCell(startCell2 + 1, 1).text('製品コード').font('bold normal 15px normal');
+        sheet.getCell(startCell2 + 1, 3).text('製品名').font('bold normal 15px normal');
+        sheet.getCell(startCell2 + 1, 5).text('数量').font('bold normal 15px normal');
+        sheet.getCell(startCell2 + 1, 6).text('備考').font('bold normal 15px normal');
 
         sheet.setRowHeight(startCell2, 50.0, SheetArea.viewport);
         sheet.getRange(startCell2 + 1, 0, 1, 8).foreColor('#ffffff');
@@ -165,7 +165,7 @@ function initSpreadDefault(spread) {
             sheet.getCell(startCell, 0).text(x.c1);
             sheet.getCell(startCell, 1).text(x.c2);
             sheet.getCell(startCell, 3).text(x.c3);
-            sheet.getCell(startCell, 5).text(x.c4 + '개');
+            sheet.getCell(startCell, 5).text(x.c4 + 'つ');
             sheet.getCell(startCell, 6).text(x.c5);
             sheet.addSpan(startCell, 1, 1, 2); 
             sheet.addSpan(startCell, 3, 1, 2); 
@@ -176,11 +176,11 @@ function initSpreadDefault(spread) {
         });
 
         startCell = startCell2 + 2 + data1.length;
-        sheet.getCell(startCell, 0).text('합계').font('bold normal 15px normal');
+        sheet.getCell(startCell, 0).text('合計').font('bold normal 15px normal');
         sheet.getRange(startCell, 0, 1, 8).backColor('#fff9c4');
         sheet.addSpan(startCell, 1, 1, 4);
         sheet.addSpan(startCell, 6, 1, 2);
-        sheet.getCell(startCell, 5).text(sum + '개').font('bold normal 15px normal');
+        sheet.getCell(startCell, 5).text(sum + 'つ').font('bold normal 15px normal');
 
         sheet.getRange(startCell2 + 1, 0, data2.length + 3, 7).hAlign(GC.Spread.Sheets.HorizontalAlign.center);
         
@@ -206,7 +206,7 @@ function getData1() {
 
   for(var i = 1; i < 6; i++) {
     var obj = {};
-    var order = getRandomArrayElement([["SAHVO-SSDFS5441FD", '4인치 세면 샤워 수전', 3], ["SAHVO-SSD1FD", '6인치 세면 샤워 수전', 5]]);
+    var order = getRandomArrayElement([["SAHVO-SSDFS5441FD", '4インチ 洗面 シャワー 水栓', 3], ["SAHVO-SSD1FD", '6インチ 洗面 シャワー 水栓', 5]]);
     obj.c1 = i + '';
     obj.c2 = order[0];
     obj.c3 = order[1];
@@ -235,7 +235,7 @@ function getData2() {
 
   for(var i = 1; i < 6; i++) {
     var obj = {};
-    var order = getRandomArrayElement([["SAHVO-SSDFS5441FD", '4인치 세면 샤워 수전', 3], ["SAHVO-SSD1FD", '6인치 세면 샤워 수전', 5]]);
+    var order = getRandomArrayElement([["SAHVO-SSDFS5441FD", '4インチ 洗面 シャワー 水栓', 3], ["SAHVO-SSD1FD", '6インチ 洗面 シャワー 水栓', 5]]);
     obj.c1 = i + '';
     obj.c2 = order[0];
     obj.c3 = order[1];

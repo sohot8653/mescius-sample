@@ -80,10 +80,10 @@ textarea:-moz-placeholder{color:#7d7d7d;font-size:14px;font-weight:normal;}
 .scroll::-webkit-scrollbar-button {display:none;}
 
 body{overflow-y:hidden;}
-.wrapper{width:100%;min-width:1600px;}
+.wrapper{width:100%;min-width:1600px;height: 100%;}
 header.header{width:100%;min-width:1500px;height:100px;display:flex;border-bottom:1px solid #b3b3b3;position:fixed;position:fixed;top:0;z-index:50;}
 .header .logo img{margin: 0 auto;}
-.header .logo_div{width:270px;height:100px;background:#2e3144;padding-top:28px;flex-shrink:0;}
+.header .logo_div{width:270px;height:100px;background:#2e3144;padding-top:38px;flex-shrink:0;}
 .header .top_div{flex-grow:1;position:relative;}
 .loca{position:absolute;left:50px;top:35px;transition:0.15s;}
 .loca li{background:url(../images/bar_loca.png) no-repeat 0 center;padding-left:18px;margin-left:9px;float:left;font-size:20px;color:#878787;}
@@ -99,6 +99,12 @@ header.header{width:100%;min-width:1500px;height:100px;display:flex;border-botto
 .ico_logout{background:url(../images/ico_logout.png) no-repeat center center;}
 
 .container{display:flex;height:calc(100vh - 100px);margin-top:100px;}
+.container.full_screen_mode.active{height:100%;margin-top:0;}
+.container.full_screen_mode.active .container{height:100%;}
+.container.full_screen_mode.active .spreadSheet{height:100%;}
+.container.full_screen_mode.active .content_wrap{width:100%;margin-left:0;padding: 0px;height: 100%;}
+.container.full_screen_mode.active .content_box{height: 100%; margin-top: 0;}
+.container.full_screen_mode.active .search_box.active{margin-bottom: 19px;}
 .left_nav_wrap{width:270px;flex-shrink:0;background:#242632;overflow-y:auto;height:calc(100vh - 100px);position:fixed;top:100px;left:0;z-index:50}
 .left_nav_wrap{-ms-overflow-style:none;scrollbar-width:none;}
 .left_nav_wrap::-webkit-scrollbar{display:none;}
@@ -197,7 +203,7 @@ input.ipt_date{width:113px;width:calc(100% - 38px);margin-right:9px;text-align:c
 .gc-rowHeader-hover,
 .gc-columnHeader-selected,
 .gc-rowHeader-selected {
-  background-color: #f4f4f4;
+  background-color: #9bb9d8;
 }
 
 .content_box_loading {

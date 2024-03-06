@@ -12,7 +12,7 @@ function initRibbon() {
 }
 
 function initSpread(spread) {
-  var spread = designer.getWorkbook();
+  spread = designer.getWorkbook();
 
   fetch('json/Sample0.ssjson')
     .then(response => {

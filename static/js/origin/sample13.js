@@ -1,8 +1,9 @@
 var sheet, data;
+let spread;
 window.onload = function() {
     $('.content_box_loading').show();
     data = getData();
-    var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
+    spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
     initSpread(spread);
 
     document.getElementById('save').onclick = function () {

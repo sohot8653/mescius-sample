@@ -1,6 +1,7 @@
+let spread;
 window.onload = function() {
     $('.content_box_loading').show();
-    var spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
+    spread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"), { sheetCount: 0 });
     initSpread(spread);
 };
 
@@ -56,7 +57,6 @@ function getData() {
   for(var i = 1; i < 150; i++) {
 
       var local = getRandomArrayElement([['서울/경인', '서울 서초구 양재동'], ['경상', '부산광역시 남구'], ['강원', '강원 원주시'], ['경기/수원', '경기 수원시 영통구'], ['경기/이천', '경기 이천시 이천구']]);
-      console.log(local[1]);
       var obj = {};
       obj.c1 = ['대리점', '제휴점'][Math.floor(Math.random() * 2)];
       obj.c2 = local[0];

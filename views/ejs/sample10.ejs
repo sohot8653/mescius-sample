@@ -62,7 +62,7 @@
     </table>
   </div>
 
-<div class="content_box" style="height: calc(100vh - 360px);">
+<div class="content_box">
     <div class="sample-tutorial">
         <div id="ss" class="sample-spreadsheets"></div>
         <div id="optionContainer" class="optionContainer">
@@ -72,6 +72,12 @@
 
 
 <style>
+.content_box {
+    height: calc(100vh - 360px);
+}
+.container.full_screen_mode.active .content_box {
+    height: calc(100vh - 122px);
+}
 .sample-tutorial {
    position: relative;
    height: 100%;

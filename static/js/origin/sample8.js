@@ -58,9 +58,11 @@ var dataTemplate = [
         ]
     }
 ]
+
 window.onload = function () {
     $('.content_box_loading').show();
-    var mainSpread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"));
+    mainSpread = new GC.Spread.Sheets.Workbook(document.getElementById("ss"));
+    _objFullScreenTarget = mainSpread;
     var dataManager = mainSpread.dataManager();
     tables.order = dataManager.addTable("orderTable", {
         data: getData()

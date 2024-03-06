@@ -1,220 +1,226 @@
 <div class="content_top">
-    <div class="cont_tit">しこう スケジュール</div>
-    <div class="div">
-      <button class="btn_search">
-        <i class="ico_srch"></i>
-        <span>search</span>
-      </button>
-    </div>
+  <div class="cont_tit">しこう スケジュール</div>
+  <div class="div">
+    <button class="btn_search">
+      <i class="ico_srch"></i>
+      <span>search</span>
+    </button>
   </div>
-          
-  <div class="search_box active">
-    <table class="srch_tbl">
-      <colgroup>
-        <col width="10.9%">
-        <col width="*">
-        <col width="10.9%">
-        <col width="*">
-        <col width="10.9%">
-        <col width="*">
-      </colgroup>
-      <tbody>
-        <tr>
-            <th>基準日付</th>
-            <td class="ipt_date_wrap">
-                <div class="ipt_date_div">
-                    <input type="text" class="ipt_date datepicker">
-                </div>
-                <span class="line">-</span>
-                <div class="ipt_date_div">
-                    <input type="text" class="ipt_date datepicker">
-                </div>
-            </td>
-            <th>施工業者</th>
-            <td>
-                <select>
-                    <option>選択</option>
-                    <option>施工業者1</option>
-                    <option>施工業者2</option>
-                </select>
-            </td>
-            <th>施工地域</th>
-            <td>
-                <select>
-                    <option>選択</option>
-                    <option>施工地域1</option>
-                    <option>施工地域2</option>
-                    <option>施工地域3</option>
-                </select>
-            </td>
-        </tr>
-      </tbody>
-    </table>
+</div>
+        
+<div class="search_box active">
+  <table class="srch_tbl">
+    <colgroup>
+      <col width="10.9%">
+      <col width="*">
+      <col width="10.9%">
+      <col width="*">
+      <col width="10.9%">
+      <col width="*">
+    </colgroup>
+    <tbody>
+      <tr>
+          <th>基準日付</th>
+          <td class="ipt_date_wrap">
+              <div class="ipt_date_div">
+                  <input type="text" class="ipt_date datepicker">
+              </div>
+              <span class="line">-</span>
+              <div class="ipt_date_div">
+                  <input type="text" class="ipt_date datepicker">
+              </div>
+          </td>
+          <th>施工業者</th>
+          <td>
+              <select>
+                  <option>選択</option>
+                  <option>施工業者1</option>
+                  <option>施工業者2</option>
+              </select>
+          </td>
+          <th>施工地域</th>
+          <td>
+              <select>
+                  <option>選択</option>
+                  <option>施工地域1</option>
+                  <option>施工地域2</option>
+                  <option>施工地域3</option>
+              </select>
+          </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="content_box" style="display: flex;">
+  <div class="container-fluid" style="width: 30%;height: 100%;padding-top: 30px;">
+      <div class="legend">
+        <div><img src="https://status.slack.com/img/v2/TableMaintenance.png"><span>進行</span></div>
+        <div><img src="https://status.slack.com/img/v2/TableIncident.png">進行</div>
+        <div><img src="https://status.slack.com/img/v2/TableNotice.png">わりあて</div>
+        <div><img src="https://status.slack.com/img/v2/TableOutage.png">中断</div>
+      </div>
+      <div id="calendar" class="calendar">
+      </div>
   </div>
-  
-  <div class="content_box" style="height: calc(100vh - 360px); display: flex;">
-    <div class="container-fluid" style="width: 30%;height: 100%;padding-top: 30px;">
-        <div class="legend">
-          <div><img src="https://status.slack.com/img/v2/TableMaintenance.png"><span>進行</span></div>
-          <div><img src="https://status.slack.com/img/v2/TableIncident.png">進行</div>
-          <div><img src="https://status.slack.com/img/v2/TableNotice.png">わりあて</div>
-          <div><img src="https://status.slack.com/img/v2/TableOutage.png">中断</div>
-        </div>
-        <div id="calendar" class="calendar">
-        </div>
-    </div>
-    <div class="sample-tutorial" style="height: 100%;width: 70%;">
-        <div id="ss" class="sample-spreadsheets"></div>
-        <div id="optionContainer" class="optionContainer">
-        </div>
-    </div>
+  <div class="sample-tutorial" style="height: 100%;width: 70%;">
+      <div id="ss" class="sample-spreadsheets"></div>
+      <div id="optionContainer" class="optionContainer">
+      </div>
   </div>
-  
-  
-  <style>
-  
-  .legend {
-  display: flex;
-  justify-content: flex-start;
-  }
-  
-  .legend div {
-  margin-left: 24px;
-  }
-  
-  .calendar {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  padding-bottom: 90px;
+</div>
+
+
+<style>
+.content_box {
+  height: calc(100vh - 360px);
+}
+.container.full_screen_mode.active .content_box {
+  height: calc(100vh - 122px);
+}
+
+.legend {
+display: flex;
+justify-content: flex-start;
+}
+
+.legend div {
+margin-left: 24px;
+}
+
+.calendar {
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+padding-bottom: 90px;
+height: 100%;
+}
+
+.calendar .wj-calendar {
+padding: 12px 12px 36px;
+background-color: white;
+margin: 8px;
+}
+
+.calendar .wj-calendar .wj-content {
+border: none;
+height: 100%;
+}
+
+.calendar .wj-calendar .wj-day-today {
+font-weight: normal;
+}
+
+.calendar .wj-calendar .wj-state-selected {
+background: inherit;
+color: inherit;
+}
+
+.calendar .wj-calendar tr:not(.wj-header) td:hover {
+background: #eee;
+}
+
+.calendar .wj-calendar .month-header {
+display: flex;
+justify-content: space-between;
+align-items: baseline;
+font-weight: bold;
+margin-bottom: 20px;
+}
+
+.calendar .wj-calendar .month-header .month-title{
+font-size: 150%;
+}
+
+.calendar .wj-calendar img {
+height: 12px;
+margin-top: -12px;
+}
+.calendar .wj-calendar-month {
+height: 85% !important;
+}
+
+.calendar .wj-calendar-month .wj-header {
+font-size: 100%;
+background-color: inherit;
+font-weight: normal;
+}
+
+.calendar .wj-calendar .wj-day-othermonth {
+visibility: hidden;
+}
+
+.wj-tooltip {
+background-color: #fff;
+padding: 0;
+border: 1px solid rgba(0,0,0,0.1);
+border-radius: 0;
+box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+box-sizing: border-box;
+width: 450px;
+}
+
+.wj-tooltip .event {
+margin-top: 12px;
+font-weight: bold;
+}
+
+.wj-tooltip .event-tip {
+border-top: 4px solid green;
+padding: 24px;
+}
+
+.wj-tooltip .event-tip.event-type-maintenance {
+border-top-color: #3f46ad;
+}
+
+.wj-tooltip .event-tip.event-type-incident {
+border-top-color: #eeb522;
+}
+
+.wj-tooltip .event-tip.event-type-notice {
+border-top-color: #ff944b;
+}
+
+.wj-tooltip .event-tip.event-type-outage {
+border-top-color: #eb4d5c;
+}
+
+.sample-tutorial {
+  width: 100%;
   height: 100%;
-  }
-  
-  .calendar .wj-calendar {
-  padding: 12px 12px 36px;
-  background-color: white;
-  margin: 8px;
-  }
-  
-  .calendar .wj-calendar .wj-content {
-  border: none;
+}
+.sample-spreadsheets {
+  width: 100%;
   height: 100%;
-  }
-  
-  .calendar .wj-calendar .wj-day-today {
-  font-weight: normal;
-  }
-  
-  .calendar .wj-calendar .wj-state-selected {
-  background: inherit;
-  color: inherit;
-  }
-  
-  .calendar .wj-calendar tr:not(.wj-header) td:hover {
-  background: #eee;
-  }
-  
-  .calendar .wj-calendar .month-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  font-weight: bold;
-  margin-bottom: 20px;
-  }
-  
-  .calendar .wj-calendar .month-header .month-title{
-  font-size: 150%;
-  }
-  
-  .calendar .wj-calendar img {
-  height: 12px;
-  margin-top: -12px;
-  }
-  .calendar .wj-calendar-month {
-  height: 85% !important;
-  }
-  
-  .calendar .wj-calendar-month .wj-header {
-  font-size: 100%;
-  background-color: inherit;
-  font-weight: normal;
-  }
-  
-  .calendar .wj-calendar .wj-day-othermonth {
-  visibility: hidden;
-  }
-  
-  .wj-tooltip {
-  background-color: #fff;
-  padding: 0;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 0;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-  box-sizing: border-box;
-  width: 450px;
-  }
-  
-  .wj-tooltip .event {
-  margin-top: 12px;
-  font-weight: bold;
-  }
-  
-  .wj-tooltip .event-tip {
-  border-top: 4px solid green;
-  padding: 24px;
-  }
-  
-  .wj-tooltip .event-tip.event-type-maintenance {
-  border-top-color: #3f46ad;
-  }
-  
-  .wj-tooltip .event-tip.event-type-incident {
-  border-top-color: #eeb522;
-  }
-  
-  .wj-tooltip .event-tip.event-type-notice {
-  border-top-color: #ff944b;
-  }
-  
-  .wj-tooltip .event-tip.event-type-outage {
-  border-top-color: #eb4d5c;
-  }
-  
-  .sample-tutorial {
-   width: 100%;
-   height: 100%;
-  }
-  .sample-spreadsheets {
-   width: 100%;
-   height: 100%;
-  }
-  
-  .sample-spreadsheets table table {
-    width: auto;
-  }
-  
-  .wj-calendar td {
-    border: 1px solid #36495e;
-  }
-  
-  .wj-header td {
-  background-color: #36495e;
-  color: #ffffff;
-  border: 1px solid #ffffff;
-  }
-  
-  .wj-header td:first-child {
-  border-left: 1px solid #36495e !important;
-  }
-  .wj-header td:last-child {
-  border-right: 1px solid #36495e !important;
-  }
-  
-  .calendar .wj-calendar-month .wj-header {
+}
+
+.sample-spreadsheets table table {
+  width: auto;
+}
+
+.wj-calendar td {
   border: 1px solid #36495e;
-  }
-  
-  </style>
-  
-  <script src="plugins/wijmo-5.20232.939_KR/Dist/controls/cultures/wijmo.culture.ja.min.js" type="text/javascript"></script>
-  <script src="js/<%= pathJs %>/sample26.js" type="text/javascript"></script>
+}
+
+.wj-header td {
+background-color: #36495e;
+color: #ffffff;
+border: 1px solid #ffffff;
+}
+
+.wj-header td:first-child {
+border-left: 1px solid #36495e !important;
+}
+.wj-header td:last-child {
+border-right: 1px solid #36495e !important;
+}
+
+.calendar .wj-calendar-month .wj-header {
+border: 1px solid #36495e;
+}
+
+</style>
+
+<script src="plugins/wijmo-5.20232.939_KR/Dist/controls/cultures/wijmo.culture.ja.min.js" type="text/javascript"></script>
+<script src="js/<%= pathJs %>/sample26.js" type="text/javascript"></script>

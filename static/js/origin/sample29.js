@@ -1,8 +1,7 @@
+let spread;
 window.onload = function() {
     $('.content_box_loading').show();
-	var spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'), {
-		sheetCount: 2,
-	});
+	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
     
     spread.suspendPaint();
 	initSpread(spread);

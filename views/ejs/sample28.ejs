@@ -49,7 +49,7 @@
     </table>
 </div>
 
-<div class="div" style="margin-top: 9px;">
+<div class="div" style="margin-bottom: 9px;">
     <button id="btnEnroll" class="btn_page">
         <span>新規</span>
     </button>
@@ -58,13 +58,24 @@
     </button>
 </div>
 
-<div class="content_box" style="height: calc(100vh - 360px); margin-top: 9px;">
+<div class="content_box">
     <div class="sample-tutorial">
         <div id="ss" style="width:100%;height:100%"></div>
     </div>
 </div>
 
 <style>
+.srch_tbl {
+    margin-bottom: 9px;
+}
+
+.content_box {
+    height: calc(100vh - 360px);
+    margin-top: 9px;
+}
+.container.full_screen_mode.active .content_box {
+    height: calc(100vh - 162px);
+}
 .sample-tutorial {
     position: relative;
     height: 100%;

@@ -38,9 +38,9 @@
   //contentBoxHeight();
   let _objFullScreenTarget;
 
-  $('.btn_fullscreen_off').on('click', function(event) {
-    $('.btn_fullscreen_off').hide();
-    $('.btn_fullscreen_on').show();
+  $('.btn_fullscreen_on').on('click', function(event) {
+    $('.btn_fullscreen_off').show();
+    $('.btn_fullscreen_on').hide();
     $('.fullScreenHideArea').hide();
     $('.full_screen_mode').addClass('active');
     if(typeof designer != 'undefined') _objFullScreenTarget = designer;
@@ -51,9 +51,9 @@
       }, 200);
     }
   });
-  $('.btn_fullscreen_on').on('click', function(event) {
-    $('.btn_fullscreen_on').hide();
-    $('.btn_fullscreen_off').show();
+  $('.btn_fullscreen_off').on('click', function(event) {
+    $('.btn_fullscreen_on').show();
+    $('.btn_fullscreen_off').hide();
     $('.fullScreenHideArea').show();
     $('.full_screen_mode').removeClass('active');
     if(typeof designer != 'undefined') _objFullScreenTarget = designer;

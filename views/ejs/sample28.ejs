@@ -1,12 +1,14 @@
 <div class="content_top">
     <div class="cont_tit">はいそう うちわけしょ</div>
     <div class="div">
-        <!-- <button id="btnEnroll" class="btn_search">
-            <span>신규</span>
+        <button class="btn_fullscreen_off"></button>
+        <button class="btn_fullscreen_on"></button>
+        <button id="btnEnroll" class="btn_page">
+            <span>NEW</span>
         </button>
-        <button id="btnTemplate" class="btn_search">
-            <span>템플릿</span>
-        </button> -->
+        <button id="btnTemplate" class="btn_page">
+            <span>TEMPLATE</span>
+        </button>
         <button class="btn_search">
             <i class="ico_srch"></i>
             <span>search</span>
@@ -49,15 +51,6 @@
     </table>
 </div>
 
-<div class="div" style="margin-bottom: 9px;">
-    <button id="btnEnroll" class="btn_page">
-        <span>新規</span>
-    </button>
-    <button id="btnTemplate" class="btn_page">
-        <span>テンプレート</span>
-    </button>
-</div>
-
 <div class="content_box">
     <div class="sample-tutorial">
         <div id="ss" style="width:100%;height:100%"></div>
@@ -65,16 +58,11 @@
 </div>
 
 <style>
-.srch_tbl {
-    margin-bottom: 9px;
-}
-
 .content_box {
     height: calc(100vh - 360px);
-    margin-top: 9px;
 }
 .container.full_screen_mode.active .content_box {
-    height: calc(100vh - 162px);
+    height: calc(100% - 117px);
 }
 .sample-tutorial {
     position: relative;

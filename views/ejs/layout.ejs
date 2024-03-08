@@ -14,7 +14,6 @@
         </ul>
         <div class="user_div">
           <p><em>D&T팀</em> Kim Youngeun</p>
-          <button class="btn_fullscreen">FULL SCREEN</button>
           <button class="btn_user ico_edit">Edit</button>
           <button class="btn_user ico_logout">Logout</button>
         </div>
@@ -39,7 +38,9 @@
   //contentBoxHeight();
   let _objFullScreenTarget;
 
-  $('.btn_fullscreen').on('click', function(event) {
+  $('.btn_fullscreen_off').on('click', function(event) {
+    $('.btn_fullscreen_off').hide();
+    $('.btn_fullscreen_on').show();
     $('.fullScreenHideArea').hide();
     $('.full_screen_mode').addClass('active');
     if(typeof designer != 'undefined') _objFullScreenTarget = designer;
@@ -50,17 +51,17 @@
       }, 200);
     }
   });
-  $(document).keydown(function(event) {
-    if ( event.keyCode == 27 || event.which == 27 ) {
-      $('.fullScreenHideArea').show();
-      $('.full_screen_mode').removeClass('active');
-      if(typeof designer != 'undefined') _objFullScreenTarget = designer;
-      else if(typeof spread != 'undefined') _objFullScreenTarget = spread;
-      if(_objFullScreenTarget != null) {
-        setTimeout(() => {
-          _objFullScreenTarget.refresh();
-        }, 200);
-      }
+  $('.btn_fullscreen_on').on('click', function(event) {
+    $('.btn_fullscreen_on').hide();
+    $('.btn_fullscreen_off').show();
+    $('.fullScreenHideArea').show();
+    $('.full_screen_mode').removeClass('active');
+    if(typeof designer != 'undefined') _objFullScreenTarget = designer;
+    else if(typeof spread != 'undefined') _objFullScreenTarget = spread;
+    if(_objFullScreenTarget != null) {
+      setTimeout(() => {
+        _objFullScreenTarget.refresh();
+      }, 200);
     }
   });
 </script>

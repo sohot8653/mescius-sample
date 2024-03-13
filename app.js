@@ -1,6 +1,7 @@
 const express = require('express')
 const expressLayouts = require('express-ejs-layouts')
 const path = require("path")
+const axios = require("axios")
 var app = express()
 
 app.set('view engine', 'ejs');
@@ -40,6 +41,23 @@ app.get("/sample", function(req, res) {
     
     res.render("sample"+sampleId+".ejs", param);
 });
+
+const getApiData = async (request) => {
+    let respnose;
+    try {
+        respnose = await axios.get("http://localhost:8650")
+    }
+    catch (e) {
+        console.log(e);
+    }
+
+    return respnose;
+}
+app.get("/api/sample37", (req, res) => {
+    getApiData(req).then((response) => {
+        return res.json(response?.data);
+    });
+})
 
 app.get("/", function(req, res) {
     res.redirect('/sample?depth1=INTRO&depth2=INTRO&sampleId=0');

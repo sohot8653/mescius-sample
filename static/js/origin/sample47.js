@@ -6,16 +6,16 @@ window.onload = function () {
   initSpread(spread);
 
   $("#btnEnroll").on("click", function (e) {
-    location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=23`;
+    location.href = `/sample?depth1=${depth1}&depth2=Shipping statement&sampleId=49`;
   });
 
   $("#btnTemplate").on("click", function (e) {
-    location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=22`;
+    location.href = `/sample?depth1=${depth1}&depth2=Shipping statement&sampleId=48`;
   });
 };
 
 function initSpread(spread) {
-  fetch("json/Sample21.ssjson")
+  fetch("json/Sample47.ssjson")
     .then((response) => {
       return response.json();
     })
@@ -49,13 +49,13 @@ function initSpread(spread) {
       var data = getData();
       var dataAdd = [];
 
-      if (localStorage.getItem("sample23Index") != null) {
-        var idx = Number(localStorage.getItem("sample23Index"));
+      if (localStorage.getItem("sample48Index") != null) {
+        var idx = Number(localStorage.getItem("sample48Index"));
 
         for (var i = 0; i < idx + 1; i++) {
           dataAdd.push({
-            c1: localStorage.getItem("sample23Num" + i),
-            c2: "테스터",
+            c1: localStorage.getItem("sample48Num" + i),
+            c2: "tester",
             c3: getToday(),
             c4: i,
           });
@@ -78,13 +78,13 @@ function initSpread(spread) {
         var cellType = sheet.getCellType(row, col);
         if (cellType instanceof GC.Spread.Sheets.CellTypes.Button) {
           switch (cellType._text) {
-            case "상세":
+            case "Detail":
               if (sheet.getCell(row, col + 1).text() != "") {
-                location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=15&sample23Index=${sheet
+                location.href = `/sample?depth1=${depth1}&depth2=Shipping statement&sampleId=46&sample48Index=${sheet
                   .getCell(row, col + 1)
                   .text()}`;
               } else {
-                location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=15`;
+                location.href = `/sample?depth1=${depth1}&depth2=Shipping statement&sampleId=46`;
               }
               break;
           }
@@ -109,7 +109,7 @@ function initSpread(spread) {
     sheet.setCellType(
       startRow,
       3,
-      new GC.Spread.Sheets.CellTypes.Button().text("상세"),
+      new GC.Spread.Sheets.CellTypes.Button().text("Detail"),
       GC.Spread.Sheets.SheetArea.viewport
     );
     sheet.setValue(startRow, 4, data.c4); // 작성일
@@ -138,7 +138,7 @@ function getData() {
     obj.c1 =
       "OD" +
       (Math.floor(Math.random() * (2400000000 - 2100000000)) + 2100000000);
-    obj.c2 = getRandomArrayElement(["김", "강", "고", "박", "윤", "이"]) + "OO";
+    obj.c2 = getRandomArrayElement(["KIM", "KANG", "KO", "PARK", "YUN", "LEE"]);
     obj.c3 = "2024-01-29";
 
     arr.push(obj);

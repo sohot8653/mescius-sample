@@ -15,7 +15,7 @@
                 "dataTable": {
                     "0": {
                         "0": {
-                            "value": "* 現在ベータサービスを運営しているため、機能に制約がある可能性があります。",
+                            "value": "* There may be restrictions on the function due to the current beta service operation.",
                             "style": {
                                 "foreColor": "rgb(255, 0, 0)",
                                 "vAlign": 1,
@@ -26,56 +26,58 @@
                             }
                         }
                     },
-                    "1": {
-                        "0": {
-                            "style": {
-                                "vAlign": 1,
-                                "font": "14.6667px '맑은 고딕', monospace",
-                                "fontSize": "14.6667px",
-                                "fontFamily": "'맑은 고딕', monospace"
-                            }
-                        }
-                    },
                     "2": {
                         "0": {
-                            "value": "ようこそ、WINGOデモサイトへお越しの皆様！",
+                            "value": "Welcome to the WINGO demo site!",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "10pt '맑은 고딕', monospace",
-                                "fontSize": "10pt",
+                                "font": "13.3333px '맑은 고딕', monospace",
+                                "imeMode": 1,
+                                "fontSize": "13.3333px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "3": {
                         "0": {
-                            "value": "WINGOデモサイトは、[Web Excelエディタ]を活用して、様々なシステムで使用可能なコア機能と拡張性を紹介します。",
+                            "value": "The WINGO demo site uses the Web Excel Editor to introduce the core features and scalability available on a variety of systems.",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "10pt '맑은 고딕', monospace",
-                                "fontSize": "10pt",
+                                "font": "13.3333px '맑은 고딕', monospace",
+                                "imeMode": 1,
+                                "fontSize": "13.3333px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "4": {
                         "0": {
-                            "value": "皆さんは、個人PCまたはモバイルで使用していたエクセル環境をそのままウェブページで体験することができます。",
+                            "value": "You can experience the Excel environment you used on your personal PC or mobile on the web page.",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "10pt '맑은 고딕', monospace",
-                                "fontSize": "10pt",
+                                "font": "13.3333px '맑은 고딕', monospace",
+                                "imeMode": 1,
+                                "fontSize": "13.3333px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "5": {
                         "0": {
-                            "value": "ユーザーフレンドリーなインターフェースを通じて業務効率を向上させ、新規システム構築および既存システム高度化の要求に迅速に現業務に適用できるようお手伝いします。",
+                            "value": "We improve work efficiency through a user-friendly interface and help you quickly apply it to your current work to the needs of building new systems and upgrading existing systems.",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "10pt '맑은 고딕', monospace",
-                                "fontSize": "10pt",
+                                "font": "13.3333px '맑은 고딕', monospace",
+                                "imeMode": 1,
+                                "fontSize": "13.3333px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
@@ -83,8 +85,11 @@
                     "6": {
                         "0": {
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
                                 "vAlign": 1,
                                 "font": "14.6667px '맑은 고딕', monospace",
+                                "imeMode": 1,
                                 "fontSize": "14.6667px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
@@ -92,86 +97,116 @@
                     },
                     "7": {
                         "0": {
-                            "value": "特長",
+                            "value": "a feature point",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "700 16pt '맑은 고딕', monospace",
+                                "font": "700 18.6667px '맑은 고딕', monospace",
+                                "imeMode": 1,
                                 "fontWeight": "700",
-                                "fontSize": "16pt",
+                                "fontSize": "18.6667px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "8": {
                         "0": {
-                            "value": "  - 強力なエクセルサポート",
+                            "value": "  - Powerful Excel support",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "bold 14pt '맑은 고딕', monospace",
-                                "fontWeight": "bold",
-                                "fontSize": "14pt",
+                                "font": "700 16px '맑은 고딕', monospace",
+                                "imeMode": 1,
+                                "fontWeight": "700",
+                                "fontSize": "16px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "9": {
                         "0": {
-                            "value": "ウェブページで様々なエクセル機能を体験できます。",
+                            "value": "You can experience a variety of Excel features on the web page.",
                             "style": {
-                                "textIndent": 8,
-                                "textOrientation": 0
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
+                                "vAlign": 0,
+                                "font": "14.6667px Calibri",
+                                "textIndent": 7,
+                                "imeMode": 1,
+                                "textOrientation": 0,
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Calibri"
                             }
                         }
                     },
                     "10": {
                         "0": {
-                            "value": "  - エクセルの電算化",
+                            "value": "  - Computerized Excel",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
                                 "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "bold 14pt '맑은 고딕', monospace",
+                                "font": "700 14.6667px '맑은 고딕', monospace",
                                 "imeMode": 1,
-                                "fontWeight": "bold",
-                                "fontSize": "14pt",
+                                "fontWeight": "700",
+                                "fontSize": "14.6667px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "11": {
                         "0": {
-                            "value": "現在使用中のエクセルファイルをウェブページにアップロードし、ウェブを通じて直接修正し、データを共有することができます。",
+                            "value": "You can upload your current Excel file to the web page to directly modify it and share your data through the web.",
                             "style": {
-                                "textIndent": 8,
-                                "textOrientation": 0
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
+                                "vAlign": 0,
+                                "font": "14.6667px Calibri",
+                                "textIndent": 7,
+                                "imeMode": 1,
+                                "textOrientation": 0,
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Calibri"
                             }
                         }
                     },
                     "12": {
                         "0": {
-                            "value": "  - レポート サポート",
+                            "value": "  - Report Support",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
                                 "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "bold 14pt '맑은 고딕', monospace",
+                                "font": "700 14.6667px '맑은 고딕', monospace",
                                 "imeMode": 1,
-                                "fontWeight": "bold",
-                                "fontSize": "14pt",
+                                "fontWeight": "700",
+                                "fontSize": "14.6667px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "13": {
                         "0": {
-                            "value": "エクセル ファイルをウェブ ページで表現し、数式を含むデータをレポート形式で出力できます。",
+                            "value": "You can represent Excel files as web pages and output data with formulas in the form of reports.",
                             "style": {
-                                "textIndent": 8,
-                                "textOrientation": 0
+                                "foreColor": "rgb(64, 64, 64)",
+                                "hAlign": 3,
+                                "vAlign": 0,
+                                "font": "14.6667px Calibri",
+                                "textIndent": 7,
+                                "imeMode": 1,
+                                "textOrientation": 0,
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Calibri"
                             }
                         }
                     },
                     "14": {
                         "0": {
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
                                 "hAlign": 3,
                                 "vAlign": 1,
                                 "font": "14.6667px '맑은 고딕', monospace",
@@ -183,58 +218,59 @@
                     },
                     "15": {
                         "0": {
-                            "value": "自社の構築チームは、最新のテクノロジーを活用して、顧客に革新的で優れた経験を提供します。",
+                            "value": "Our deployment team utilizes the latest technology to deliver innovative and outstanding experiences to customers.",
                             "style": {
                                 "foreColor": "rgb(91, 155, 213)",
                                 "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "700 10pt '맑은 고딕', monospace",
+                                "font": "700 13.3333px '맑은 고딕', monospace",
                                 "imeMode": 1,
                                 "fontWeight": "700",
-                                "fontSize": "10pt",
+                                "fontSize": "13.3333px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "16": {
                         "0": {
-                            "value": "企画段階から設計、そして構築まで、あらゆる段階でユーザーのニーズに迅速に対応します。",
+                            "value": "It responds quickly to user needs at every stage from planning to design to construction.",
                             "style": {
                                 "foreColor": "rgb(91, 155, 213)",
                                 "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "700 10pt '맑은 고딕', monospace",
+                                "font": "700 13.3333px '맑은 고딕', monospace",
                                 "imeMode": 1,
                                 "fontWeight": "700",
-                                "fontSize": "10pt",
+                                "fontSize": "13.3333px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "17": {
                         "0": {
-                            "value": "ユーザー中心のデザインと直観的なインターフェースで誰でも簡単に活用できるUI/UX環境を提供します。",
+                            "value": "The user-centered design and intuitive interface provide a UI/UX environment that anyone can easily use.",
                             "style": {
                                 "foreColor": "rgb(91, 155, 213)",
                                 "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "700 10pt '맑은 고딕', monospace",
+                                "font": "700 13.3333px '맑은 고딕', monospace",
                                 "imeMode": 1,
                                 "fontWeight": "700",
-                                "fontSize": "10pt",
+                                "fontSize": "13.3333px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "18": {
                         "0": {
-                            "value": "ありがとうございます。 私たちは皆さんの疑問に答える準備ができています。",
+                            "value": "Thank you, and we are ready to respond to your questions.",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
                                 "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "10pt '맑은 고딕', monospace",
+                                "font": "13.3333px '맑은 고딕', monospace",
                                 "imeMode": 1,
-                                "fontSize": "10pt",
+                                "fontSize": "13.3333px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
@@ -242,37 +278,40 @@
                     "19": {
                         "0": {
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
                                 "hAlign": 3,
-                                "vAlign": 1,
-                                "font": "14.6667px '맑은 고딕', monospace",
+                                "vAlign": 0,
+                                "font": "14.6667px Calibri",
                                 "imeMode": 1,
                                 "fontSize": "14.6667px",
-                                "fontFamily": "'맑은 고딕', monospace"
+                                "fontFamily": "Calibri"
                             }
                         }
                     },
                     "20": {
                         "0": {
-                            "value": "デモサイトのお問い合わせ及びシステム構築·高度化に関する追加のお問い合わせは、下記のメールアドレスまでご連絡いただければ迅速にご回答いたします。",
+                            "value": "If you have any inquiries about the demo site and additional system construction/advanced inquiries, please contact us at the email below and we will help you quickly.",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
                                 "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "9pt '맑은 고딕', monospace",
+                                "font": "12px '맑은 고딕', monospace",
                                 "imeMode": 1,
-                                "fontSize": "9pt",
+                                "fontSize": "12px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
                     },
                     "21": {
                         "0": {
-                            "value": "  - 技術に関するお問い合わせ : ysh@stam.kr, kmbin92@stam.kr - 営業のお問い合わせ : Park Kisoo(Email: kidong@stam.kr Phone: +82-10-5500-7100)",
+                            "value": "  - Technical inquiry: ysh@stam.kr , kmbin92@stam.kr      - Business inquiry: Park Ki-soo (email: kidong@stam.kr Phone: +82-10-5500-7100)",
                             "style": {
+                                "foreColor": "rgb(64, 64, 64)",
                                 "hAlign": 3,
                                 "vAlign": 1,
-                                "font": "9pt '맑은 고딕', monospace",
+                                "font": "12px '맑은 고딕', monospace",
                                 "imeMode": 1,
-                                "fontSize": "9pt",
+                                "fontSize": "12px",
                                 "fontFamily": "'맑은 고딕', monospace"
                             }
                         }
@@ -2097,9 +2136,11 @@
                 null,
                 null,
                 null,
-                null,
                 {
-                    "size": 31
+                    "size": 20
+                },
+                {
+                    "size": 28
                 }
             ],
             "columns": [

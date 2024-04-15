@@ -1,0 +1,90 @@
+<div class="content_top">
+    <div class="cont_tit">SpreadJs 예제 페이지</div>
+    <div class="div">
+        <button id="toJSON" class="btn_default">
+            <span>toJSON()</span>
+        </button>
+    </div>
+</div>
+
+<div class="container" style="margin-top: 0;overflow-y: auto;padding-bottom: 200px;">
+    <h1>Designer Component</h1>
+    <div class="spreadSheet" style="height: 800px; margin-top: 10px;">
+        <div id="ribbonHost"></div>
+    </div>
+</div>
+
+<style>
+.sample-tutorial {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+
+.container {
+	display: block;
+}
+
+.spreadSheet {
+    height: calc(100% - 150px);
+}
+
+#ribbonHost {
+    height: 100%;
+}
+
+.description {
+    margin: 10px;
+    width: 40%;
+}
+.gc-edit-select .spinner-input {
+	height: auto;
+}
+.sample-tutorial {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}
+</style>
+
+<script src="plugins/SpreadJS.Release.17.0.2/Designer/Designer Component/scripts/gc.spread.sheets.designer.resource.ko.17.0.2.min.js" type="text/javascript"></script>
+<script src="plugins/SpreadJS.Release.17.0.2/Designer/Designer Component/scripts/gc.spread.sheets.designer.all.17.0.2.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+let spread;
+let designer;
+
+window.onload = function () {
+  // Designer Componet 영역 초기화 함수
+  initRibbon();
+  // SpreadJS 영역 초기화 함수
+  initSpread(spread);
+  initEvent();
+};
+
+function initRibbon() {
+  designer = new GC.Spread.Sheets.Designer.Designer("ribbonHost");
+}
+
+function initSpread() {
+  spread = designer.getWorkbook();
+
+  // JSON 데이터 Import
+  fetch("json/Sample50.ssjson")
+    .then((response) => {
+      return response.json();
+    })
+    .then((jsondata) => {
+      spread.fromJSON(jsondata, { incrementalLoading: true });
+      return;
+    });
+}
+
+function initEvent() {
+    $('#toJSON').on('click', function(e) {
+        alert('console창을 확인해주세요.');
+        console.log('### toJSON(링크 참조: https://demo.mescius.co.kr/spreadjs/learn-spreadjs/features/workbook/json-serialization#timestamp)');
+        console.log(designer.getWorkbook().toJSON({saveAsView: true}));
+    });
+}
+
+</script>

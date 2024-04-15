@@ -1,0 +1,1640 @@
+﻿{
+    "version": "17.0.2",
+    "name": "",
+    "docProps": {
+        "docPropsCore": {
+            "creator": "Myeongbin Ko",
+            "lastModifiedBy": "Myeongbin Ko",
+            "created": "2024-01-19T13:12:56Z",
+            "modified": "2024-01-29T04:51:32Z"
+        },
+        "docPropsApp": {
+            "Application": "Microsoft Excel",
+            "DocSecurity": "0",
+            "ScaleCrop": "false",
+            "HeadingPairs": {
+                "size": 2,
+                "baseType": "variant",
+                "workbookInfoArray": [
+                    {
+                        "elementType": "vt:lpstr",
+                        "value": "워크시트"
+                    },
+                    {
+                        "elementType": "vt:i4",
+                        "value": "2"
+                    }
+                ]
+            },
+            "TitlesOfParts": {
+                "size": 2,
+                "baseType": "lpstr",
+                "sheetsNameArray": [
+                    "Evaluation Version",
+                    "Sheet1"
+                ]
+            },
+            "Company": "",
+            "LinksUpToDate": "false",
+            "SharedDoc": "false",
+            "HyperlinksChanged": "false",
+            "AppVersion": "16.0300"
+        }
+    },
+    "sheetCount": 1,
+    "tabStripRatio": 0.6,
+    "allowDynamicArray": true,
+    "iterativeCalculation": false,
+    "iterativeCalculationMaximumIterations": 100,
+    "iterativeCalculationMaximumChange": 0.001,
+    "customList": [],
+    "defaultSheetTabStyles": {},
+    "sheets": {
+        "Designer Sample": {
+            "name": "Designer Sample",
+            "isSelected": true,
+            "rowCount": 192,
+            "visible": 1,
+            "theme": "Office",
+            "data": {
+                "dataTable": {
+                    "0": {
+                        "0": {
+                            "value": "#### Import",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "700 14.6667px '맑은 고딕', monospace",
+                                "fontWeight": "700",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "1": {
+                        "0": {
+                            "value": "--SpreadJS",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "700 14.6667px '맑은 고딕', monospace",
+                                "fontWeight": "700",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "2": {
+                        "0": {
+                            "value": "<link rel=\"stylesheet\" type=\"text/css\" href=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/css/gc.spread.sheets.excel2013white.17.0.2.css\">",
+                            "style": {
+                                "backColor": "rgb(192, 230, 245)",
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "3": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/gc.spread.sheets.all.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "backColor": "rgb(192, 230, 245)",
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "4": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/resources/ko/gc.spread.sheets.resources.ko.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "backColor": "rgb(192, 230, 245)",
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "5": {
+                        "0": {
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "6": {
+                        "0": {
+                            "value": "--Option Import(Designer 사용시, 제공 Component 범위에 따라 Import가 필요)",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "700 14.6667px '맑은 고딕', monospace",
+                                "fontWeight": "700",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "7": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.shapes.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "8": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.tablesheet.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "9": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.charts.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "10": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.print.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "11": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.pdf.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "12": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.calcengine.languagepackages.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "13": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/interop/gc.spread.excelio.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "14": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.io.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "15": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.barcode.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "16": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.pdf.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "17": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.pivot.pivottables.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "18": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.ganttsheet.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "19": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.slicers.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "20": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/plugins/gc.spread.sheets.formulapanel.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "21": {
+                        "0": {
+                            "value": "<script src=\"plugins/SpreadJS.Release.17.0.2/SpreadJS/scripts/interop/gc.spread.excelio.17.0.2.min.js\" type=\"text/javascript\"></script>",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "22": {
+                        "0": {
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "23": {
+                        "0": {
+                            "value": "#### 라이선스 적용(배포시 필요. localhost 환경에서는 적용없이 사용 가능.)",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "700 14.6667px '맑은 고딕', monospace",
+                                "fontWeight": "700",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "24": {
+                        "0": {
+                            "value": "GC.Spread.Sheets.LicenseKey = \"SpreadJS 라이선스 키\";",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "25": {
+                        "0": {
+                            "style": {
+                                "vAlign": 0,
+                                "font": "14.6667px Calibri, sans-serif",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Calibri, sans-serif"
+                            }
+                        }
+                    },
+                    "26": {
+                        "0": {
+                            "value": "#### Designer Componet 예제 소스",
+                            "style": {
+                                "foreColor": "rgb(64, 64, 64)",
+                                "vAlign": 1,
+                                "font": "700 14.6667px '맑은 고딕', monospace",
+                                "fontWeight": "700",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "27": {
+                        "0": {
+                            "value": "let spread;",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "28": {
+                        "0": {
+                            "value": "　",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "29": {
+                        "0": {
+                            "value": "window.onload = function () {",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "30": {
+                        "0": {
+                            "value": "  // SpreadJS 영역 초기화 함수",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "italic 14.6667px / 17.6px '맑은 고딕', monospace",
+                                "fontStyle": "italic",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "31": {
+                        "0": {
+                            "value": "  initSpread(spread);",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "32": {
+                        "0": {
+                            "value": "};",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "foreColor": "rgb(131, 148, 150)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "33": {
+                        "0": {
+                            "value": "　",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "34": {
+                        "0": {
+                            "value": "function initSpread() {",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "35": {
+                        "0": {
+                            "value": "  // SpreadJS 생성 및 set workbook 객체",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "italic 14.6667px / 17.6px 'Arial Unicode MS', monospace",
+                                "fontStyle": "italic",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'Arial Unicode MS', monospace"
+                            }
+                        }
+                    },
+                    "36": {
+                        "0": {
+                            "value": "  spread = new GC.Spread.Sheets.Workbook(document.getElementById('spread_div_id'));",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "37": {
+                        "0": {
+                            "value": "　",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "38": {
+                        "0": {
+                            "value": "  // JSON 데이터 Import",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "italic 14.6667px Consolas, monospace",
+                                "fontStyle": "italic",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "39": {
+                        "0": {
+                            "value": "  fetch(\"json/Sample50.ssjson\")",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "40": {
+                        "0": {
+                            "value": "    .then((response) => {",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "41": {
+                        "0": {
+                            "value": "      return response.json();",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "42": {
+                        "0": {
+                            "value": "    })",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "foreColor": "rgb(131, 148, 150)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "43": {
+                        "0": {
+                            "value": "    .then((jsondata) => {",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "44": {
+                        "0": {
+                            "value": "      spread.suspendPaint();    // suspendPaint/resumePaint를 사용한 렌더링 기능 향상",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "hAlign": 3,
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "imeMode": 1,
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "45": {
+                        "0": {
+                            "value": "      spread.fromJSON(jsondata);",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "46": {
+                        "0": {
+                            "value": "      spread.resumePaint();",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "47": {
+                        "0": {
+                            "value": "      return;",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "48": {
+                        "0": {
+                            "value": "    });",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "foreColor": "rgb(131, 148, 150)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "49": {
+                        "0": {
+                            "value": "}",
+                            "style": {
+                                "backColor": "rgb(227, 239, 218)",
+                                "foreColor": "rgb(131, 148, 150)",
+                                "vAlign": 1,
+                                "font": "14.6667px Consolas, monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "Consolas, monospace"
+                            }
+                        }
+                    },
+                    "50": {
+                        "0": {
+                            "style": {
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "51": {
+                        "0": {
+                            "value": "#### 참고 URL",
+                            "style": {
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            }
+                        }
+                    },
+                    "52": {
+                        "0": {
+                            "value": "https://demo.mescius.co.kr/spreadjs/learn-spreadjs/quickstart/quickstart-js",
+                            "style": {
+                                "hAlign": 3,
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "imeMode": 1,
+                                "parentName": "Hyperlink",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            },
+                            "hyperlink": {
+                                "url": "https://demo.mescius.co.kr/spreadjs/learn-spreadjs/quickstart/quickstart-js",
+                                "linkColor": "hyperlink",
+                                "visitedLinkColor": "followedHyperlink",
+                                "tooltip": "",
+                                "target": 0,
+                                "drawUnderline": false,
+                                "command": ""
+                            }
+                        }
+                    },
+                    "53": {
+                        "0": {
+                            "value": "https://developer.mescius.com/spreadjs/docs/overview",
+                            "style": {
+                                "hAlign": 3,
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "imeMode": 1,
+                                "parentName": "Hyperlink",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            },
+                            "hyperlink": {
+                                "url": "https://developer.mescius.com/spreadjs/docs/overview",
+                                "linkColor": "hyperlink",
+                                "visitedLinkColor": "followedHyperlink",
+                                "tooltip": "",
+                                "target": 0,
+                                "drawUnderline": false,
+                                "command": ""
+                            }
+                        }
+                    },
+                    "54": {
+                        "0": {
+                            "value": "https://developer.mescius.com/document-solutions/java-excel-api/demos/tutorial",
+                            "style": {
+                                "foreColor": "hyperlink",
+                                "hAlign": 3,
+                                "vAlign": 1,
+                                "font": "14.6667px '맑은 고딕', monospace",
+                                "textDecoration": 1,
+                                "imeMode": 1,
+                                "parentName": "Hyperlink",
+                                "fontSize": "14.6667px",
+                                "fontFamily": "'맑은 고딕', monospace"
+                            },
+                            "hyperlink": {
+                                "url": "https://developer.mescius.com/document-solutions/java-excel-api/demos/tutorial",
+                                "tooltip": "https://developer.mescius.com/document-solutions/java-excel-api/demos/tutorial",
+                                "target": 0,
+                                "drawUnderline": true,
+                                "command": ""
+                            }
+                        }
+                    }
+                },
+                "defaultDataNode": {
+                    "style": {
+                        "themeFont": "Body"
+                    }
+                }
+            },
+            "rowHeaderData": {
+                "defaultDataNode": {
+                    "style": {
+                        "themeFont": "Body"
+                    }
+                }
+            },
+            "colHeaderData": {
+                "defaultDataNode": {
+                    "style": {
+                        "themeFont": "Body"
+                    }
+                }
+            },
+            "columns": [
+                {
+                    "size": 1341
+                }
+            ],
+            "defaultData": {},
+            "leftCellIndex": 0,
+            "topCellIndex": 0,
+            "selections": {
+                "0": {
+                    "row": 0,
+                    "col": 0,
+                    "rowCount": 1,
+                    "colCount": 1
+                },
+                "length": 1
+            },
+            "rowOutlines": {
+                "items": []
+            },
+            "columnOutlines": {
+                "items": []
+            },
+            "cellStates": {},
+            "states": {},
+            "outlineColumnOptions": {},
+            "autoMergeRangeInfos": [],
+            "shapeCollectionOption": {
+                "snapMode": 0
+            },
+            "printInfo": {
+                "paperSize": {
+                    "width": 850,
+                    "height": 1100,
+                    "kind": 1
+                }
+            },
+            "index": 0,
+            "order": 0
+        }
+    },
+    "sheetTabCount": 0,
+    "namedStyles": [
+        {
+            "backColor": null,
+            "foreColor": "Text 1 0",
+            "hAlign": 3,
+            "vAlign": 1,
+            "font": "normal normal 14.6667px Calibri",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": null,
+            "borderTop": null,
+            "borderRight": null,
+            "borderBottom": null,
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "Normal",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "14.6667px",
+            "fontFamily": "Calibri"
+        },
+        {
+            "backColor": null,
+            "foreColor": "Text 1 0",
+            "hAlign": 3,
+            "vAlign": 1,
+            "font": "normal normal 14.6667px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": null,
+            "borderTop": null,
+            "borderRight": null,
+            "borderBottom": null,
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle0",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "14.6667px",
+            "fontFamily": "'맑은 고딕'"
+        },
+        {
+            "backColor": "#36495e",
+            "foreColor": "Background 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal bold 16px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle1",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": "bold",
+            "fontSize": "16px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "Background 1 0",
+            "foreColor": "Text 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal normal 16px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle2",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "16px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#36495e",
+            "foreColor": "Background 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal bold 24px Calibri",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle3",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": "bold",
+            "fontSize": "24px",
+            "fontFamily": "Calibri",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": null,
+            "foreColor": "#36495e",
+            "hAlign": 0,
+            "vAlign": 1,
+            "font": "normal bold 48px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": null,
+            "borderTop": null,
+            "borderRight": null,
+            "borderBottom": null,
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle4",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": "bold",
+            "fontSize": "48px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyAlignment": true
+        },
+        {
+            "backColor": "Background 1 0",
+            "foreColor": "Text 1 0",
+            "hAlign": 0,
+            "vAlign": 1,
+            "font": "normal normal 16px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": null,
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle5",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "16px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "Background 1 0",
+            "foreColor": "Text 1 0",
+            "hAlign": 0,
+            "vAlign": 1,
+            "font": "normal normal 16px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": null,
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": null,
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle6",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "16px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "Background 1 0",
+            "foreColor": "Text 1 0",
+            "hAlign": 0,
+            "vAlign": 1,
+            "font": "normal normal 16px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": null,
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle7",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "16px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "Background 1 0",
+            "foreColor": "Text 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal normal 16px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": null,
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle8",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "16px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "Background 1 0",
+            "foreColor": "Text 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal normal 16px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": null,
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle9",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "16px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": null,
+            "foreColor": "#36495e",
+            "hAlign": 2,
+            "vAlign": 1,
+            "font": "normal bold 48px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": null,
+            "borderTop": null,
+            "borderRight": null,
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle10",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": "bold",
+            "fontSize": "48px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": null,
+            "foreColor": "Text 1 0",
+            "hAlign": 3,
+            "vAlign": 1,
+            "font": "normal bold 18px normal",
+            "formatter": "General",
+            "borderLeft": null,
+            "borderTop": null,
+            "borderRight": null,
+            "borderBottom": null,
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle11",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": "bold",
+            "fontSize": "18px",
+            "fontFamily": "normal",
+            "applyFont": true
+        },
+        {
+            "backColor": "#36495e",
+            "foreColor": "#ffffff",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal bold 15px normal",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle12",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": "bold",
+            "fontSize": "15px",
+            "fontFamily": "normal",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#36495e",
+            "foreColor": "#ffffff",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal bold 15px normal",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle13",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": "bold",
+            "fontSize": "15px",
+            "fontFamily": "normal",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#36495e",
+            "foreColor": "#ffffff",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal normal 14.6667px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle14",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "14.6667px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#ffffff",
+            "foreColor": "Text 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal normal 14.6667px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle15",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "14.6667px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#ffffff",
+            "foreColor": "Text 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal normal 14.6667px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle16",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "14.6667px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#ffffff",
+            "foreColor": "Text 1 0",
+            "hAlign": 3,
+            "vAlign": 1,
+            "font": "normal normal 14.6667px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle17",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "14.6667px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFill": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#fff9c4",
+            "foreColor": "Text 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal bold 15px normal",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle18",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": "bold",
+            "fontSize": "15px",
+            "fontFamily": "normal",
+            "applyFont": true,
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#fff9c4",
+            "foreColor": "Text 1 0",
+            "hAlign": 1,
+            "vAlign": 1,
+            "font": "normal normal 14.6667px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle19",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "14.6667px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFill": true,
+            "applyAlignment": true,
+            "applyBorder": true
+        },
+        {
+            "backColor": "#fff9c4",
+            "foreColor": "Text 1 0",
+            "hAlign": 3,
+            "vAlign": 1,
+            "font": "normal normal 14.6667px '맑은 고딕'",
+            "themeFont": "Body",
+            "formatter": "General",
+            "borderLeft": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderTop": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderRight": {
+                "color": "#000000",
+                "style": 1
+            },
+            "borderBottom": {
+                "color": "#000000",
+                "style": 1
+            },
+            "locked": true,
+            "textIndent": 0,
+            "wordWrap": false,
+            "shrinkToFit": false,
+            "textDecoration": 0,
+            "name": "__builtInStyle20",
+            "isVerticalText": false,
+            "textOrientation": 0,
+            "fontStyle": null,
+            "fontWeight": null,
+            "fontSize": "14.6667px",
+            "fontFamily": "'맑은 고딕'",
+            "applyFill": true,
+            "applyBorder": true
+        },
+        {
+            "foreColor": "hyperlink",
+            "font": "14.6667px Calibri",
+            "textDecoration": 1,
+            "name": "Hyperlink",
+            "fontSize": "14.6667px",
+            "fontFamily": "Calibri"
+        }
+    ],
+    "namedPatterns": {},
+    "pivotCaches": {}
+}

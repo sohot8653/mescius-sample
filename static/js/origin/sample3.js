@@ -19,11 +19,7 @@ function initSpread(spread) {
   var dataManager = spread.dataManager();
   //add product table
   var productTable = dataManager.addTable("productTable", {
-    remote: {
-      read: {
-        url: "http://localhost:8650/emp/emps",
-      },
-    },
+    data: getData()
   });
 
   //init a table sheet

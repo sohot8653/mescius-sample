@@ -3,6 +3,10 @@ const expressLayouts = require("express-ejs-layouts");
 const path = require("path");
 const axios = require("axios");
 var app = express();
+const http = require('http');
+const server = http.createServer(app);
+const { Server } = require("socket.io");
+const io = new Server(server);
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views/ejs"));
@@ -73,6 +77,27 @@ app.get("/", function (req, res) {
   res.redirect("/sample?depth1=INTRO&depth2=INTRO&sampleId=0");
 });
 
-app.listen(3000, function () {
+let arrSpreadChangedInfo = [];
+io.on('connection', (socket) => {
+  socket.on('synchronous spreadjs', (objSpreadChangedInfo) => {
+    console.log('synchronous spreadjs');
+    console.log(objSpreadChangedInfo);
+    console.log(arrSpreadChangedInfo);
+    arrSpreadChangedInfo.push(objSpreadChangedInfo);
+    socket.broadcast.emit("synchronous spreadjs", arrSpreadChangedInfo);
+  });
+  socket.on('init synchronous spreadjs', (objSpreadChangedInfo) => {
+    console.log('init synchronous spreadjs');
+    console.log(objSpreadChangedInfo);
+    console.log(arrSpreadChangedInfo);
+    socket.emit('synchronous spreadjs', arrSpreadChangedInfo);
+  });
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
+
+
+server.listen(3000, function () {
   console.log("start!! express server on port 3000");
 });

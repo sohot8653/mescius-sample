@@ -1,11 +1,31 @@
 let spread;
+let socket = io();
+let lastChangedTime = 0;
+
+socket.on('synchronous spreadjs', function(arrSpreadChangedInfo) {
+    console.log(arrSpreadChangedInfo);
+    let arrSpreadChangedInfoFiltered = arrSpreadChangedInfo.filter(x => x.changeTime > lastChangedTime);
+    arrSpreadChangedInfoFiltered.forEach((e, i) => {
+        spread.getActiveSheet().setValue(e.row, e.col, e.editingText);
+        if(i === arrSpreadChangedInfoFiltered.length - 1) lastChangedTime = e.changeTime;
+    });
+});
+
 window.onload = function() {
     $('.content_box_loading').show();
 	spread = new GC.Spread.Sheets.Workbook(document.getElementById('ss'));
     
     spread.suspendPaint();
-	initSpread(spread);
+	initSpread();
     spread.resumePaint();
+    socket.emit('init synchronous spreadjs');
+
+    spread.bind(GC.Spread.Sheets.Events.EditEnded, function (sender, args) {
+        console.log(args);
+        // let objSpreadChangedInfo = spread.getActiveSheet().getDirtyCells().slice(-1)[0];
+        let objSpreadChangedInfo = {col: args.col, row: args.row, editingText: args.editingText, changeTime: Date.now()};
+        socket.emit('synchronous spreadjs', objSpreadChangedInfo);
+    });    
 
     $('#btnGrid').on('click', function(e) {
         location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=21`;
@@ -43,7 +63,7 @@ window.onload = function() {
     });
 };
 
-function initSpread(spread) {
+function initSpread() {
     if(!localStorage.getItem('templateName') || !localStorage.getItem('templateJson')) {
         fetch('json/Sample22.ssjson')
         .then(response => {

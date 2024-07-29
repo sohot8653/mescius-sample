@@ -1,11 +1,20 @@
 let spread = GC.Spread;
 let designer;
-var socket = io();
+// let currentTarget;
+let socket = io();
 
 socket.on('synchronous spreadjs', function(objSpreadChangedInfo) {
-  console.log(objSpreadChangedInfo);
   if(typeof objSpreadChangedInfo === 'object')
-   spread.commandManager().execute(objSpreadChangedInfo);
+      // spread.setActiveSheet(currentTarget.SheetName);
+      // spread.getActiveSheet().setSelection(currentTarget.row, currentTarget.col, 1, 1);
+      spread.getActiveSheet().setValue(objSpreadChangedInfo.row, objSpreadChangedInfo.col, objSpreadChangedInfo.newValue);
+    // spread.fromJSON(objSpreadChangedInfo);
+    // if(currentTarget) {
+    //   console.log(currentTarget.row, currentTarget.col);
+    //   spread.setActiveSheet(currentTarget.SheetName);
+    //   spread.getActiveSheet().setSelection(currentTarget.row, currentTarget.col, 1, 1);
+    //   spread.getActiveSheet().setValue(currentTarget.row, currentTarget.col, currentTarget.editingText);
+    // }
 });
 
 window.onload = function () {
@@ -21,70 +30,17 @@ function initRibbon() {
 function initSpread() {
   spread = designer.getWorkbook();
 
-  // spread.bind(GC.Spread.Sheets.Events.ValueChanged, function (e, info) {
-  //   console.log('ValueChanged!!!');
-  //   console.log(e);
-  //   console.log(info);
-  //   console.log('--------------');
-  // });
-  // spread.bind(GC.Spread.Sheets.Events.CellChanged, function (sender, args) {
-  //   console.log('CellChanged!!!');
-  // });
-  // spread.bind(GC.Spread.Sheets.Events.LeaveCell, function (sender, args) {
-  //   console.log('EditEnded!!');
-  //   // check undo stack
-  //   if(spread.undoManager().canUndo()) {
-  //     let objSpreadChangedInfo = spread.undoManager().getUndoStack().slice(-1)[0];
-  //     socket.emit('synchronous spreadjs', objSpreadChangedInfo);
-  //   }
-  // });
-  // spread.bind(GC.Spread.Sheets.Events.EditEnded, function (sender, args) {
-  //   console.log('EditEnded!!');
-  //   console.log(sender);
-  //   console.log(args);
-  //   console.log('-----------');
-  //   // check undo stack
-  //   if(spread.undoManager().canUndo()) {
-  //     let objSpreadChangedInfo = spread.undoManager().getUndoStack().slice(-1)[0];
-  //     socket.emit('synchronous spreadjs', objSpreadChangedInfo);
-  //   }
-  // });
 
-  // spread.bind(GC.Spread.Sheets.Events.LeaveCell, function (sender, args) {
-  //   console.log('LeaveCell!!');
+  // spread.bind(GC.Spread.Sheets.Events.EditEnding, function (sender, args) {
   //   console.log(sender);
   //   console.log(args);
-  //   console.log('-----------');
-  //   // check undo stack
-  //   if(spread.undoManager().canUndo()) {
-  //     let objSpreadChangedInfo = spread.undoManager().getUndoStack().slice(-1)[0];
-  //     socket.emit('synchronous spreadjs', objSpreadChangedInfo);
-  //   }
+  // });
+  // spread.bind(GC.Spread.Sheets.Events.EditChange, function (sender, args) {
+  //   currentTarget = args;
   // });
 
   spread.bind(GC.Spread.Sheets.Events.EditEnded, function (sender, args) {
-    console.log('EditEnded!!');
-    console.log(sender);
-    console.log(args);
-    console.log('-----------');
-    // check undo stack
-    if(spread.undoManager().canUndo()) {
-      let objSpreadChangedInfo = spread.undoManager().getUndoStack().slice(-1)[0];
-      socket.emit('synchronous spreadjs', objSpreadChangedInfo);
-    }
-  });
-
-  // synchronize sheet
-  spread.bind(GC.Spread.Sheets.Events.SheetChanged, function (sender, args) {
-    var sheet = args.sheet;
-    console.log('--SheetChanged--')
-    console.log(sender);
-    console.log(args);
-    console.log('----------------')
-
-    if(args.propertyName === 'insertSheet') {
-
-    }
+    socket.emit('synchronous spreadjs', spread.getActiveSheet().getDirtyCells());
   });
 
   fetch("json/Sample0.ssjson")

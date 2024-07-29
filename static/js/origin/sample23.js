@@ -6,7 +6,7 @@ socket.on('synchronous spreadjs', function(arrSpreadChangedInfo) {
     console.log(arrSpreadChangedInfo);
     let arrSpreadChangedInfoFiltered = arrSpreadChangedInfo.filter(x => x.changeTime > lastChangedTime);
     arrSpreadChangedInfoFiltered.forEach((e, i) => {
-        spread.getActiveSheet().setValue(e.row, e.col, e.editingText);
+        spread.getActiveSheet().setValue(e.row, e.col, e.newValue);
         if(i === arrSpreadChangedInfoFiltered.length - 1) lastChangedTime = e.changeTime;
     });
 });
@@ -20,12 +20,10 @@ window.onload = function() {
     spread.resumePaint();
     socket.emit('init synchronous spreadjs');
 
-    spread.bind(GC.Spread.Sheets.Events.EditEnded, function (sender, args) {
-        console.log(args);
-        // let objSpreadChangedInfo = spread.getActiveSheet().getDirtyCells().slice(-1)[0];
-        let objSpreadChangedInfo = {col: args.col, row: args.row, editingText: args.editingText, changeTime: Date.now()};
+    spread.bind(GC.Spread.Sheets.Events.ValueChanged, function (e, info) {
+        let objSpreadChangedInfo = {col: info.col, row: info.row, newValue: info.newValue, changeTime: Date.now()};
         socket.emit('synchronous spreadjs', objSpreadChangedInfo);
-    });    
+    });
 
     $('#btnGrid').on('click', function(e) {
         location.href = `/sample?depth1=${depth1}&depth2=배송내역서&sampleId=21`;

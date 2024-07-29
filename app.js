@@ -80,20 +80,13 @@ app.get("/", function (req, res) {
 let arrSpreadChangedInfo = [];
 io.on('connection', (socket) => {
   socket.on('synchronous spreadjs', (objSpreadChangedInfo) => {
-    console.log('synchronous spreadjs');
-    console.log(objSpreadChangedInfo);
-    console.log(arrSpreadChangedInfo);
     arrSpreadChangedInfo.push(objSpreadChangedInfo);
     socket.broadcast.emit("synchronous spreadjs", arrSpreadChangedInfo);
   });
   socket.on('init synchronous spreadjs', (objSpreadChangedInfo) => {
-    console.log('init synchronous spreadjs');
-    console.log(objSpreadChangedInfo);
-    console.log(arrSpreadChangedInfo);
     socket.emit('synchronous spreadjs', arrSpreadChangedInfo);
   });
   socket.on('disconnect', () => {
-    console.log('user disconnected');
   });
 });
 

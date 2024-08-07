@@ -78,13 +78,22 @@ app.get("/", function (req, res) {
 });
 
 let arrSpreadChangedInfo = [];
+let arrSpreadEditingCell = [];
 io.on('connection', (socket) => {
-  socket.on('synchronous spreadjs', (objSpreadChangedInfo) => {
-    arrSpreadChangedInfo.push(objSpreadChangedInfo);
-    socket.broadcast.emit("synchronous spreadjs", arrSpreadChangedInfo);
+  socket.on('synchronous spreadjs init', () => {
+    socket.emit('synchronous spreadjs valueChanged', arrSpreadChangedInfo);
   });
-  socket.on('init synchronous spreadjs', (objSpreadChangedInfo) => {
-    socket.emit('synchronous spreadjs', arrSpreadChangedInfo);
+  socket.on('synchronous spreadjs valueChanged', (objSpreadChangedInfo) => {
+    arrSpreadChangedInfo.push(objSpreadChangedInfo);
+    socket.broadcast.emit("synchronous spreadjs valueChanged", arrSpreadChangedInfo);
+
+    arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.userName !== objSpreadChangedInfo.userName);
+    socket.broadcast.emit("synchronous spreadjs editStarting other", arrSpreadEditingCell);
+  });
+  socket.on('synchronous spreadjs editStarting', (item) => {
+    arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.userName !== item.userName);
+    arrSpreadEditingCell.push(item);
+    socket.broadcast.emit("synchronous spreadjs editStarting other", arrSpreadEditingCell);
   });
   socket.on('disconnect', () => {
   });

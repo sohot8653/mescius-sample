@@ -77,25 +77,30 @@ app.get("/", function (req, res) {
   res.redirect("/sample?depth1=INTRO&depth2=INTRO&sampleId=0");
 });
 
-let arrSpreadChangedInfo = [];
+let arrSpreadChangedInfoPool = [];
 let arrSpreadEditingCell = [];
 io.on('connection', (socket) => {
   socket.on('synchronous spreadjs init', () => {
-    socket.emit('synchronous spreadjs valueChanged', arrSpreadChangedInfo);
+    socket.emit('synchronous spreadjs valueChanged', arrSpreadChangedInfoPool);
   });
-  socket.on('synchronous spreadjs valueChanged', (objSpreadChangedInfo) => {
-    arrSpreadChangedInfo.push(objSpreadChangedInfo);
-    socket.broadcast.emit("synchronous spreadjs valueChanged", arrSpreadChangedInfo);
-
-    arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.userName !== objSpreadChangedInfo.userName);
+  socket.on('synchronous spreadjs valueChanged', (arrSpreadChangedInfo) => {
+    arrSpreadChangedInfo.forEach(x => {
+      arrSpreadChangedInfoPool = arrSpreadChangedInfoPool.filter(y => !(y.row === x.row && y.col === x.col))
+    });
+    arrSpreadChangedInfoPool.push(...arrSpreadChangedInfo);
+    socket.broadcast.emit("synchronous spreadjs valueChanged", arrSpreadChangedInfoPool);
+    arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.userName !== arrSpreadChangedInfo[0].userName);
     socket.broadcast.emit("synchronous spreadjs editStarting other", arrSpreadEditingCell);
   });
   socket.on('synchronous spreadjs editStarting', (item) => {
+    item.socket_id = socket.id;
     arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.userName !== item.userName);
     arrSpreadEditingCell.push(item);
     socket.broadcast.emit("synchronous spreadjs editStarting other", arrSpreadEditingCell);
   });
   socket.on('disconnect', () => {
+    arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.socket_id !== socket.id);
+    socket.broadcast.emit("synchronous spreadjs editStarting other", arrSpreadEditingCell);
   });
 });
 

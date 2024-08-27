@@ -80,25 +80,35 @@ app.get("/", function (req, res) {
 let arrSpreadChangedInfoPool = [];
 let arrSpreadEditingCell = [];
 io.on('connection', (socket) => {
+  // SpreadJS init
+  // Server: history 내역을 emit
+  // Client: 최신 동기화
   socket.on('synchronous spreadjs init', () => {
     socket.emit('synchronous spreadjs valueChanged', arrSpreadChangedInfoPool);
   });
+
+  // cell 값 변경 완료 이벤트
   socket.on('synchronous spreadjs valueChanged', (arrSpreadChangedInfo) => {
+    // 변경값과 동일 좌표 히스토리 삭제
     arrSpreadChangedInfo.forEach(x => {
       arrSpreadChangedInfoPool = arrSpreadChangedInfoPool.filter(y => !(y.row === x.row && y.col === x.col))
     });
     arrSpreadChangedInfoPool.push(...arrSpreadChangedInfo);
     socket.broadcast.emit("synchronous spreadjs valueChanged", arrSpreadChangedInfoPool);
+    // 작업 커서 삭제
     arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.userName !== arrSpreadChangedInfo[0].userName);
     socket.broadcast.emit("synchronous spreadjs editStarting other", arrSpreadEditingCell);
   });
+  // cell 값 편집 시작 이벤트
   socket.on('synchronous spreadjs editStarting', (item) => {
+    // 작업 커서 생성
     item.socket_id = socket.id;
     arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.userName !== item.userName);
     arrSpreadEditingCell.push(item);
     socket.broadcast.emit("synchronous spreadjs editStarting other", arrSpreadEditingCell);
   });
   socket.on('disconnect', () => {
+    // disconnect user의 작업 커서 삭제
     arrSpreadEditingCell = arrSpreadEditingCell.filter(x => x.socket_id !== socket.id);
     socket.broadcast.emit("synchronous spreadjs editStarting other", arrSpreadEditingCell);
   });
